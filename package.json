@@ -1,0 +1,95 @@
+{
+    "name": "moviefreaks",
+    "version": "1.0.0",
+    "description": "A helping-hand for movie enthusiast",
+    "main": "server.js",
+    "scripts": {
+        "semistandard": "semistandard --fix | snazzy",
+        "standard": "standard --fix | snazzy",
+        "lint": "eslint . --fix | snazzy",
+        "dev": "nodemon server.js",
+        "updateMovie": "node ./app/components/tmdb-script",
+        "transferMovie": "node ./app/components/tmdb-script --transfer-data"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ironlota/Seleksi-2017.git"
+    },
+    "keywords": [
+        "movie"
+    ],
+    "author": "Ray Andrew and Adrian HP",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ironlota/Seleksi-2017/issues"
+    },
+    "homepage": "https://github.com/ironlota/Seleksi-2017#readme",
+    "dependencies": {
+        "api-error-handler": "^1.0.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-stage-0": "^6.24.1",
+        "bluebird": "^3.5.0",
+        "body-parser": "^1.17.2",
+        "config": "^1.26.1",
+        "express": "latest",
+        "express-handlebars": "^3.0.0",
+        "fs-readdir-recursive": "^1.0.0",
+        "method-override": "^2.3.9",
+        "mongoose": "^4.11.1",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-materialize": "^1.0.3",
+        "react-redux": "^5.0.5",
+        "react-router": "^4.1.1",
+        "react-router-dom": "^4.1.1",
+        "redux-logger": "^3.0.6",
+        "redux-promise-middleware": "^4.3.0",
+        "redux-thunk": "^2.2.0",
+        "request": "^2.81.0",
+        "steed": "^1.1.3",
+        "winston": "^2.3.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-react-html-attrs": "^2.0.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-decorators-legacy": "^1.3.4",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-react-hmre": "^1.1.1",
+        "babel-preset-react-optimize": "^1.0.1",
+        "commander": "^2.11.0",
+        "css-loader": "^0.28.4",
+        "eslint": "^4.1.1",
+        "eslint-config-semistandard": "^11.0.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-loader": "^1.9.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-node": "^5.1.0",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-react": "^7.1.0",
+        "eslint-plugin-standard": "^3.0.1",
+        "extract-text-webpack-plugin": "^2.1.2",
+        "file-loader": "^0.11.2",
+        "html-webpack-plugin": "^2.29.0",
+        "nodemon": "^1.11.0",
+        "react-hot-loader": "^1.3.1",
+        "readline": "^1.3.0",
+        "style-loader": "^0.18.2",
+        "webpack": "^3.0.0",
+        "webpack-dev-middleware": "^1.11.0",
+        "webpack-hot-middleware": "^2.18.2"
+    },
+    "semistandard": {
+        "env": {
+            "mocha": true,
+            "node": true
+        }
+    }
+}

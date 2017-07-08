@@ -1,0 +1,29 @@
+# Docker Compose file for development
+
+version: '2.1'
+services:
+  app:
+    build: .
+    command: 'node_modules/.bin/nodemon'
+    depends_on:
+      - mongo
+      - redis
+    volumes: # TODO: use in-container files instead in production (?)
+      - .:/usr/src/movieFreak
+      - /usr/src/movieFreak/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development # TODO: change this to 'production' on production
+      MOVIEFREAK_API_PORT: 3000
+      MOVIEFREAK_API_SECRET: "[ moviefreak_api_secret ]" # TODO: change this on production
+      REDIS_HOST: redis
+      REDIS_PORT: 6379 # Using default redis image port
+    restart: 'no' # TODO: change this to 'always' on production
+  mongo:
+    image: "mongo"
+    command: mongod --smallfiles
+    restart: on-failure  # TODO: change this to 'always' on production
+  redis:
+    image: "redis:alpine"
+    restart: on-failure # TODO: change this to 'always' on production
