@@ -1,3 +1,5 @@
+language: node_js
+
 sudo: required
 
 dist: trusty
@@ -15,5 +17,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker-compose --version
   - docker-compose build
-  - docker-compose up -d
   - docker ps
+
+script:
+  - docker-compose up -d
