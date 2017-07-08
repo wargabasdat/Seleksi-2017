@@ -1,0 +1,3 @@
+{
+  "presets" : ["react", "react-hmre", "stage-0", "es2015"]
+}
