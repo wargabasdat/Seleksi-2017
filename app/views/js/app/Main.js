@@ -5,6 +5,7 @@ import Home from './common/HomePage';
 import About from './common/AboutPage';
 import NotFound from './common/NotFoundPage';
 import Router from 'react-router';
+import PingPong from './pingpong/pingpong.components';
 
 const Main = () => {
   return (
@@ -13,6 +14,7 @@ const Main = () => {
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
         <Route path='/404' component={NotFound} />
+        <Route path='/pingpong' component={PingPong} />
         <Redirect to='/404' />
       </Switch>
     </div>

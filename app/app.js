@@ -17,7 +17,6 @@ console.log('::::::::::::::::::::::::::::');
  */
 const express = require('express');
 const config = require('config');
-const hbs = require('express-handlebars');
 const path = require('path');
 const fs = require('fs-readdir-recursive');
 const bluebird = require('bluebird');
@@ -27,13 +26,6 @@ const bluebird = require('bluebird');
  */
 var app = express();
 global.appDir = path.resolve(__dirname);
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-app.engine('hbs',
-    hbs({
-        defaultLayout: app.get('views') + '/layouts/default.hbs'
-    })
-);
 
 /**
  * Creating logger
@@ -47,13 +39,13 @@ const webpack = require('webpack');
 const webpackConfig = require('../webpack.config');
 const compiler = webpack(webpackConfig);
 app.use(require('webpack-dev-middleware')(compiler, {
-    hot: true,
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath
+  hot: true,
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath
 }));
 
 app.use(require('webpack-hot-middleware')(compiler, {
-    path: '/__assets_store'
+  path: '/__assets_store'
 }));
 
 /**
@@ -74,14 +66,13 @@ winston.log('verbose', 'Opening connection to MongoDB...');
 const mongoose = require('mongoose');
 
 mongoose.Promise = bluebird.Promise;
-//mongoose.connect(config.get('mongodb')['url'], { useMongoClient: true }).then(
-mongoose.connect("mongodb://localhost/movie", { useMongoClient: true }).then(
-    () => {
-        winston.verbose('Connect successfully with MongoDB');
-    },
-    (err) => {
-        winston.error(err);
-    }
+mongoose.connect(config.get('mongodb')['url'], { useMongoClient: true }).then(
+  () => {
+    winston.verbose('Connect successfully with MongoDB');
+  },
+  (err) => {
+    winston.error(err);
+  }
 );
 
 /**
@@ -93,14 +84,14 @@ mongoose.connect("mongodb://localhost/movie", { useMongoClient: true }).then(
 
 const routeDirectory = global.appDir;
 fs(routeDirectory).filter(file => file.endsWith('.routes.js')).forEach((file) => {
-    const routerPath = path.join(routeDirectory, file);
-    const router = require(routerPath);
-    if (!router.baseRoute) router.baseRoute = '/';
-    const completeRoute = config.get('routePrefix') + router.baseRoute;
-    let filePath = file.substring(file.indexOf('/') + 1);
-    let fileName = filePath.slice(0, -10);
-    winston.log('verbose', 'Using route %s...', completeRoute + fileName);
-    app.use(completeRoute + fileName, router);
+  const routerPath = path.join(routeDirectory, file);
+  const router = require(routerPath);
+  if (!router.baseRoute) router.baseRoute = '/';
+  const completeRoute = config.get('routePrefix') + router.baseRoute;
+  let filePath = file.substring(file.indexOf('/') + 1);
+  let fileName = filePath.slice(0, -10);
+  winston.log('verbose', 'Using route %s...', completeRoute + fileName);
+  app.use(completeRoute + fileName, router);
 });
 
 /**
@@ -109,7 +100,7 @@ fs(routeDirectory).filter(file => file.endsWith('.routes.js')).forEach((file) =>
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 /**
