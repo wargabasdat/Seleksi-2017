@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	var chart = $("#bar-chartcanvas");
 	
-	var jumlah = {
+	var pengguna = {
 		labels : [""],
 		datasets : [
 			{
