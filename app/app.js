@@ -91,7 +91,7 @@ fs(routeDirectory).filter(file => file.endsWith('.routes.js')).forEach((file) =>
   let filePath = file.substring(file.indexOf('/') + 1);
   let fileName = filePath.slice(0, -10);
   winston.log('verbose', 'Using route %s...', completeRoute + fileName);
-  app.use(completeRoute + fileName, router);
+  app.use('/api' + completeRoute + fileName, router);
 });
 
 /**

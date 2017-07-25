@@ -8,7 +8,7 @@ var config = {
   entry: path.resolve(pathProject.appDir + '/views/js/index.js'),
   output: {
     path: path.resolve(pathProject.appDir + '/public'),
-    publicPath: configFile.get('host')['url'],
+    publicPath: configFile.get('host')['baseUrl'],
     filename: 'js/bundle.js'
   },
   module: {

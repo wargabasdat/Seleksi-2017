@@ -2,14 +2,16 @@
  * Redux import
  */
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+/**
+ * Import rxjs ajax
+ */
+import { ajax } from 'rxjs/observable/dom/ajax';
 
 /**
  * Add redux middleware
  */
 import {createLogger} from 'redux-logger';
-// import thunk from 'redux-thunk';
-import promise from 'redux-promise-middleware';
 
 /**
  * Add RxJs support from redux-observable
@@ -25,32 +27,29 @@ import { pingEpic } from './pingpong/pingpong.epic';
 /**
  * import movies
  */
-/*import movieReducer from './movie/movie.reducer';
-import { fetchMoviesEpic } from './movie/movie.epic';*/
+import movieReducer from './movie/movie.reducer';
+import { fetchMoviesEpic } from './movie/movie.epic';
 
-/*const reducers = combineReducers({
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const reducers = combineReducers({
   pingReducer,
   movieReducer
-});*/
+});
 
-/*const epics = combineEpics({
+const epics = combineEpics(
   pingEpic,
   fetchMoviesEpic
-});*/
+);
 
-// const epicMiddleware = createEpicMiddleware(epics);
-const epicMiddleware = createEpicMiddleware(pingEpic);
-const middleware = applyMiddleware(promise(), createLogger());
+const epicMiddleware = createEpicMiddleware(epics, {
+  dependencies: { getJSON: ajax.getJSON }
+});
+// const epicMiddleware = createEpicMiddleware(pingEpic);
+const middleware = applyMiddleware(createLogger());
 
-/*export default createStore(
+export default createStore(
   reducers,
   middleware,
   composeEnhancers(applyMiddleware(epicMiddleware))
-);*/
-
-
-export default createStore(
-  pingReducer,
-  applyMiddleware(epicMiddleware),
-  middleware
 );

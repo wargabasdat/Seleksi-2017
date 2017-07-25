@@ -14,9 +14,9 @@ var errorHandlerAPI = (type, message) => {
 };
 
 var ratingService = (type) => {
-  if (type == 'imdb') return 'Internet Movie Database';
-  if (type == 'rotten') return 'Rotten Tomatoes';
-  if (type == 'metacritic') return 'Metacritic';
+  if (type === 'imdb') return 'Internet Movie Database';
+  if (type === 'rotten') return 'Rotten Tomatoes';
+  if (type === 'metacritic') return 'Metacritic';
 };
 
 router.get('/:id?', (req, res) => {

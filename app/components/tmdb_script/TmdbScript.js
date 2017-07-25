@@ -1,8 +1,7 @@
 'use strict';
 
 const EventEmitter = require('events');
-const readline = require('readline');
-const EOL = require('os').EOL;
+// const readline = require('readline');
 const mongoose = require('mongoose');
 const bluebird = require('bluebird');
 mongoose.Promise = bluebird.Promise;
@@ -10,15 +9,15 @@ const steed = require('steed')();
 const SteedState = require('./SteedState');
 const Logger = require('../../components/winston');
 const {
-    QUERY_TIMEOUT,
-    EVENTS,
-    POOL_SIZE,
-    REQUESTS_PER_TICK,
-    TICK_TIMEOUT,
-    AFFIRMATIVE_ANSWER,
-    SEPARATOR_SYMBOL,
-    SEPARATOR_SYMBOLS_COUNT,
-    STEP
+  QUERY_TIMEOUT,
+  EVENTS,
+  POOL_SIZE,
+  REQUESTS_PER_TICK,
+  TICK_TIMEOUT,
+  // AFFIRMATIVE_ANSWER,
+  // SEPARATOR_SYMBOL,
+  // SEPARATOR_SYMBOLS_COUNT,
+  STEP
 } = require('./Constants');
 
 const TmdbApi = require('./TmdbApi_request');
@@ -30,7 +29,7 @@ module.exports = {
   start: (step, transferData) => {
     const API_TMDB_KEY = config.get('tmdb')['api_key'];
     const API_OMDB_KEY = config.get('omdb')['api_key'];
-    const LINE_SEPARATOR = SEPARATOR_SYMBOL.repeat(SEPARATOR_SYMBOLS_COUNT);
+    // const LINE_SEPARATOR = SEPARATOR_SYMBOL.repeat(SEPARATOR_SYMBOLS_COUNT);
     const opts = {
       server: {
         socketOptions: {
@@ -50,27 +49,27 @@ module.exports = {
     const handleError = (err) => {
       if (err) {
         Logger.error('Something bad happened', err);
-                // process.exit();
+        // process.exit();
       }
     };
 
     mongoose.connect(config.get('mongodb')['url'], opts).then(
-            () => {
-              Logger.verbose('Connect successfully with MongoDB');
-            },
-            (err) => {
-              Logger.error(err);
-            }
-        );
+      () => {
+        Logger.verbose('Connect successfully with MongoDB');
+      },
+      (err) => {
+        Logger.error(err);
+      }
+    );
     const Movie = movieMongoose.movieModel;
     const Person = personMongoose.personModel;
     const NewMovie = movieMongoose.newMovieModel;
     const NewPerson = personMongoose.newPersonModel;
     const tmdbApi = new TmdbApi(API_TMDB_KEY, API_OMDB_KEY);
-    const rl = readline.createInterface({
+    /* const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout
-    });
+    }); */
     let stats = {
       movies: 0,
       images: 0,
@@ -85,15 +84,15 @@ module.exports = {
       _getLocalLatestId (done) {
         Logger.info({ method: '_getLocalLatestId' });
         NewMovie
-                    .find({}, { _id: 0, id: 1 })
-                    .sort({ id: -1 })
-                    .limit(1)
-                    .exec(done);
+          .find({}, { _id: 0, id: 1 })
+          .sort({ id: -1 })
+          .limit(1)
+          .exec(done);
       }
 
       _askForDownloadConfirmation (difference, localLatestId, tmdbLatestId) {
         let $this = this;
-                /* let questionLines = [
+        /* let questionLines = [
                     `${LINE_SEPARATOR}`,
                     `Your local latest id is: ${localLatestId}.`,
                     `TMDB latest id is: ${tmdbLatestId}.`,
@@ -240,8 +239,8 @@ module.exports = {
           for (let j = rowIndex; j < rowIndex + REQUESTS_PER_TICK; j++) {
             if (j >= idsLength) break;
             currentTickFns.push(
-                            getDataFn.bind(this, j, ids[j], idsLength)
-                        );
+              getDataFn.bind(this, j, ids[j], idsLength)
+            );
           }
           rowIndex += REQUESTS_PER_TICK;
           if (currentTickFns.length) ticksFns.push(currentTickFns);
@@ -274,8 +273,8 @@ module.exports = {
                 this._insertNewMovie(movie, endId, done);
               });
             } else {
-              let release_date = movie.release_date;
-              let year = release_date.substring(0, 4);
+              let releaseDate = movie.release_date;
+              let year = releaseDate.substring(0, 4);
               tmdbApi.getInfoByTitleFromOmdb(movie.title, year, (errorFromOmdb, res) => {
                 if (errorFromOmdb) return done(errorFromOmdb);
 
@@ -420,8 +419,8 @@ module.exports = {
             for (let j = i; j < i + REQUESTS_PER_TICK; j++) {
               if (j > endId) break;
               currentTickFns.push(
-                                $this.getMovieDetails.bind($this, j, endId)
-                            );
+                $this.getMovieDetails.bind($this, j, endId)
+              );
             }
             if (currentTickFns.length) ticksFns.push(currentTickFns);
           }
@@ -433,9 +432,9 @@ module.exports = {
             NewMovie.count((err, count) => {
               if (err) {
                 return $this.emit(
-                                    EVENTS.ERROR,
-                                    `Could not get count of ${movieMongoose.newMovieModel.name} collection`
-                                );
+                  EVENTS.ERROR,
+                  `Could not get count of ${movieMongoose.newMovieModel.name} collection`
+                );
               }
               let expectedSavedMoviesCount = endId - startId;
               if (count !== expectedSavedMoviesCount) {
@@ -453,22 +452,22 @@ module.exports = {
 
         let movieIds = [];
         NewMovie
-                    .find({}, { _id: 0, id: 1 })
-                    .cursor()
-                    .on('data', (movie) => {
-                      movieIds.push(movie.id);
-                    })
-                    .on('close', () => {
-                      Logger.info(`Found ${movieIds.length} movie ids in db. Starting to download ${dataType}...`);
+          .find({}, { _id: 0, id: 1 })
+          .cursor()
+          .on('data', (movie) => {
+            movieIds.push(movie.id);
+          })
+          .on('close', () => {
+            Logger.info(`Found ${movieIds.length} movie ids in db. Starting to download ${dataType}...`);
 
-                      let ticksFns = $this._getTicksFunctions(movieIds, getDataFn);
-                      $this._downloadPerTick(0, ticksFns, done, $this._tickDownloadedCallback.bind($this));
+            let ticksFns = $this._getTicksFunctions(movieIds, getDataFn);
+            $this._downloadPerTick(0, ticksFns, done, $this._tickDownloadedCallback.bind($this));
 
-                      function done (err) {
-                        if (err) $this.emit(EVENTS.ERROR, err.message);
-                        $this.emit(endEvent);
-                      }
-                    });
+            function done (err) {
+              if (err) $this.emit(EVENTS.ERROR, err.message);
+              $this.emit(endEvent);
+            }
+          });
       }
 
       downloadPeople () {
@@ -477,66 +476,66 @@ module.exports = {
 
         let people = [];
         NewMovie
-                    .find({}, { _id: 0, id: 1, credits: 1 })
-                    .cursor()
-                    .on('data', (movie) => {
-                      if (!movie.credits) return;
-                      if (movie.credits.hasOwnProperty('cast') && movie.credits.cast && movie.credits.cast.length) {
-                        people = people.concat(movie.credits.cast.map(({ id }) => {
-                          return id;
-                        }));
-                      }
-                      if (movie.credits.hasOwnProperty('crew') && movie.credits.crew && movie.credits.crew.length) {
-                        people = people.concat(movie.credits.crew.map(({ id }) => {
-                          return id;
-                        }));
-                      }
-                    })
-                    .on('close', () => {
-                      Logger.info(`Found ${people.length} people ids in movie credits. Starting to download people...`);
-                      let alreadySavedPeople = [];
-                      NewPerson
-                            .find({}, { _id: 0, id: 1 })
-                            .cursor()
-                            .on('data', (person) => {
-                              alreadySavedPeople.push(person.id);
-                            })
-                            .on('close', () => {
-                              Logger.info(`Found ${alreadySavedPeople.length} already saved people.`);
-                              people = people.filter((personId) => {
-                                return alreadySavedPeople.indexOf(personId) === -1;
-                              });
-                              Logger.info(`There are ${people.length} unsaved people. Starting to download people...`);
+          .find({}, { _id: 0, id: 1, credits: 1 })
+          .cursor()
+          .on('data', (movie) => {
+            if (!movie.credits) return;
+            if (movie.credits.hasOwnProperty('cast') && movie.credits.cast && movie.credits.cast.length) {
+              people = people.concat(movie.credits.cast.map(({ id }) => {
+                return id;
+              }));
+            }
+            if (movie.credits.hasOwnProperty('crew') && movie.credits.crew && movie.credits.crew.length) {
+              people = people.concat(movie.credits.crew.map(({ id }) => {
+                return id;
+              }));
+            }
+          })
+          .on('close', () => {
+            Logger.info(`Found ${people.length} people ids in movie credits. Starting to download people...`);
+            let alreadySavedPeople = [];
+            NewPerson
+              .find({}, { _id: 0, id: 1 })
+              .cursor()
+              .on('data', (person) => {
+                alreadySavedPeople.push(person.id);
+              })
+              .on('close', () => {
+                Logger.info(`Found ${alreadySavedPeople.length} already saved people.`);
+                people = people.filter((personId) => {
+                  return alreadySavedPeople.indexOf(personId) === -1;
+                });
+                Logger.info(`There are ${people.length} unsaved people. Starting to download people...`);
 
-                              let ticksFns = [];
-                              let peopleIdsLength = people.length;
-                              let ticksCount = Math.ceil(peopleIdsLength / REQUESTS_PER_TICK);
-                              let rowIndex = 0;
-                              for (let i = 0; i <= ticksCount; i++) {
-                                let currentTickFns = [];
-                                for (let j = rowIndex; j < rowIndex + REQUESTS_PER_TICK; j++) {
-                                  if (j >= peopleIdsLength) break;
-                                  currentTickFns.push(
-                                            $this._getPerson.bind($this, j, people[j], peopleIdsLength)
-                                        );
-                                }
-                                rowIndex += REQUESTS_PER_TICK;
-                                if (currentTickFns.length) ticksFns.push(currentTickFns);
-                              }
+                let ticksFns = [];
+                let peopleIdsLength = people.length;
+                let ticksCount = Math.ceil(peopleIdsLength / REQUESTS_PER_TICK);
+                let rowIndex = 0;
+                for (let i = 0; i <= ticksCount; i++) {
+                  let currentTickFns = [];
+                  for (let j = rowIndex; j < rowIndex + REQUESTS_PER_TICK; j++) {
+                    if (j >= peopleIdsLength) break;
+                    currentTickFns.push(
+                      $this._getPerson.bind($this, j, people[j], peopleIdsLength)
+                    );
+                  }
+                  rowIndex += REQUESTS_PER_TICK;
+                  if (currentTickFns.length) ticksFns.push(currentTickFns);
+                }
 
-                              $this._downloadPerTick(0, ticksFns, done, $this._tickDownloadedCallback.bind($this));
+                $this._downloadPerTick(0, ticksFns, done, $this._tickDownloadedCallback.bind($this));
 
-                              function done (err) {
-                                if (err) $this.emit(EVENTS.ERROR, err.message);
-                                $this.emit(EVENTS.PEOPLE_DOWNLOADED);
-                              }
-                            });
-                    });
+                function done (err) {
+                  if (err) $this.emit(EVENTS.ERROR, err.message);
+                  $this.emit(EVENTS.PEOPLE_DOWNLOADED);
+                }
+              });
+          });
       }
 
       askToMoveNewDataToMainCollections () {
         let $this = this;
-                /* let questionLines = [
+        /* let questionLines = [
                     `${LINE_SEPARATOR}`,
                     `The script is over.`,
                     `All the available data was downloaded and stored in the temporary '${config.tmpMoviesCollection}' and '${config.tmpPeopleCollection}' collections.`,
@@ -567,30 +566,30 @@ module.exports = {
         Logger.info('Starting to transfer movies...');
         let moviesCount = 0;
         NewMovie
-                    .find({}, { _id: 0 })
-                    .cursor()
-                    .on('data', (movie) => {
-                      Movie.collection.insert(movie);
-                      moviesCount++;
-                    })
-                    .on('close', () => {
-                      Logger.info(`${moviesCount} have been transferred from ${movieMongoose.newMovieModel.name} to '${movieMongoose.movieModel.name}' collection.`);
-                      Logger.info('Starting to transfer people...');
-                      let peopleCount = 0;
-                      NewPerson
-                            .find({}, { _id: 0 })
-                            .cursor()
-                            .on('data', (person) => {
-                              Person.collection.insert(person);
-                              peopleCount++;
-                            })
-                            .on('close', () => {
-                              Logger.info(`${peopleCount} people have been transferred from '${movieMongoose.newMovieModel.name}' to '${movieMongoose.movieModel.name}' collection.`);
-                              $this.emit(EVENTS.NEW_DATA_TRANSFERRED);
-                            });
-                    });
+          .find({}, { _id: 0 })
+          .cursor()
+          .on('data', (movie) => {
+            Movie.collection.insert(movie);
+            moviesCount++;
+          })
+          .on('close', () => {
+            Logger.info(`${moviesCount} have been transferred from ${movieMongoose.newMovieModel.name} to '${movieMongoose.movieModel.name}' collection.`);
+            Logger.info('Starting to transfer people...');
+            let peopleCount = 0;
+            NewPerson
+              .find({}, { _id: 0 })
+              .cursor()
+              .on('data', (person) => {
+                Person.collection.insert(person);
+                peopleCount++;
+              })
+              .on('close', () => {
+                Logger.info(`${peopleCount} people have been transferred from '${movieMongoose.newMovieModel.name}' to '${movieMongoose.movieModel.name}' collection.`);
+                $this.emit(EVENTS.NEW_DATA_TRANSFERRED);
+              });
+          });
       }
-        }
+    }
 
     const U = new Updater();
 
@@ -695,7 +694,7 @@ module.exports = {
           U.emit(EVENTS.CREDITS_DOWNLOADED);
           break;
         default:
-          u.emit(EVENTS.START);
+          U.emit(EVENTS.START);
           break;
       }
     });

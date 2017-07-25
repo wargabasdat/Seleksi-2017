@@ -2,35 +2,52 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchMovie } from './movie.action';
 
-let App = ({ fetching, fetchMovie }) => (
-  <div>
-    <button class="waves-effect waves-light btn" onClick={fetchMovie}>Start Fetching</button>
-    <div>
-      {fetching.toString()}
-    </div>
-  </div>
-);
+class App extends React.Component {
+  constructor (props) {
+    super(props);
+    this.fetchMovie = this.props.fetchMovie.bind(this);
+  }
+
+  render () {
+    let error = this.props.state.error;
+
+    let container = null;
+    if (error) {
+      container = <div>{error}</div>;
+    } else {
+      container = (
+        <div>
+          <button class='waves-effect waves-light btn' onClick={() => this.fetchMovie(2)}>Start Fetching</button>
+          <div>
+            {JSON.stringify(this.props.state.movies)}
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div>
+        {container}
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
     // You can now say this.props.books
-    books: state.books
-  }
+    state: state.movieReducer
+  };
 };
-/*
+
 // Maps actions to props
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-  // You can now say this.props.createBook
-    createBook: book => dispatch(bookActions.createBook(book))
-  }
+    // You can now say this.props.createBook
+    fetchMovie: id => dispatch(fetchMovie(id))
+  };
 };
 
-// Use connect to put them together
-export default connect(mapStateToProps, mapDispatchToProps)(Book);*/
-App = connect(
-  ({ fetching }) => ({ fetching }),
-  { fetchMovie }
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(App);
-
-export default App;

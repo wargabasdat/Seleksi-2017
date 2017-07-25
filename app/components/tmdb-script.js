@@ -2,7 +2,6 @@
 
 'use strict';
 
-const fs = require('fs');
 const program = require('commander');
 const TmdbScript = require('./tmdb_script/TmdbScript');
 const { STEP } = require('./tmdb_script/Constants');
@@ -13,7 +12,7 @@ program
     .option('-s, --step', 'Start from a specific step i.e. `movies`, `images`, `videos`, `keywords`, `similar`, `credits`, `people`')
     .parse(process.argv);
 
-let { transferData, step } = program;
+let { transferData } = program;
 
 let targetStep = program.hasOwnProperty('step') ? program.args[1] : STEP.MOVIES;
 TmdbScript.start(targetStep, transferData);
