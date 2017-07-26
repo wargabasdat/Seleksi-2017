@@ -102,7 +102,7 @@ $(document).ready(function () {
 
 	var chart = new Chart(chart, {
 		type : "bar",
-		data : jumlah,
+		data : pengguna,
 		options : options
 	});
 
