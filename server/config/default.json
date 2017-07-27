@@ -1,0 +1,43 @@
+{
+    "port": 3000,
+    "secret": "[ Insert secret here ]",
+
+    "mongodb": {
+        "url": "mongodb://mongo:27017/movie",
+        "mainMoviesCollection": "movie",
+        "mainPeopleCollection": "person",
+        "tmpMoviesCollection": "newmovie",
+        "tmpPeopleCollection": "newperson"
+    },
+
+    "host": {
+        "baseUrl": "http://localhost:3001",
+        "apiUrl": "http://localhost:3001/api/"
+    },
+
+    "omdb": {
+        "api_key": "1dfdf86e"
+    },
+
+    "tmdb": {
+        "api_key": "cc45f3c05303c8108fe07e755a4743c1",
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYzQ1ZjNjMDUzMDNjODEwOGZlMDdlNzU1YTQ3NDNjMSIsInN1YiI6IjU5NGUyN2U4YzNhMzY4MzJjYTAzM2NhYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yi5A3vGXipAXGp2FPXLpeM3Fj4eZFHnLoxAO-j9JrbE"
+    },
+
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+    },
+
+    "winston": {
+        "console": {
+            "level": "debug",
+            "prettyPrint": true,
+            "colorize": true,
+            "silent": false,
+            "timestamp": true
+        }
+    },
+
+    "routePrefix": "/api"
+}

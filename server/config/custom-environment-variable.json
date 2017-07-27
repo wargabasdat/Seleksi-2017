@@ -1,0 +1,24 @@
+{
+  "port": "MOVIEFREAK_API_PORT",
+  "secret": "MOVIEFREAK_API_SECRET",
+
+  "mongodb": {
+      "url": "MONGODB_URL",
+      "mainMoviesCollection": "movie",
+      "mainPeopleCollection": "person",
+      "tmpMoviesCollection": "newmovie",
+      "tmpPeopleCollection": "newperson"
+  },
+
+  "host": {
+        "baseUrl": "BASE_URL",
+        "apiUrl": "API_URL"
+  },
+
+  "redis": {
+    "host": "REDIS_HOST",
+    "port": "REDIS_PORT"
+  },
+
+  "routePrefix": "MOVIEFREAK_API_ROUTE_PREFIX"
+}
