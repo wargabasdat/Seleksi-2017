@@ -7,10 +7,10 @@ var movie = require('../models/movieSchema').movieModel;
 var winston = require('../components/winston');
 
 var errorHandlerAPI = (type, message) => {
-  let res = {};
-  res['response'] = type;
-  res['message'] = message;
-  return res;
+  return {
+    response: type,
+    message: message
+  };
 };
 
 var ratingService = (type) => {
@@ -21,7 +21,7 @@ var ratingService = (type) => {
 
 router.get('/:id?', (req, res, next) => {
   if (!req.params.id) {
-    movie.find({}, (err, movies) => {
+    movie.find({}).sort({ 'release_date': -1 }).exec((err, movies) => {
       if (err) {
         winston.error(err);
         next(err);
@@ -44,8 +44,7 @@ router.get('/imdb/:id', (req, res, next) => {
     winston.verbose('please input imdb id');
     res.status(404).send(errorHandlerAPI('404 Not Found', 'please input imdb id'));
   } else {
-    let id = req.params.id;
-    if (!/tt\d{7}/g.test(id)) {
+    if (!/tt\d{7}/g.test(req.params.id)) {
       winston.verbose('invalid imdb id');
       res.status(400).send(errorHandlerAPI('400 Bad Request', 'Invalid imdb id'));
     } else {
@@ -60,7 +59,7 @@ router.get('/imdb/:id', (req, res, next) => {
   }
 });
 
-router.get('/search/title/:search', (req, res, next) => {
+router.get('/search/:search', (req, res, next) => {
   movie.find({ title: { $regex: new RegExp('^' + req.params.search.toLowerCase(), 'i') } }, (err, movies) => {
     if (err) {
       winston.error(err);
@@ -92,7 +91,7 @@ router.get('/genre/:search/:rating?', (req, res, next) => {
     $match: matchCond
   }, {
     $project: {
-      title: '$title',
+      id: '$id',
       /* ratingSort: {
                 $filter: {
                     input: '$rating.' + thisMonth,
@@ -111,7 +110,7 @@ router.get('/genre/:search/:rating?', (req, res, next) => {
                     }
                 } */
     }
-  }).sort({ 'ratingList': 1 }).exec((err, movies) => {
+  }).sort({ 'ratingList': -1 }).exec((err, movies) => {
     if (err) {
       winston.error(err);
       next(err);

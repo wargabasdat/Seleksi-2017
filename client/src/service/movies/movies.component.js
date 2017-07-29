@@ -8,22 +8,7 @@ import Pagination from '../../common/Pagination';
 import { Link } from 'react-router-dom';
 import notFoundImage from '../../common/resources/imageNotFound.jpg';
 import Month from '../../common/Month';
-
-const excerpt = (str, delimiter) => {
-  delimiter = delimiter || 30;
-  if (str.length > delimiter) {
-    let cutted = [];
-    let i = 0;
-    delimiter = delimiter === 'undefined' || delimiter === null ? 25 : delimiter;
-    while (i < delimiter) {
-      cutted.push(str[i]);
-      i++;
-    }
-    return cutted.join('') + '...';
-  } else {
-    return str;
-  }
-};
+import Excerpt from '../../common/Excerpt';
 
 class Movies extends React.Component {
   constructor (props) {
@@ -53,14 +38,14 @@ class Movies extends React.Component {
         <Card.Content>
           <Card.Header>{movie.title}</Card.Header>
           <Card.Meta>{map(movie.genres, 'name').toString()}</Card.Meta>
-          <Card.Description>{movie.plot ? excerpt(movie.plot, 120) : null}</Card.Description>
+          <Card.Description>{movie.plot ? Excerpt(movie.plot, 120) : null}</Card.Description>
         </Card.Content>
         <Card.Content extra>
           {map(movie.rating, (months, key) => (
             map(months, (val, idx) => (
               <div>
                 {idx.toString() === Month && map(val, (src, index) => (
-                  <div>
+                  <div key={index}>
                     {src.Source.toString() === 'Internet Movie Database' ? <Icon name='imdb' /> : src.Source.toString() + ' : '} {src.Value}
                   </div>
                 ))}

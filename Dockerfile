@@ -32,4 +32,6 @@ USER root
 RUN chown -R node:node /usr/src/movieFreak
 USER node
 
-EXPOSE 3000 3001 80
+EXPOSE 3000 3001
+
+CMD ["yarn", "start"]

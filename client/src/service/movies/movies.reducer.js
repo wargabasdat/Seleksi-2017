@@ -1,4 +1,5 @@
 import {FETCH_MOVIES_FULFILLED, FETCH_MOVIES_REJECTED, FETCH_MOVIES_PENDING} from './movies.constants';
+import {REHYDRATE} from 'redux-persist/constants';
 
 export const initialState = {
   fetching: false,
@@ -29,6 +30,16 @@ export default (state = initialState, action) => {
         fetched: true,
         movies: action.payload
       };
+    }
+    case REHYDRATE: {
+      let movies = action.payload.movies;
+      if(movies) {
+        return{
+        ...state,
+        ...movies
+        }
+      }
+      return state;
     }
     default:
       return state;

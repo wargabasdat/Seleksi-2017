@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Sidebar, Segment, Menu, Icon, Container, Button, Input } from 'semantic-ui-react';
+import { Sidebar, Segment, Menu, Icon, Container, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import Search from './Search';
 
 class AppLayout extends React.Component {
   constructor (props) {
@@ -25,13 +25,9 @@ class AppLayout extends React.Component {
               <Icon name='home' />
                 Home
               </Menu.Item>
-            <Menu.Item name='movies' active={section === 'movies'} link as={Link} to='/movies'>
-              <Icon name='film' />
-                Movies
-              </Menu.Item>
-            <Menu.Item name='pingpong' active={section === 'pingpong'} link as={Link} to='/pingpong'>
-              <Icon name='game' />
-                PingPong
+            <Menu.Item name='about' active={section === 'about'} link as={Link} to='/about'>
+              <Icon name='id badge' />
+                About
               </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
@@ -42,7 +38,7 @@ class AppLayout extends React.Component {
                 </Menu.Item>
                 <Menu.Menu position='right'>
                   <Menu.Item>
-                    <Input icon='search' placeholder='Search...' />
+                      <Search />
                   </Menu.Item>
                 </Menu.Menu>
               </Menu>
@@ -59,16 +55,4 @@ class AppLayout extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);
+export default AppLayout;
