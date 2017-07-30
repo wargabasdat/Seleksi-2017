@@ -12,12 +12,12 @@ class SearchComponent extends React.Component {
     this.resetComponent();
   }
 
-  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' });
 
   handleResultSelect = (e, { result }) => this.props.fetchMovie(result.price);
 
   handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value })
+    this.setState({ isLoading: true, value });
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent()
@@ -28,13 +28,13 @@ class SearchComponent extends React.Component {
       let newArray = filter(this.props.state.movies, isMatch);
       let key = {
         id: null,
-        backdrop_path: null,
+        poster_path: null,
         genres: null,
         title: null
       }
 
       let keyMapping = {
-        'backdrop_path': 'image',
+        'poster_path': 'image',
         'genres': 'description',
         'id': 'price',
         'title': 'title'
@@ -44,7 +44,7 @@ class SearchComponent extends React.Component {
         pick(value, keys(key))  
       )), (currentObject) => {
           return transform(currentObject, (result, value, idx) => {
-              result[keyMapping[idx]] = Array.isArray(value) ? map(value, 'name').toString() : value;
+              result[keyMapping[idx]] = Array.isArray(value) ? map(value, 'name').toString() : String(value);
       })});
 
       this.setState({

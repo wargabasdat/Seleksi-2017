@@ -7,8 +7,7 @@ import epics from './service/epic';
 import reducers from './service/reducer';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
-import {persistStore, autoRehydrate} from 'redux-persist'
-
+import {persistStore, autoRehydrate} from 'redux-persist';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

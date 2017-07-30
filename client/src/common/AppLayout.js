@@ -1,7 +1,9 @@
 import React from 'react';
-import { Sidebar, Segment, Menu, Icon, Container, Button } from 'semantic-ui-react';
+import { Sidebar, Segment, Menu, Icon, Container, Button, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Search from './Search';
+import Footer from './Footer';
+import Logo from './Logo';
 
 class AppLayout extends React.Component {
   constructor (props) {
@@ -24,29 +26,39 @@ class AppLayout extends React.Component {
             <Menu.Item name='home' active={section === 'home'} link as={Link} to='/'>
               <Icon name='home' />
                 Home
-              </Menu.Item>
+            </Menu.Item>
+            <Menu.Item name='genre' active={section === 'genre'} link as={Link} to='/genre'>
+              <Icon name='tags' />
+                Genre
+            </Menu.Item>
             <Menu.Item name='about' active={section === 'about'} link as={Link} to='/about'>
               <Icon name='id badge' />
                 About
-              </Menu.Item>
+            </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
             <Segment inverted>
-              <Menu inverted pointing secondary>
-                <Menu.Item>
-                  <Button icon='block layout' onClick={this.toggleVisibility} />
-                </Menu.Item>
-                <Menu.Menu position='right'>
-                  <Menu.Item>
-                      <Search />
-                  </Menu.Item>
-                </Menu.Menu>
-              </Menu>
+              <Grid columns='equal'>
+                <Grid.Column>
+                  <Segment inverted><Button icon='block layout' onClick={this.toggleVisibility} /></Segment>
+                </Grid.Column>
+                <Grid.Column width={4}>
+                  <Segment inverted>
+                    <Logo />
+                  </Segment>
+                </Grid.Column>
+                <Grid.Column>
+                  <Segment floated='right' inverted><Search /></Segment>
+                </Grid.Column>
+              </Grid>
             </Segment>
-            <Segment basic>
+            <Segment basic inverted={this.props.inverted}>
               <Container fluid style={{ padding: '20px 2.4vw' }}>
                 {this.props.children}
               </Container>
+            </Segment>
+            <Segment inverted>
+              <Footer />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>

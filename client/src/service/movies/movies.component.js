@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Segment, Card, Icon } from 'semantic-ui-react';
+import { Image, Segment, Card, Icon, Loader, Modal } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchMovies } from './movies.action';
 import { map } from 'lodash';
@@ -58,25 +58,38 @@ class Movies extends React.Component {
     let container = error ? (<div>{error}</div>) : (
       <div>
         {
-          movies.constructor === Array &&
-          <Segment>
-            <Card.Group itemsPerRow={2}>
-              {movieComponent}
-            </Card.Group>
-            <Pagination items={movies} onChangePage={this.onChangePage} />
-          </Segment>
-        }
+              movies.constructor === Array &&
+              <Segment>
+                <Card.Group itemsPerRow={2}>
+                  {movieComponent}
+                </Card.Group>
+                <Pagination items={movies} onChangePage={this.onChangePage} />
+              </Segment>
+            }
         {
-          movies.constructor !== Array &&
-          <p>movies not found</p>
-        }
+              movies.constructor !== Array &&
+              <p>movies not found</p>
+            }
       </div>
       );
 
     return (
-      <AppLayout section='movies'>
-        {container}
-      </AppLayout>
+      <div>
+        {
+          this.props.state.fetching &&
+          <Modal open={this.props.state.fetching} basic>
+            <Modal.Content>
+              <Loader size='massive' active inverted>Fetching movies...</Loader>
+            </Modal.Content>
+          </Modal>
+        }
+        {
+          this.props.state.fetched &&
+          <AppLayout section='movies'>
+            {container}
+          </AppLayout>
+        }
+      </div>
     );
   }
 }

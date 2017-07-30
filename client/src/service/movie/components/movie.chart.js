@@ -9,32 +9,32 @@ import rotten from '../../../common/resources/rotten.svg';
 class CustomizedAxisTick extends React.Component {
   render () {
     const {x, y, payload} = this.props;
-		
+
    	return (
-    	<g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(0)">{payload.value}</text>
-      </g>
-    );
+     <g transform={`translate(${x},${y})`}>
+       <text x={0} y={0} dy={16} textAnchor='end' fill='#666' transform='rotate(0)'>{payload.value}</text>
+     </g>
+   );
   }
 }
 
 class CustomTooltip extends React.Component {
-  render() {
-      const { active } = this.props;
-      if (active) {
-        const { payload } = this.props;
-        return (
-          <Segment>
-            <Label.Group>
-              <Label color='teal'><Icon name='calendar'/>{payload[0].payload.name}</Label>
-              {
+  render () {
+    const { active } = this.props;
+    if (active) {
+      const { payload } = this.props;
+      return (
+        <Segment>
+          <Label.Group>
+            <Label color='teal'><Icon name='calendar' />{payload[0].payload.name}</Label>
+            {
                 map(payload, (result, key) => (
                   <div key={key}>
                     {
                       result.dataKey === 'Internet Movie Database' &&
                       <div>
                         <Label color='black'>
-                          <Icon name='imdb' color='yellow'/>
+                          <Icon name='imdb' color='yellow' />
                           {result.dataKey}
                           <Label.Detail>{`${result.value} / 10`}</Label.Detail>
                         </Label><br />
@@ -45,9 +45,9 @@ class CustomTooltip extends React.Component {
                       result.value &&
                       <div>
                         <Label color='green' image>
-                          <Image src={rotten} shape='rounded' fluid avatar/>
+                          <Image src={rotten} shape='rounded' fluid avatar />
                           {result.dataKey}
-                          <Label.Detail>{`${result.value*10}%`}</Label.Detail>
+                          <Label.Detail>{`${result.value * 10}%`}</Label.Detail>
                         </Label><br />
                       </div>
                     }
@@ -56,44 +56,44 @@ class CustomTooltip extends React.Component {
                       result.value &&
                       <div>
                         <Label color='blue' image>
-                          <Image src={metacritic} shape='rounded' fluid avatar/>
+                          <Image src={metacritic} shape='rounded' fluid avatar />
                           {result.dataKey}
-                          <Label.Detail>{`${result.value*10} / 100`}</Label.Detail>
+                          <Label.Detail>{`${result.value * 10} / 100`}</Label.Detail>
                         </Label><br />
                       </div>
                     }
                   </div>
                 ))
               }
-            </Label.Group>
-          </Segment>
-        );
-      }
+          </Label.Group>
+        </Segment>
+      );
+    }
 
-      return null;
+    return null;
   }
 }
 
 CustomTooltip.propTypes = {
-    type: PropTypes.string,
-    payload: PropTypes.array,
-    label: PropTypes.string,
-}
+  type: PropTypes.string,
+  payload: PropTypes.array,
+  label: PropTypes.string
+};
 
 class MovieChart extends React.Component {
-  render() {
-    return(
-        <BarChart height={400} width={600} data={this.props.data} margin={{top: 5, right: 5, bottom: 5, left: 5}}>
-          <XAxis dataKey="label" tick={<CustomizedAxisTick/>}/>
-          <YAxis type='number' domain={[0, 10]}/>
-          <Tooltip content={<CustomTooltip />}/>
-          <Legend align='center' height={36}/>
-          <CartesianGrid strokeDasharray="3 3"/>
-          <ReferenceLine y={10} stroke="red" strokeDasharray="3 3" />
-          <Bar dataKey='Internet Movie Database' barSize={20} fill='#000000' />
-          <Bar dataKey='Rotten Tomatoes' barSize={20} fill='#016936' />
-          <Bar dataKey='Metacritic' barSize={20} fill='#0E6EB8' />
-        </BarChart>
+  render () {
+    return (
+      <BarChart height={400} width={600} data={this.props.data} margin={{top: 5, right: 5, bottom: 5, left: 5}}>
+        <XAxis dataKey='label' tick={<CustomizedAxisTick />} />
+        <YAxis type='number' domain={[0, 10]} />
+        <Tooltip content={<CustomTooltip />} />
+        <Legend align='center' height={36} />
+        <CartesianGrid strokeDasharray='3 3' />
+        <ReferenceLine y={10} stroke='red' strokeDasharray='3 3' />
+        <Bar dataKey='Internet Movie Database' barSize={20} fill='#000000' />
+        <Bar dataKey='Rotten Tomatoes' barSize={20} fill='#016936' />
+        <Bar dataKey='Metacritic' barSize={20} fill='#0E6EB8' />
+      </BarChart>
     );
   }
 }
@@ -101,10 +101,10 @@ class MovieChart extends React.Component {
 MovieChart.propTypes = {
   data: PropTypes.array.isRequired,
   month: PropTypes.string.isRequired
-}
+};
 
 MovieChart.defaultProps = {
   data: []
-}
+};
 
 export default MovieChart;

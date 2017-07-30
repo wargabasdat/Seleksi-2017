@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Image, Grid, Container, Header, Divider, Segment, Icon, Rating, Popup, Label, Modal, Button } from 'semantic-ui-react';
+import { Image, Grid, Container, Header, Divider, Segment, Icon, Rating, Popup, Label, Modal, Button, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchMovie } from './movie.action';
 import { map, reduce, sortBy, filter } from 'lodash';
 import AppLayout from '../../common/AppLayout';
 import notFoundImage from '../../common/resources/imageNotFound.jpg';
-import metacritic from '../../common/resources/metacritic.svg';
-import rotten from '../../common/resources/rotten.svg';
 import Month from '../../common/Month';
 import MovieChart from './components/movie.chart';
+import RatingLabel from '../../common/RatingLabel';
 
 
 const capitalizeFirstLetter = (string) => {
@@ -20,52 +19,11 @@ class Movie extends React.Component {
   constructor (props) {
     super(props);
     this.props.fetchMovie(this.props.match.params.id);
-    this.showRating = this.showRating.bind(this);
     this.normalizeChart = this.normalizeChart.bind(this);
     this.state = { modalOpen: true };
   }
 
   handleClose = () => this.setState({modalOpen: false});
-
-  showRating(rating) {
-    return map(rating, (months, key) => (
-      map(months, (val, idx) => (
-        <div>
-          {idx.toString() === Month && map(val, (src, index) => (
-            <div key={index}>
-              {
-                src.Source.toString() === 'Internet Movie Database' &&
-                src.Value &&
-                  <Label color='black'>
-                    <Icon name='imdb' color='yellow'/>
-                    {src.Source.toString()}
-                    <Label.Detail>{src.Value}</Label.Detail>
-                  </Label>
-              }
-              {
-                src.Source.toString()  === 'Rotten Tomatoes' &&
-                src.Value &&
-                  <Label color='green' image>
-                    <Image src={rotten} shape='rounded' fluid avatar/>
-                    {src.Source.toString()}
-                    <Label.Detail>{src.Value}</Label.Detail>
-                  </Label>
-              }
-              {
-                src.Source.toString()  === 'Metacritic' &&
-                src.Value &&
-                  <Label color='blue' image>
-                    <Image src={metacritic} shape='rounded' fluid avatar/>
-                    {src.Source.toString()}
-                    <Label.Detail>{src.Value}</Label.Detail>
-                  </Label>
-              }
-            </div>
-          ))}
-        </div>
-      ))
-    ));
-  }
 
   normalizeChart(rating) {
     let dataChart = map(reduce(
@@ -139,6 +97,7 @@ class Movie extends React.Component {
           <Segment>
             <Grid>
               <Grid.Column width={4}>
+                {movie.poster_path && <div>Poster:<Image src={'http://image.tmdb.org/t/p/w500/' + movie.poster_path} /><Divider section /></div>}
                 {movie.backdrop_path && <div><Image src={'http://image.tmdb.org/t/p/w500/' + movie.backdrop_path} /><Divider section /></div>}
                 {movie.alternative_image !== 'N/A' && <div><Header as='h3'>Alternative image : </Header><Image src={movie.alternative_image} /><Divider section /></div>}
                 {!movie.backdrop_path && movie.alternative_image === 'N/A' && <Image src={notFoundImage} />}
@@ -146,6 +105,11 @@ class Movie extends React.Component {
               <Grid.Column width={9}>
                 <Container text>
                   <Header as='h2'>{movie.title}</Header>
+                  <Label color='black' as='a' href={'http://imdb.com/title/' + movie.imdb_id}>
+                    <Icon name='imdb' color='yellow'/>
+                    id :
+                    <Label.Detail>{movie.imdb_id}</Label.Detail>
+                  </Label><br />
                   <Header as='h4'>{movie.genres ? <div>{map(map(movie.genres, 'name'), (val, idx) => (
                     <Label as={Link} to={'/genre/' + val} key={idx}>{val}</Label>
                   ))}</div> : null}</Header>
@@ -164,7 +128,7 @@ class Movie extends React.Component {
                   <p>{movie.plot}</p>
                   <Divider section />
                   <Header as='h4'>Ratings this month ({capitalizeFirstLetter(Month)}) : </Header>
-                  {this.showRating(movie.rating)}
+                  <RatingLabel rating={movie.rating} />
                   <Divider section />
                   <MovieChart data={this.normalizeChart(movie.rating)} month={capitalizeFirstLetter(Month)} />
                 </Container>
@@ -181,6 +145,14 @@ class Movie extends React.Component {
           <Modal
             open={this.state.modalOpen}
             onClose={this.handleClose}
+            closeOnEscape={false}
+            closeOnDimmerClick={false}
+            closeOnDocumentClick={false}
+            closeOnRootNodeClick={false}
+            closeOnPortalMouseLeave={false}
+            closeOnTriggerMouseLeave={false}
+            closeOnTriggerBlur={false}
+            closeOnTriggerClick={false}
             dimmer
             size='small'
           >
@@ -190,11 +162,11 @@ class Movie extends React.Component {
               <h3>If not, we will redirect you back to homepage, be safe!</h3>
             </Modal.Content>
             <Modal.Actions>
-              <Button link as={Link} to='/' color='red' onClick={this.handleClose} inverted>
-                <Icon name='warning sign' /> No
+              <Button as={Link} to='/' color='green' onClick={this.handleClose} inverted positive>
+                <Icon name='checkmark' /> No
               </Button>
-              <Button color='green' onClick={this.handleClose} inverted>
-                <Icon name='checkmark' /> Yes
+              <Button color='red' onClick={this.handleClose} inverted negative>
+                <Icon name='warning sign' /> Yes
               </Button>
             </Modal.Actions>
           </Modal>
@@ -203,9 +175,22 @@ class Movie extends React.Component {
       );
 
     return (
-      <AppLayout section='movie'>
-        {container}
-      </AppLayout>
+      <div>
+        {
+          this.props.state.fetching  &&
+          <Modal open={this.props.state.fetching} basic>
+            <Modal.Content>
+              <Loader size='massive' active inverted>Fetching movie...</Loader>
+            </Modal.Content>
+          </Modal>
+        }
+        {
+          this.props.state.fetched &&
+          <AppLayout section='movie' inverted={true}>
+            {container}
+          </AppLayout>
+        }
+      </div>
     );
   }
 }

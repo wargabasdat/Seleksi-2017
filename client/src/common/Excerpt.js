@@ -12,6 +12,6 @@ const excerpt = (str, delimiter) => {
   } else {
     return str;
   }
-}
+};
 
 export default excerpt;

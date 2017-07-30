@@ -33,11 +33,11 @@ export default (state = initialState, action) => {
     }
     case REHYDRATE: {
       let movies = action.payload.movies;
-      if(movies) {
-        return{
-        ...state,
-        ...movies
-        }
+      if (movies) {
+        return {
+          ...state,
+          ...movies
+        };
       }
       return state;
     }
