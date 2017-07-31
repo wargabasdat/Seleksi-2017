@@ -8,8 +8,6 @@
 [![devDependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017/dev-status.svg)
 [![License: MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A helping hand for movie enthusiast
-
 ## Getting Started
 
 Restful API using react, redux, and rxjs implementation
