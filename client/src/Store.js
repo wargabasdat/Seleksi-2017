@@ -9,7 +9,7 @@ import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import {persistStore, autoRehydrate} from 'redux-persist';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : null;
 
 const epicMiddleware = createEpicMiddleware(epics, {
   dependencies: { getJSON: ajax.getJSON, Observable: Observable }
@@ -18,14 +18,25 @@ const epicMiddleware = createEpicMiddleware(epics, {
 const browserHistory = createHistory();
 const middleware = applyMiddleware(createLogger(), routerMiddleware(browserHistory));
 
-const store = createStore(
-  reducers,
-  compose(
-    middleware,
-    composeEnhancers(applyMiddleware(epicMiddleware)),
-    autoRehydrate()
+let store = composeEnhancers ? (
+  createStore(
+    reducers,
+    compose(
+      middleware,
+      composeEnhancers(applyMiddleware(epicMiddleware)),
+      autoRehydrate()
+    )
   )
-);
+) : (
+  createStore(
+    reducers,
+    compose(
+      middleware,
+      applyMiddleware(epicMiddleware),
+      autoRehydrate()
+    )
+  )
+)
 
 persistStore(store);
 const history = syncHistoryWithStore(browserHistory, store);

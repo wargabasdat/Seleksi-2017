@@ -5,7 +5,7 @@ import { Label, Grid, Menu, Segment, Item, Modal, Loader } from 'semantic-ui-rea
 import { pick, map, findIndex, sortBy } from 'lodash';
 import { fetchMovies } from '../movies/movies.action';
 import AppLayout from '../../common/AppLayout';
-import Month from '../../common/Month';
+import { Month } from '../../common/Common';
 import Excerpt from '../../common/Excerpt';
 import notFoundImage from '../../common/resources/imageNotFound.jpg';
 import RatingLabel from '../../common/RatingLabel';

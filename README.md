@@ -9,7 +9,7 @@ A helping hand for movie enthusiast
 
 ## Getting Started
 
-Restful API using react-redux and RxJs implementation
+Restful API using react, redux, and rxjs implementation
 
 ### Prerequisites
 
@@ -30,14 +30,24 @@ cd Seleksi-2017-master
 ```
 
 ### Running
+
+For development
 ```
-- (sudo) docker-compose up -d (it will be running in the background)
+- (sudo) docker-compose up -d
 - open your browser at http://localhost:3000
 ```
 
+For production
+```
+- (sudo) docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+- open your browser at http://localhost:3000
+```
+
+'-d' means that it will be running on the background, if you want to see the log, just erase '-d'
+
 ## Version
 
-0.1 Initial Release
+1.0 Major Release
 
 ## Authors
 

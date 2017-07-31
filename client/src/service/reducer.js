@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { reducer as reduxFormReducer } from 'redux-form';
 import { routerReducer } from 'react-router-redux';
 import movieReducer from './movie/movie.reducer';
 import moviesReducer from './movies/movies.reducer';
@@ -9,7 +8,6 @@ export const RESET_REDUX_STATE = 'RESET_REDUX_STATE';
 const appReducer = combineReducers({
   movie: movieReducer,
   movies: moviesReducer,
-  form: reduxFormReducer,
   routing: routerReducer
 });
 

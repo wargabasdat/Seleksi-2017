@@ -1,43 +1,15 @@
-# movieFreak
+# movieFreak API Server
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 [![Build Status](https://travis-ci.org/ironlota/Seleksi-2017.svg?branch=master)](https://travis-ci.org/ironlota/Seleksi-2017)
 [![dependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017)
 [![devDependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017/dev-status.svg)
 [![License: MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A helping hand for movie enthusiast
-
-## Getting Started
-
-Restful API using react-redux and RxJs implementation
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Installed :
-- Docker (https://www.docker.com/)
-```
-
-### Installing
-
-```
-wget https://github.com/ironlota/Seleksi-2017/archive/master.zip
-unzip master.zip
-cd Seleksi-2017-master
-(sudo) docker-compose build
-```
-
-### Running
-```
-- (sudo) docker-compose up -d (it will be running in the background)
-- open your browser at http://localhost:3000
-```
+API server for movieFreak
 
 ## Version
 
-0.1 Initial Release
+1.0 Major Release
 
 ## Authors
 

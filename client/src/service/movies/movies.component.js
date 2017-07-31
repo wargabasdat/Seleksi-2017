@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { addUrlProps, UrlQueryParamTypes } from 'react-url-query';
 import { Image, Segment, Card, Icon, Loader, Modal } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchMovies } from './movies.action';
@@ -7,7 +9,7 @@ import AppLayout from '../../common/AppLayout';
 import Pagination from '../../common/Pagination';
 import { Link } from 'react-router-dom';
 import notFoundImage from '../../common/resources/imageNotFound.jpg';
-import Month from '../../common/Month';
+import { Month } from '../../common/Common';
 import Excerpt from '../../common/Excerpt';
 
 class Movies extends React.Component {
@@ -17,10 +19,10 @@ class Movies extends React.Component {
     this.state = {
       pageOfMovies: []
     };
-    this.onChangePage = this.onChangePage.bind(this);
+    this.onChangePages = this.onChangePages.bind(this);
   }
 
-  onChangePage (pageOfMovies) {
+  onChangePages (pageOfMovies) {
     this.setState({
       pageOfMovies: pageOfMovies
     });
@@ -29,6 +31,7 @@ class Movies extends React.Component {
   render () {
     let error = this.props.state.error;
     let movies = this.props.state.movies;
+    const { page } = this.props;
 
     let movieComponent = map(this.state.pageOfMovies, (movie, key) => (
       <Card link as={Link} to={'/movie/' + movie.id} key={key} fluid color='black'>
@@ -63,7 +66,7 @@ class Movies extends React.Component {
                 <Card.Group itemsPerRow={2}>
                   {movieComponent}
                 </Card.Group>
-                <Pagination items={movies} onChangePage={this.onChangePage} />
+                <Pagination items={movies} onChangePage={this.onChangePages} urlParent='/' page={page || 1} />
               </Segment>
             }
         {
@@ -94,6 +97,15 @@ class Movies extends React.Component {
   }
 }
 
+Movies.proptypes = {
+  page: PropTypes.string,
+  onChangePage: PropTypes.func
+};
+
+const urlPropsQueryConfig = {
+  page: { type: UrlQueryParamTypes.string }
+};
+
 const mapStateToProps = (state, ownProps) => {
   return {
     state: state.movies
@@ -106,7 +118,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(
+const MoviesComponent = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Movies);
+
+export default addUrlProps({ urlPropsQueryConfig })(MoviesComponent);

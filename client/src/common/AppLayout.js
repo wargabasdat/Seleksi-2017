@@ -44,7 +44,7 @@ class AppLayout extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={4}>
                   <Segment inverted>
-                    <Logo />
+                    <Logo type='h3' />
                   </Segment>
                 </Grid.Column>
                 <Grid.Column>

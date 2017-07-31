@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 import { map } from 'lodash';
 import { Label, Icon, Segment, Image } from 'semantic-ui-react';
 import metacritic from '../../../common/resources/metacritic.svg';
+import { monthCapital } from '../../../common/Common';
 import rotten from '../../../common/resources/rotten.svg';
 
 class CustomizedAxisTick extends React.Component {
   render () {
     const {x, y, payload} = this.props;
-
-   	return (
-     <g transform={`translate(${x},${y})`}>
-       <text x={0} y={0} dy={16} textAnchor='end' fill='#666' transform='rotate(0)'>{payload.value}</text>
-     </g>
-   );
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text x={0} y={0} dy={16} textAnchor='end' fill='#666' transform='rotate(0)'>{payload.value}</text>
+      </g>
+    );
   }
 }
 
@@ -26,7 +26,7 @@ class CustomTooltip extends React.Component {
       return (
         <Segment>
           <Label.Group>
-            <Label color='teal'><Icon name='calendar' />{payload[0].payload.name}</Label>
+            <Label color='teal'><Icon name='calendar' />{monthCapital}</Label>
             {
                 map(payload, (result, key) => (
                   <div key={key}>
@@ -80,23 +80,21 @@ CustomTooltip.propTypes = {
   label: PropTypes.string
 };
 
-class MovieChart extends React.Component {
-  render () {
-    return (
-      <BarChart height={400} width={600} data={this.props.data} margin={{top: 5, right: 5, bottom: 5, left: 5}}>
-        <XAxis dataKey='label' tick={<CustomizedAxisTick />} />
-        <YAxis type='number' domain={[0, 10]} />
-        <Tooltip content={<CustomTooltip />} />
-        <Legend align='center' height={36} />
-        <CartesianGrid strokeDasharray='3 3' />
-        <ReferenceLine y={10} stroke='red' strokeDasharray='3 3' />
-        <Bar dataKey='Internet Movie Database' barSize={20} fill='#000000' />
-        <Bar dataKey='Rotten Tomatoes' barSize={20} fill='#016936' />
-        <Bar dataKey='Metacritic' barSize={20} fill='#0E6EB8' />
-      </BarChart>
-    );
-  }
-}
+const MovieChart = ({data}) => {
+  return (
+    <BarChart height={400} width={600} data={data} margin={{top: 5, right: 5, bottom: 5, left: 5}}>
+      <XAxis dataKey='label' tick={<CustomizedAxisTick />} />
+      <YAxis type='number' domain={[0, 10]} />
+      <Tooltip content={<CustomTooltip />} />
+      <Legend align='center' height={36} />
+      <CartesianGrid strokeDasharray='3 3' />
+      <ReferenceLine y={10} stroke='red' strokeDasharray='3 3' />
+      <Bar dataKey='Internet Movie Database' barSize={20} fill='#000000' />
+      <Bar dataKey='Rotten Tomatoes' barSize={20} fill='#016936' />
+      <Bar dataKey='Metacritic' barSize={20} fill='#0E6EB8' />
+    </BarChart>
+  );
+};
 
 MovieChart.propTypes = {
   data: PropTypes.array.isRequired,

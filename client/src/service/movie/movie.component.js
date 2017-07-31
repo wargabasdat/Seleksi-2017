@@ -6,14 +6,10 @@ import { fetchMovie } from './movie.action';
 import { map, reduce, sortBy, filter } from 'lodash';
 import AppLayout from '../../common/AppLayout';
 import notFoundImage from '../../common/resources/imageNotFound.jpg';
-import Month from '../../common/Month';
+import { Month, capitalizeFirstLetter } from '../../common/Common';
 import MovieChart from './components/movie.chart';
+import EmbedVideo from './components/movie.video';
 import RatingLabel from '../../common/RatingLabel';
-
-
-const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 class Movie extends React.Component {
   constructor (props) {
@@ -21,6 +17,10 @@ class Movie extends React.Component {
     this.props.fetchMovie(this.props.match.params.id);
     this.normalizeChart = this.normalizeChart.bind(this);
     this.state = { modalOpen: true };
+  }
+
+  componentDidUpdate(prevProps, prevStates) {
+    
   }
 
   handleClose = () => this.setState({modalOpen: false});
@@ -90,89 +90,122 @@ class Movie extends React.Component {
 
   render () {
     const {error, movie} = this.props.state;
-    let container = error ? (<div>{error}</div>) : (
-      <div>
-        {
-          movie &&
-          <Segment>
-            <Grid>
-              <Grid.Column width={4}>
-                {movie.poster_path && <div>Poster:<Image src={'http://image.tmdb.org/t/p/w500/' + movie.poster_path} /><Divider section /></div>}
-                {movie.backdrop_path && <div><Image src={'http://image.tmdb.org/t/p/w500/' + movie.backdrop_path} /><Divider section /></div>}
-                {movie.alternative_image !== 'N/A' && <div><Header as='h3'>Alternative image : </Header><Image src={movie.alternative_image} /><Divider section /></div>}
-                {!movie.backdrop_path && movie.alternative_image === 'N/A' && <Image src={notFoundImage} />}
-              </Grid.Column>
-              <Grid.Column width={9}>
-                <Container text>
-                  <Header as='h2'>{movie.title}</Header>
-                  <Label color='black' as='a' href={'http://imdb.com/title/' + movie.imdb_id}>
-                    <Icon name='imdb' color='yellow'/>
-                    id :
-                    <Label.Detail>{movie.imdb_id}</Label.Detail>
-                  </Label><br />
-                  <Header as='h4'>{movie.genres ? <div>{map(map(movie.genres, 'name'), (val, idx) => (
-                    <Label as={Link} to={'/genre/' + val} key={idx}>{val}</Label>
-                  ))}</div> : null}</Header>
-                  <Header as='h4'>{movie.release_date ? <div>Release date: {new Date(movie.release_date).toLocaleDateString()}</div> : null} </Header>
-                  <Header as='h4'>TMDb vote average :
-                    <Popup
-                      key={movie.vote_average}
-                      trigger={<Rating rating={Math.round(Number(movie.vote_average))} maxRating={10} disabled />}
-                      header='TMDb Rating'
-                      content={<div>{movie.vote_average} from {movie.vote_count} votes </div>}
-                    />
-                  </Header>
-                  <Header as='h5'>{movie.adult === 'true' ? <Label color='red'>Adult</Label> : <Label color='teal'>Not adult</Label>}</Header>
-                  <Divider section />
-                  <Header as='h4'>Plot : </Header>
-                  <p>{movie.plot}</p>
-                  <Divider section />
-                  <Header as='h4'>Ratings this month ({capitalizeFirstLetter(Month)}) : </Header>
-                  <RatingLabel rating={movie.rating} />
-                  <Divider section />
-                  <MovieChart data={this.normalizeChart(movie.rating)} month={capitalizeFirstLetter(Month)} />
-                </Container>
-              </Grid.Column>
-            </Grid>
-          </Segment>
-        }
-        {
-          !movie &&
-          <p>movie not found</p>
-        }
-        {
-          movie.adult !== 'false' &&         
-          <Modal
-            open={this.state.modalOpen}
-            onClose={this.handleClose}
-            closeOnEscape={false}
-            closeOnDimmerClick={false}
-            closeOnDocumentClick={false}
-            closeOnRootNodeClick={false}
-            closeOnPortalMouseLeave={false}
-            closeOnTriggerMouseLeave={false}
-            closeOnTriggerBlur={false}
-            closeOnTriggerClick={false}
-            dimmer
-            size='small'
-          >
-            <Header icon='warning' color='red' content='Warning, Adult Content!' />
-            <Modal.Content>
-              <h2>Are you sure you are 18+?</h2><br />
-              <h3>If not, we will redirect you back to homepage, be safe!</h3>
-            </Modal.Content>
-            <Modal.Actions>
-              <Button as={Link} to='/' color='green' onClick={this.handleClose} inverted positive>
-                <Icon name='checkmark' /> No
-              </Button>
-              <Button color='red' onClick={this.handleClose} inverted negative>
-                <Icon name='warning sign' /> Yes
-              </Button>
-            </Modal.Actions>
-          </Modal>
-        }
-      </div>
-      );
+    let container = error ? 
+        (
+          <div>{error}</div>
+        ) 
+      : 
+        (
+          <div>
+            {
+              movie &&
+              <Segment>
+                <Grid>
+                  <Grid.Column width={4}>
+                    {movie.poster_path && <div>Poster:<Image src={'http://image.tmdb.org/t/p/w500/' + movie.poster_path} /><Divider section /></div>}
+                    {movie.backdrop_path && <div><Image src={'http://image.tmdb.org/t/p/w500/' + movie.backdrop_path} /><Divider section /></div>}
+                    {movie.alternative_image !== 'N/A' && <div><Header as='h3'>Alternative image : </Header><Image src={movie.alternative_image} /><Divider section /></div>}
+                    {!movie.backdrop_path && movie.alternative_image === 'N/A' && <Image src={notFoundImage} />}
+                  </Grid.Column>
+                  <Grid.Column width={9}>
+                    <Container text>
+                      <Header as='h2'>{movie.title}</Header>
+                      {
+                        movie.imdb_id && 
+                        <div>
+                          <Label color='black' as='a' href={'http://imdb.com/title/' + movie.imdb_id}>
+                            <Icon name='imdb' color='yellow'/>
+                            id :
+                            <Label.Detail>{movie.imdb_id}</Label.Detail>
+                          </Label><br />
+                        </div>
+                      }
+                      <Header as='h4'>{
+                        movie.genres ? 
+                          <div>{
+                            map(
+                              map(movie.genres, 'name'), (val, idx) => (
+                                <Label as={Link} to={'/genre/' + val} key={idx} content={val} />
+                            ))
+                          }</div> 
+                        : null
+                      }</Header>
+                      <Header as='h4'>
+                        {
+                          movie.release_date ? 
+                              <div>Release date: {new Date(movie.release_date).toLocaleDateString()}</div> 
+                            : 
+                              null
+                        } 
+                      </Header>
+                      <Header as='h4'>TMDb vote average :
+                        <Popup
+                          key={movie.vote_average}
+                          trigger={<Rating rating={Math.round(Number(movie.vote_average))} maxRating={10} disabled />}
+                          header='TMDb Rating'
+                          content={<div>{movie.vote_average} from {movie.vote_count} votes </div>}
+                        />
+                      </Header>
+                      <Header as='h5'>
+                        {
+                          movie.adult === 'true' ? 
+                              <Label color='red'>Adult</Label> 
+                            : 
+                              <Label color='teal'>Not adult</Label>
+                        }
+                      </Header>
+                      <Divider section />
+                        <Header as='h4'>Plot : </Header>
+                          <p>{movie.plot || 'N/A'}</p>
+                      <Divider section />
+                        <EmbedVideo movie_id={movie.id} />
+                      <Divider section />
+                        <Header as='h4'>Ratings this month ({capitalizeFirstLetter(Month)}) : </Header>
+                          <RatingLabel rating={movie.rating} />
+                      <Divider section />
+                        <MovieChart data={this.normalizeChart(movie.rating)} month={capitalizeFirstLetter(Month)} />
+                    </Container>
+                  </Grid.Column>
+                </Grid>
+              </Segment>
+            }
+            {
+              !movie &&
+              <p>movie not found</p>
+            }
+            {
+              movie.adult !== 'false' &&         
+              <Modal
+                open={this.state.modalOpen}
+                onClose={this.handleClose}
+                closeOnEscape={false}
+                closeOnDimmerClick={false}
+                closeOnDocumentClick={false}
+                closeOnRootNodeClick={false}
+                closeOnPortalMouseLeave={false}
+                closeOnTriggerMouseLeave={false}
+                closeOnTriggerBlur={false}
+                closeOnTriggerClick={false}
+                dimmer
+                size='small'
+              >
+                <Header icon='warning' color='red' content='Warning, Adult Content!' />
+                <Modal.Content>
+                  <h2>Are you sure you are 18+?</h2><br />
+                  <h3>If not, we will redirect you back to homepage, be safe!</h3>
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button as={Link} to='/' color='green' onClick={this.handleClose} inverted positive>
+                    <Icon name='checkmark' /> No
+                  </Button>
+                  <Button color='red' onClick={this.handleClose} inverted negative>
+                    <Icon name='warning sign' /> Yes
+                  </Button>
+                </Modal.Actions>
+              </Modal>
+            }
+          </div>
+        );
 
     return (
       <div>

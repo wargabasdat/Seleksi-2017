@@ -4,7 +4,7 @@ import { Label, Icon, Image } from 'semantic-ui-react';
 import { map } from 'lodash';
 import metacritic from './resources/metacritic.svg';
 import rotten from './resources/rotten.svg';
-import Month from './Month';
+import { Month } from './Common';
 
 class RatingLabel extends React.Component {
   render () {

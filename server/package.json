@@ -10,7 +10,7 @@
         "dev": "nodemon server.js",
         "updateMovie": "node ./app/components/tmdb-script",
         "transferMovie": "node ./app/components/tmdb-script --transfer-data",
-        "start:prod": "node server.js"
+        "start:prod": "NODE_ENV=production node server.js"
     },
     "repository": {
         "type": "git",

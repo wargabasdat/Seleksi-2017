@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Search, Label, Grid, Image } from 'semantic-ui-react';
-import { filter, escapeRegExp, take, pick, keys, map, transform } from 'lodash';
+import { filter, escapeRegExp, pick, keys, map, transform } from 'lodash';
 import imageNotFound from './resources/imageNotFound.jpg';
 import { fetchMovie } from '../service/movie/movie.action';
 
@@ -49,7 +49,7 @@ class SearchComponent extends React.Component {
 
       this.setState({
         isLoading: false,
-        results: take(newArray, 10),
+        results: newArray,
       })
     }, 500)
   }

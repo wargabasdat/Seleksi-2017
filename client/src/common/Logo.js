@@ -1,18 +1,20 @@
-// ./app/views/js/components/common/AboutPage.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {Header, Icon} from 'semantic-ui-react';
 
-const Logo = () => {
+const Logo = ({ type }) => {
   return (
-    <Header as='h3' inverted color='teal'>
-      <Icon name='film' />
-      <Header.Content>
-        movieFreak
-        <Header.Subheader>
-          A helping hand for movie enthusiast
-        </Header.Subheader>
-      </Header.Content>
-    </Header>
+    <Link to='/'>
+      <Header as={type} inverted color='teal'>
+        <Icon name='film' />
+        <Header.Content>
+          movieFreak
+          <Header.Subheader>
+            A helping hand for movie enthusiast
+          </Header.Subheader>
+        </Header.Content>
+      </Header>
+    </Link>
   );
 };
 

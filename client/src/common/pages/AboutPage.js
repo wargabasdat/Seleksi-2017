@@ -4,26 +4,31 @@ import AppLayout from '../AppLayout';
 import { Segment, Container, Grid, Message } from 'semantic-ui-react';
 import Logo from '../Logo';
 import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
 
 class About extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      readme: null,
-      license: null
+      readme: {
+        data: null,
+        error: null
+      },
+      license: {
+        data: null,
+        error: null
+      }
     };
   }
 
   componentWillMount () {
-    fetch('https://raw.githubusercontent.com/ironlota/Seleksi-2017/master/README.md')
-    .then((data) => data.text())
-    .then((res) => this.setState({readme: res}))
-    .catch(err => (err));
+    axios.get('https://raw.githubusercontent.com/ironlota/Seleksi-2017/master/README.md')
+    .then(res => this.setState({readme: {data: res.data}}))
+    .catch(err => this.setState({readme: {error: err}}));
 
-    fetch('https://raw.githubusercontent.com/ironlota/Seleksi-2017/master/LICENSE.md')
-    .then((data) => data.text())
-    .then((res) => { console.log(res); this.setState({license: res}); })
-    .catch(err => (err));
+    axios.get('https://raw.githubusercontent.com/ironlota/Seleksi-2017/master/LICENSE.md')
+    .then(res => this.setState({license: {data: res.data}}))
+    .catch(err => this.setState({license: {error: err}}));
   }
 
   render () {
@@ -46,38 +51,28 @@ class About extends React.Component {
         </Segment>
         <Segment inverted>
           <Container text>
-            {this.state.readme && this.state.readme !== '404: Not Found' && <ReactMarkdown source={this.state.readme ? this.state.readme : ''} />}
             {
-              this.state.readme && this.state.readme === '404: Not Found' &&
-              <Message negative>
-                <Message.Header>README.MD not found!</Message.Header>
-                <p>Make sure your link is valid</p>
-              </Message>
-            }
+              !this.state.readme.error && this.state.readme.data &&
+              <ReactMarkdown source={this.state.readme.data || ''} />}
             {
-              !this.state.readme &&
+              this.state.readme.error && !this.state.readme.data &&
               <Message negative>
-                <Message.Header>Cannot fetch README.MD</Message.Header>
-                <p>Check your internet connection</p>
+                <Message.Header>Error while fetching README.MD</Message.Header>
+                <p>{this.state.readme.error.message}</p>
               </Message>
             }
           </Container>
         </Segment>
         <Segment inverted>
           <Container text>
-            {this.state.license && this.state.license !== '404: Not Found' && <ReactMarkdown source={this.state.license ? this.state.license : ''} />}
             {
-              this.state.license && this.state.license === '404: Not Found' &&
-              <Message negative>
-                <Message.Header>LICENSE.MD not found!</Message.Header>
-                <p>Make sure your link is valid</p>
-              </Message>
-            }
+              !this.state.license.error && this.state.license.data &&
+              <ReactMarkdown source={this.state.license.data || ''} />}
             {
-              !this.state.license &&
+              this.state.license.error && !this.state.license.data &&
               <Message negative>
-                <Message.Header>Cannot fetch LICENSE.MD</Message.Header>
-                <p>Check your internet connection</p>
+                <Message.Header>Error while fetching LICENSE.MD</Message.Header>
+                <p>{this.state.license.error.message}</p>
               </Message>
             }
           </Container>
