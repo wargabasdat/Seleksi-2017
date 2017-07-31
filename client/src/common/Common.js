@@ -17,7 +17,7 @@ const date = new Date();
 export const Month = monthNames[date.getMonth()];
 
 export const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
 export const monthCapital = capitalizeFirstLetter(Month);

@@ -24,13 +24,17 @@ Installed :
 ### Installing
 
 ```
+(sudo) npm install -g yarn
 wget https://github.com/ironlota/movieFreak/archive/master.zip
 unzip master.zip
 cd movieFreak-master
-(sudo) docker-compose build
+yarn (install root dependency)
+yarn install (install client and server dependency)
+(sudo) docker-compose build (it will take a little longer)
 ```
 
 ### Running
+PS: if you got internal server error, try it on your incognito mode browser
 
 For development
 ```

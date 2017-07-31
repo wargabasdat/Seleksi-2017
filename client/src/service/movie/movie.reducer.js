@@ -1,5 +1,5 @@
-import {FETCH_MOVIE_FULFILLED, FETCH_MOVIE_REJECTED, FETCH_MOVIE_PENDING} from './movie.constants';
-import {REHYDRATE} from 'redux-persist/constants';
+import { FETCH_MOVIE_FULFILLED, FETCH_MOVIE_REJECTED, FETCH_MOVIE_PENDING } from './movie.constants';
+import { REHYDRATE } from 'redux-persist/constants';
 
 export const initialState = {
   fetching: false,
@@ -10,37 +10,42 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_MOVIE_PENDING: {
-      return {
-        ...state,
-        fetching: true
-      };
-    }
-    case FETCH_MOVIE_REJECTED: {
-      return {
-        ...state,
-        fetching: false,
-        error: action.payload
-      };
-    }
-    case FETCH_MOVIE_FULFILLED: {
-      return {
-        ...state,
-        fetching: false,
-        fetched: true,
-        movie: action.payload
-      };
-    }
-    case REHYDRATE: {
-      let movie = action.payload.movie;
-      if (movie) {
+    case FETCH_MOVIE_PENDING:
+      {
         return {
           ...state,
-          ...movie
+          fetching: true
         };
       }
-      return state;
-    }
+    case FETCH_MOVIE_REJECTED:
+      {
+        return {
+          ...state,
+          fetching: false,
+          error: action.payload
+        };
+      }
+    case FETCH_MOVIE_FULFILLED:
+      {
+        return {
+          ...state,
+          fetching: false,
+          fetched: true,
+          movie: action.payload
+        };
+      }
+    case REHYDRATE:
+      {
+        let movie = action.payload.movie || initialState;
+        if (movie) {
+          return {
+            ...state,
+            ...movie,
+            error: null
+          };
+        }
+        return state;
+      }
     default:
       return state;
   }
