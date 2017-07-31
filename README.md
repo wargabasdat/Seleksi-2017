@@ -1,4 +1,4 @@
-# ![ssLogo](https://raw.githubusercontent.com/ironlota/Seleksi-2017/create-react-app/client/screenshot/ssLogo.png)
+# ![ssLogo](https://raw.githubusercontent.com/ironlota/Seleksi-2017/create-react-app/client/screenshot/ssLogo.png) <!-- .element align="center" -->
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 [![Build Status](https://travis-ci.org/ironlota/Seleksi-2017.svg?branch=master)](https://travis-ci.org/ironlota/Seleksi-2017)
 [![dependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017)
