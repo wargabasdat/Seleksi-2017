@@ -24,9 +24,9 @@ Installed :
 ### Installing
 
 ```
-wget https://github.com/ironlota/Seleksi-2017/archive/master.zip
+wget https://github.com/ironlota/movieFreak/archive/master.zip
 unzip master.zip
-cd Seleksi-2017-master
+cd movieFreak-master
 (sudo) docker-compose build
 ```
 
