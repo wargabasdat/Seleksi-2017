@@ -1,0 +1,44 @@
+{
+    "name": "moviefreaks",
+    "version": "1.0.0",
+    "description": "A helping-hand for movie enthusiast",
+    "main": "server.js",
+    "scripts": {
+        "semistandard": "semistandard --fix | snazzy",
+        "standard": "standard --fix | snazzy",
+        "lint": "eslint . --fix | snazzy",
+        "dev": "nodemon server.js",
+        "updateMovie": "node ./app/components/tmdb-script",
+        "transferMovie": "node ./app/components/tmdb-script --transfer-data",
+        "start:prod": "NODE_ENV=production node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ironlota/Seleksi-2017.git"
+    },
+    "keywords": [
+        "movie"
+    ],
+    "author": "Ray Andrew and Adrian HP",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ironlota/Seleksi-2017/issues"
+    },
+    "homepage": "https://github.com/ironlota/Seleksi-2017#readme",
+    "dependencies": {
+        "api-error-handler": "^1.0.0",
+        "bluebird": "^3.5.0",
+        "body-parser": "^1.17.2",
+        "config": "^1.26.1",
+        "express": "latest",
+        "fs-readdir-recursive": "^1.0.0",
+        "method-override": "^2.3.9",
+        "mongoose": "^4.11.1",
+        "request": "^2.81.0",
+        "steed": "^1.1.3",
+        "winston": "^2.3.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    }
+}
