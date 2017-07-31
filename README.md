@@ -39,8 +39,14 @@ For development
 
 For production
 ```
-- (sudo) docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+- (sudo) docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d (it will take a little longer)
 - open your browser at http://localhost:3000
+```
+
+For updating movie (beware, if you get error message, it means you did not run it via docker container)
+```
+- yarn updateMovie (retrive data to tmpMovies collection)
+- yarn transferMovie (move from tmpMovies collection to mainMovies collection)
 ```
 
 '-d' means that it will be running on the background, if you want to see the log, just erase '-d'

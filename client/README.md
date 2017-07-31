@@ -5,7 +5,7 @@
 [![devDependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017/dev-status.svg)
 [![License: MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-ReactJS client for movieFreak
+ReactJS client for movieFreak using create-react-app
 
 ## Version
 
