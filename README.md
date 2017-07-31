@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ironlota/Seleksi-2017/create-react-app/client/screenshot/ssLogo.png">
+  <img src="https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/ssLogo.png">
 </p>
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
@@ -53,9 +53,9 @@ For updating movie (beware, if you get error message, it means you did not run i
 '-d' means that it will be running on the background, if you want to see the log, just erase '-d'
 
 ### Screenshot
-![s1](https://raw.githubusercontent.com/ironlota/Seleksi-2017/create-react-app/client/screenshot/s1.png) <!-- .element height="50%" width="50%" -->
-![s2](https://raw.githubusercontent.com/ironlota/Seleksi-2017/create-react-app/client/screenshot/s2.png) <!-- .element height="50%" width="50%" -->
-![s3](https://raw.githubusercontent.com/ironlota/Seleksi-2017/create-react-app/client/screenshot/s3.png) <!-- .element height="50%" width="50%" -->
+![s1](https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/s1.png) <!-- .element height="50%" width="50%" -->
+![s2](https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/s2.png) <!-- .element height="50%" width="50%" -->
+![s3](https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/s3.png) <!-- .element height="50%" width="50%" -->
 
 ## Version
 
