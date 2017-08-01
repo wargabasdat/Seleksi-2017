@@ -10,7 +10,7 @@
 [![LiveAtHeroku](https://img.shields.io/badge/live%20at-moviefreak.herokuapp.com-blue.svg)](<http://moviefreak.herokuapp.com>)
 
 # <http://moviefreak.herokuapp.com>
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ironlota/movieFreak/tree/heroku)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ironlota/movieFreak)
 
 ## Getting Started
 
@@ -54,7 +54,7 @@ For production
 
 For updating movie (beware, if you get error message, it means you did not run it via docker container)
 ```
-- yarn updateMovie (retrive data to tmpMovies collection)
+- yarn updateMovie (update rating, popularity, etc in mainMovies collection)
 - yarn transferMovie (move from tmpMovies collection to mainMovies collection)
 ```
 
