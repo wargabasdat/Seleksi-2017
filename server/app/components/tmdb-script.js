@@ -9,10 +9,10 @@ const { STEP } = require('./tmdb_script/Constants');
 program
     .version('1.0.9')
     .option('-t, --transfer-data', 'Transfer data from temporary to main collections.')
-    .option('-s, --step', 'Start from a specific step i.e. `movies`, `images`, `videos`, `keywords`, `similar`, `credits`, `people`')
+    .option('-s, --step', 'Start from a specific step i.e. `movies`, `images`, `videos`, `keywords`, `similar`, `credits`, `people`, `update`')
     .parse(process.argv);
 
 let { transferData } = program;
 
-let targetStep = program.hasOwnProperty('step') ? program.args[1] : STEP.MOVIES;
+let targetStep = program.hasOwnProperty('step') ? program.args[0] : STEP.MOVIES;
 TmdbScript.start(targetStep, transferData);

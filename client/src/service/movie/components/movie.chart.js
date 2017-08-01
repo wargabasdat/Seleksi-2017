@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { map } from 'lodash';
 import { Label, Icon, Segment, Image } from 'semantic-ui-react';
 import metacritic from '../../../common/resources/metacritic.svg';
-import { monthCapital } from '../../../common/Common';
 import rotten from '../../../common/resources/rotten.svg';
 
 class CustomizedAxisTick extends React.Component {
@@ -26,7 +25,7 @@ class CustomTooltip extends React.Component {
       return (
         <Segment>
           <Label.Group>
-            <Label color='teal'><Icon name='calendar' />{monthCapital}</Label>
+            <Label color='teal'><Icon name='calendar' />{payload[0].name || ''}</Label>
             {
                 map(payload, (result, key) => (
                   <div key={key}>

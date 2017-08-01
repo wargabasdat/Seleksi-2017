@@ -8,7 +8,7 @@
         "standard": "standard --fix | snazzy",
         "lint": "eslint . --fix | snazzy",
         "dev": "nodemon server.js",
-        "updateMovie": "node ./app/components/tmdb-script",
+        "updateMovie": "node ./app/components/tmdb-script -s update",
         "transferMovie": "node ./app/components/tmdb-script --transfer-data",
         "start:prod": "NODE_ENV=production node server.js"
     },

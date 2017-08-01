@@ -21,6 +21,7 @@ module.exports = {
     PEOPLE_DOWNLOADED: 'people-downloaded',
     TRANSFER_NEW_DATA: 'transfer-new-data',
     NEW_DATA_TRANSFERRED: 'new-data-transferred',
+    UPDATE_MOVIE: 'update-movie',
     ERROR: 'error',
     EXIT: 'exit'
   },
@@ -31,6 +32,7 @@ module.exports = {
     KEYWORDS: 'keywords',
     CREDITS: 'credits',
     SIMILAR: 'similar',
-    PEOPLE: 'people'
+    PEOPLE: 'people',
+    UPDATE: 'update'
   }
 };

@@ -50,7 +50,7 @@ winston.log('verbose', 'Opening connection to MongoDB...');
 const mongoose = require('mongoose');
 
 mongoose.Promise = bluebird.Promise;
-mongoose.connect(config.get('mongodb')['url'], { useMongoClient: true }).then(
+mongoose.connect(process.env.MONGODB || config.get('mongodb')['url'], { useMongoClient: true }).then(
   () => {
     winston.verbose('Connect successfully with MongoDB');
   },
