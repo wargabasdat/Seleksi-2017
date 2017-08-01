@@ -25,7 +25,7 @@ class CustomTooltip extends React.Component {
       return (
         <Segment>
           <Label.Group>
-            <Label color='teal'><Icon name='calendar' />{payload[0].name || ''}</Label>
+            <Label color='teal'><Icon name='calendar' />{payload[0].payload.name || ''}</Label>
             {
                 map(payload, (result, key) => (
                   <div key={key}>
