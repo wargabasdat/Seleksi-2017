@@ -30,12 +30,11 @@ class Genre extends React.Component {
     });
 
     arr = sortBy(arr, (o => {
-      return map(o.rating, val => {
-        return map(val[Month], (result) => {
-          return result.Source === 'Internet Movie Database' ? parseFloat(result.Value) : 0;
-        });
-      })
+        return o.rating[0] ? map(o.rating[0][Month], val => {
+              return val.Source === 'Internet Movie Database' ? parseFloat(val.Value) : 0;
+        }) : 0;
     })).reverse();
+
     return map(arr, (result, key) => (
       <Item key={key} as={Link} to={'/movie/' + result.id}>
         {result.poster_path && <Item.Image src={'http://image.tmdb.org/t/p/w185/' + result.poster_path} />}

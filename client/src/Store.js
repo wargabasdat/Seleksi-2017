@@ -17,7 +17,7 @@ const epicMiddleware = createEpicMiddleware(epics, {
 });
 
 const browserHistory = createHistory();
-const middleware = applyMiddleware(createLogger(), routerMiddleware(browserHistory));
+const middleware = process.env.NODE_ENV === 'development' ? applyMiddleware(createLogger(), routerMiddleware(browserHistory)) : applyMiddleware(routerMiddleware(browserHistory));
 
 let store = composeEnhancers ? (
     createStore(
