@@ -4,8 +4,7 @@
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 [![Build Status](https://travis-ci.org/ironlota/movieFreak.svg?branch=master)](https://travis-ci.org/ironlota/movieFreak)
-[![dependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017)
-[![devDependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017/dev-status.svg)
+[![dependencies](https://david-dm.org/ironlota/movieFreak.svg)](https://david-dm.org/ironlota/movieFreak)
 [![License: MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![LiveAtHeroku](https://img.shields.io/badge/live%20at-moviefreak.herokuapp.com-blue.svg)](<http://moviefreak.herokuapp.com>)
 
