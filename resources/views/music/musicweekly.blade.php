@@ -16,5 +16,7 @@
 	 	 </tr>
 		@endforeach
 		</table>
+
+		@include('layouts.disqus')
     </div>
 @endsection

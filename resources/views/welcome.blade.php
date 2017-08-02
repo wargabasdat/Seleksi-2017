@@ -3,7 +3,7 @@
 @section('content')
         <div class="flex-center position-ref full-height">
                 <div class="top-right links">
-                    <a href="{{ url('/music/search') }}"><i class="fa fa-search fa-2x" aria-hidden="true" style="color:white"></i>&ensp;Search </a>
+                    <a href="{{ url('/music/search') }}"><i class="fa fa-search fa-1x" aria-hidden="true" style="color:white"></i>&ensp;Search </a>
                 </div>
 
             <div class="content">
