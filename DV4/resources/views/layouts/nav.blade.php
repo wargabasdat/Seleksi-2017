@@ -1,3 +1,6 @@
+  <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
     <nav class="navbar fix-top navbar-inverse bg-inverse navbar-toggleable-md">
         <h2 class="navbar-brand" href="#">Dashboard</h2>
         <div class="collapse navbar-collapse">
