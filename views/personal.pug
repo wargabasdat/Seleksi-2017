@@ -1,0 +1,81 @@
+extends layout
+
+block content
+    
+  .personal
+    nav.navbar.navbar-default.navbar-fixed-top
+      div.container-fluid
+       div.container
+        div.navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#")
+            img.nav-logo.center-block(src="/images/logo-sm.png")
+          
+        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li
+              a(href="#")
+                b PERSONAL INFORMATION
+                span.sr-only
+        div.other-menus
+          a(href="/personal").fa.fa-user-circle-o
+          a(href="/regional").fa.fa-map-o
+          a(href="/").fa.fa-sign-out
+    .list.col-md-6.col-md-offset-3
+        .section.status
+          .list-header
+              div.list-title
+                b STATUS : SICK
+          .list-body
+                .person Name : Uvuvwevwe Ossas (65839B)
+                .disease-list Possible disease : Cancer, AIDS, Hepatitis
+        .section.physical
+          .list-header
+              div.list-title
+                b PHYSICAL INFORMATION
+          .list-body
+                .image-container
+                    ul.human-body
+                      li(style="width: 120px; height: 60px;")
+                          a(href="#", style="background-position: 76px -462px;")
+                              span
+                                  strong Fore Head
+                                  | Physical injuries near eyes
+                      li(style="width: 70px; height: 50px; top: 33px; left: 102px;")
+                          a(href="#", style="background-position: -55px -462px;")
+                              span
+                                  strong Neck
+                                  | Muscle inflammation
+                    
+        .section.organ
+          .list-header
+              div.list-title
+                b ORGAN INFORMATION
+          .list-body
+                .image-container
+                    .human-organ
+                      .organ-part.col-xs-12.col-sm-6
+                          a
+                            img.col-xs-4.col-sm-6(src="/images/organ/Liver.svg")
+                            span.col-xs-8.col-sm-6
+                                strong Liver
+                                br
+                                | Partial decayed on the top of Liver, Darken Liver top layer
+                      .organ-part.col-xs-12.col-sm-6
+                          a
+                            img.col-xs-4.col-sm-6(src="/images/organ/Lung.svg")
+                            span.col-xs-8.col-sm-6
+                                strong Lung
+                                br
+                                | Broken part near left bronkhiolus, Decayed on some of alveolis
+                      .organ-part.col-xs-12.col-sm-6
+                          a
+                            img.col-xs-4.col-sm-6(src="/images/organ/Lung.svg")
+                            span.col-xs-8.col-sm-6
+                                strong Lung
+                                br
+                                | Broken part near left bronkhiolus, Decayed on some of alveolis

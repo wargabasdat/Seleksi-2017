@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    
+  .personal
+    nav.navbar.navbar-default.navbar-fixed-top
+      div.container-fluid
+       div.container
+        div.navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#")
+            img.nav-logo.center-block(src="/images/logo-sm.png")
+          
+        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li
+              a(href="#")
+                b REGIONAL INFORMATION
+                span.sr-only
+        div.other-menus
+          a(href="/personal").fa.fa-user-circle-o
+          a(href="/regional").fa.fa-map-o
+          a(href="/").fa.fa-sign-out
+    .list.col-xs-12.col-md-5.col-md-offset-1
+      ul.regional-map
+        li.north-cimahi
+          a(href="#")
+              span
+                  strong North Cimahi
+                  | Population : 100.000 ekor
