@@ -5,9 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import InstantSearch from 'vue-instantsearch';
+
 require('./bootstrap');
 
+
 window.Vue = require('vue');
+
+Vue.use(InstantSearch);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

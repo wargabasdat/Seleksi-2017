@@ -19,6 +19,10 @@
     <!-- Styles -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/logo.png') }}"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Algolia -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.2/dist/instantsearch.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.2/dist/instantsearch-theme-algolia.min.css">
     <style>
         html, body {
                 background-color: #404040;
@@ -45,29 +49,43 @@
                          0 0 20px #01a378;
         }
         .links > a {
-                color: #fff;
-                padding: 0 25px;
-                font-size: 27px;
-                font-weight: 600;
-                letter-spacing: .2rem;
-                font-style: italic;
+            color: #fff;
+            padding: 0 25px;
+            font-size: 27px;
+            font-weight: 600;
+            letter-spacing: .2rem;
+            font-style: italic;
         }
         .links > a:hover {
             text-decoration: none;
         }
+        .block-center {
+            align-items: center;
+            display: block;
+            justify-content: center;
+        }
+        .centerized {
+            align-items: center;
+            justify-content: center;
+            text-align:  center;
+        }
+
+        #pagination-container {
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    <div id="app">
         <div class="top-left links title">
                 <a href="{{ url('/') }}">Musikinian.com</a>
         </div>
         <div class="content">
             @yield('content')
         </div>
-    </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.2/dist/instantsearch.min.js"></script>
+    <script src="{{ asset('js/search.js') }}"></script>
 </body>
 </html>

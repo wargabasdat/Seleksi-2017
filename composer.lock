@@ -4,8 +4,108 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "93622008b7dcef9467e86261446f6f34",
+    "content-hash": "8bf6ca6250510f7b3420a9b7309e3cc1",
     "packages": [
+        {
+            "name": "algolia/algoliasearch-client-php",
+            "version": "1.18.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/algolia/algoliasearch-client-php.git",
+                "reference": "77aeb5f3856c1460432e2ccb9df5634c37c0b9f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/77aeb5f3856c1460432e2ccb9df5634c37c0b9f3",
+                "reference": "77aeb5f3856c1460432e2ccb9df5634c37c0b9f3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "satooshi/php-coveralls": "0.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AlgoliaSearch": "src/",
+                    "AlgoliaSearch\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Algolia Team",
+                    "email": "contact@algolia.com"
+                },
+                {
+                    "name": "Ryan T. Catlin",
+                    "email": "ryan.catlin@gmail.com"
+                },
+                {
+                    "name": "Jonathan H. Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Algolia Search API Client for PHP",
+            "homepage": "https://github.com/algolia/algoliasearch-client-php",
+            "time": "2017-05-22T14:50:28+00:00"
+        },
+        {
+            "name": "algolia/laravel-scout-settings",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/algolia/laravel-scout-settings.git",
+                "reference": "78159fc9cd3787c57516974e8d869a0ee4de0612"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/algolia/laravel-scout-settings/zipball/78159fc9cd3787c57516974e8d869a0ee4de0612",
+                "reference": "78159fc9cd3787c57516974e8d869a0ee4de0612",
+                "shasum": ""
+            },
+            "require": {
+                "algolia/algoliasearch-client-php": "^1.10",
+                "laravel/scout": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Algolia\\Settings\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Algolia\\Settings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julien Bourdeau",
+                    "email": "julien.bourdeau@algolia.com"
+                }
+            ],
+            "description": "Import/Export Algolia settings into your Laravel Scout project",
+            "keywords": [
+                "algolia",
+                "laravel",
+                "search"
+            ],
+            "time": "2017-07-27T08:42:10+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -365,6 +465,71 @@
             "time": "2017-07-19T19:26:19+00:00"
         },
         {
+            "name": "laravel/scout",
+            "version": "v3.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/scout.git",
+                "reference": "b899432186096dacc90700d5320d95cc3db1efe1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/b899432186096dacc90700d5320d95cc3db1efe1",
+                "reference": "b899432186096dacc90700d5320d95cc3db1efe1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/bus": "~5.4",
+                "illuminate/contracts": "~5.4",
+                "illuminate/database": "~5.4",
+                "illuminate/pagination": "~5.4",
+                "illuminate/queue": "~5.4",
+                "illuminate/support": "~5.4",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "algolia/algoliasearch-client-php": "^1.10",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~5.0"
+            },
+            "suggest": {
+                "algolia/algoliasearch-client-php": "Required to use the Algolia engine (^1.10)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Scout\\ScoutServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Scout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel Scout provides a driver based solution to searching your Eloquent models.",
+            "keywords": [
+                "algolia",
+                "laravel",
+                "search"
+            ],
+            "time": "2017-07-12T18:42:43+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v1.0.2",
             "source": {
@@ -589,52 +754,6 @@
             "time": "2017-06-19T01:22:40+00:00"
         },
         {
-            "name": "msankhala/parsehub-php",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/msankhala/parsehub-php.git",
-                "reference": "dbfa5d75010dd0e0f60319e5cab21d1c71fa9a2f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/msankhala/parsehub-php/zipball/dbfa5d75010dd0e0f60319e5cab21d1c71fa9a2f",
-                "reference": "dbfa5d75010dd0e0f60319e5cab21d1c71fa9a2f",
-                "shasum": ""
-            },
-            "require": {
-                "monolog/monolog": "~1.13",
-                "nategood/httpful": "0.2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Parsehub": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mahesh Sankhala",
-                    "email": "mahesh.saini@srijan.in"
-                }
-            ],
-            "description": "Php wrapper classes for Parsehub REST api.",
-            "homepage": "http://msankhala.wordpress.com",
-            "keywords": [
-                "api",
-                "curl",
-                "http",
-                "parsehub",
-                "rest",
-                "restful"
-            ],
-            "time": "2015-08-25T07:23:48+00:00"
-        },
-        {
             "name": "mtdowling/cron-expression",
             "version": "v1.2.0",
             "source": {
@@ -677,56 +796,6 @@
                 "schedule"
             ],
             "time": "2017-01-23T04:29:33+00:00"
-        },
-        {
-            "name": "nategood/httpful",
-            "version": "0.2.20",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nategood/httpful.git",
-                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nategood/httpful/zipball/c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
-                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Httpful": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nate Good",
-                    "email": "me@nategood.com",
-                    "homepage": "http://nategood.com"
-                }
-            ],
-            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
-            "homepage": "http://github.com/nategood/httpful",
-            "keywords": [
-                "api",
-                "curl",
-                "http",
-                "requests",
-                "rest",
-                "restful"
-            ],
-            "time": "2015-10-26T16:11:30+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -2377,6 +2446,52 @@
             "time": "2017-02-28T12:52:32+00:00"
         },
         {
+            "name": "msankhala/parsehub-php",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/msankhala/parsehub-php.git",
+                "reference": "dbfa5d75010dd0e0f60319e5cab21d1c71fa9a2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/msankhala/parsehub-php/zipball/dbfa5d75010dd0e0f60319e5cab21d1c71fa9a2f",
+                "reference": "dbfa5d75010dd0e0f60319e5cab21d1c71fa9a2f",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "~1.13",
+                "nategood/httpful": "0.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Parsehub": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mahesh Sankhala",
+                    "email": "mahesh.saini@srijan.in"
+                }
+            ],
+            "description": "Php wrapper classes for Parsehub REST api.",
+            "homepage": "http://msankhala.wordpress.com",
+            "keywords": [
+                "api",
+                "curl",
+                "http",
+                "parsehub",
+                "rest",
+                "restful"
+            ],
+            "time": "2015-08-25T07:23:48+00:00"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.6.1",
             "source": {
@@ -2417,6 +2532,56 @@
                 "object graph"
             ],
             "time": "2017-04-12T18:52:22+00:00"
+        },
+        {
+            "name": "nategood/httpful",
+            "version": "0.2.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nategood/httpful.git",
+                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nategood/httpful/zipball/c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
+                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Httpful": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Good",
+                    "email": "me@nategood.com",
+                    "homepage": "http://nategood.com"
+                }
+            ],
+            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
+            "homepage": "http://github.com/nategood/httpful",
+            "keywords": [
+                "api",
+                "curl",
+                "http",
+                "requests",
+                "rest",
+                "restful"
+            ],
+            "time": "2015-10-26T16:11:30+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

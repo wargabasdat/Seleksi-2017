@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/music/search', function() {
+	$date = (new \DateTime())->format('Y-m-d');
+	return view('vue', compact('date'));
+});
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/music', 'MusicController@index');
 
