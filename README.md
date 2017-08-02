@@ -3,7 +3,7 @@
 </p>
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
-[![Build Status](https://travis-ci.org/ironlota/Seleksi-2017.svg?branch=master)](https://travis-ci.org/ironlota/Seleksi-2017)
+[![Build Status](https://travis-ci.org/ironlota/movieFreak.svg?branch=master)](https://travis-ci.org/ironlota/movieFreak)
 [![dependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017)
 [![devDependencies](https://david-dm.org/ironlota/Seleksi-2017.svg)](https://david-dm.org/ironlota/Seleksi-2017/dev-status.svg)
 [![License: MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
