@@ -1,8 +1,7 @@
 // ./app/views/js/components/common/AboutPage.js
 import React from 'react';
 import AppLayout from '../AppLayout';
-import { Segment, Container, Grid, Message } from 'semantic-ui-react';
-import Logo from '../Logo';
+import { Segment, Container, Message } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 
