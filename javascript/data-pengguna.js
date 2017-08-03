@@ -230,10 +230,10 @@ var pendidikan_kamboja_2015 = 993829;
 var komersial_kamboja_2015 = 637279;
 var layananpublik_kamboja_2015 = 928291;
 
-var pengguna_kamboja_2016 = 1756824
+var pengguna_kamboja_2016 = 1756824;
 var medsos_kamboja_2016 = 1472919;
 var hiburan_kamboja_2016 = 1263527;
 var berita_kamboja_2016 = 1382932;
-var pendidikan_kamboja_2016 = 1261291;
+var pendidikan_kamboja_2016 = 1561291;
 var komersial_kamboja_2016 = 827151;
-var layananpublik_kamboja_2016 = 1026212;
+var layananpublik_kamboja_2016 = 1026212
