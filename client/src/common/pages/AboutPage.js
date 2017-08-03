@@ -33,22 +33,7 @@ class About extends React.Component {
 
   render () {
     return (
-      <AppLayout section='notFound' inverted>
-        <Segment inverted>
-          <Grid columns='equal'>
-            <Grid.Column>
-              <Segment inverted />
-            </Grid.Column>
-            <Grid.Column width={4}>
-              <Segment inverted>
-                <Logo />
-              </Segment>
-            </Grid.Column>
-            <Grid.Column>
-              <Segment floated='right' inverted />
-            </Grid.Column>
-          </Grid>
-        </Segment>
+      <AppLayout section='about' inverted>
         <Segment inverted>
           <Container text>
             {
