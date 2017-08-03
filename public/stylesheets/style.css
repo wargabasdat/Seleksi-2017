@@ -182,15 +182,17 @@ ul.human-body, ul.regional-map {
 }
 
 ul.human-body {
-    width: 600px;
+    width: 500px;
     height: 440px;
     background: url(/images/human-body.png) no-repeat 0 0;
+    margin: 0px auto;
 }
 
 ul.regional-map {
     width: 400px;
-    height: 600px;
-	background: url(/images/regional.png) no-repeat 0 0;
+    height: 700px;
+    background: url(/images/regional.png) no-repeat 0 0;
+    margin: -30px auto 0px;
 }
 
 ul.human-body li, ul.regional-map li{
@@ -229,6 +231,10 @@ ul.human-body li a:hover span, ul.regional-map li a:hover span {
     z-index: 1;
 }
 
+ul.regional-map li a:hover span {
+    left: 50%;
+}
+
 ul.human-body li a:hover span strong, ul.regional-map li a:hover span strong {
     display: block;
 	margin-bottom: 2px;
@@ -251,11 +257,33 @@ ul.human-body li a:hover span strong, ul.regional-map li a:hover span strong {
 /* Regional Page */
 
 ul.regional-map li.north-cimahi a:hover {
-    background-position: -406px 46px;
+    background-position: -456px 24px;
 }
 
 .north-cimahi {
-    width: 180px; height: 250px; left: 40px;
+    width: 200px;
+    height: 250px;
+    top: 28px;
+    left: 46px;
+}
+
+.sub-body {
+    margin-bottom: 20px;
+}
+
+.sub-title {
+    margin-right: 15px;
+    font-weight: 600;
+}
+
+.data-table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.data-table tr th, .data-table tr td {
+    border: 1px solid #ffffff;
+    padding: 5px;
 }
 
 /* Responsive Settings */
