@@ -6,6 +6,7 @@
   "repository": "https://github.com/ironlota/Seleksi-2017.git",
   "author": "ironlota <raydreww@gmail.com>",
   "scripts": {
+    "upgradeAll": "concurrently \"yarn upgrade\" \"cd client && yarn upgrade\" \"cd server && yarn upgrade\"",
     "build": "cd client && yarn build",
     "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
     "heroku-postbuild": "yarn build",
