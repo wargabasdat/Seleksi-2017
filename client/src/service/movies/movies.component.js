@@ -63,7 +63,7 @@ class Movies extends React.Component {
         {
               movies.constructor === Array &&
               <Segment>
-                <Card.Group itemsPerRow={2}>
+                <Card.Group itemsPerRow={2} stackable doubling>
                   {movieComponent}
                 </Card.Group>
                 <Pagination items={movies} onChangePage={this.onChangePages} urlParent='/' page={page || 1} />

@@ -86,7 +86,7 @@ class Genre extends React.Component {
   render() {
     const { error } = this.props.state;
     const container = error ? (<div>{error}</div>) : (
-      <Grid>
+      <Grid stackable>
         <Grid.Column width={4}>
           <Menu fluid vertical tabular>
             {this.listAllGenre()}

@@ -38,7 +38,7 @@ class AppLayout extends React.Component {
           </Sidebar>
           <Sidebar.Pusher>
             <Segment inverted>
-              <Grid columns='equal'>
+              <Grid columns='equal' stackable>
                 <Grid.Column>
                   <Segment inverted><Button icon='block layout' onClick={this.toggleVisibility} /></Segment>
                 </Grid.Column>
