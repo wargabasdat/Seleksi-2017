@@ -1,0 +1,90 @@
+extends layout
+
+block content
+
+  .input
+    nav.navbar.navbar-default.navbar-fixed-top
+      div.container-fluid
+       div.container
+        div.navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#")
+            img.nav-logo.center-block(src="/images/logo-sm.png")
+          
+        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li
+              a(href="#")
+                b INPUT FORM
+                span.sr-only
+        div.other-menus
+          a(href="/personal").fa.fa-user-circle-o
+          a(href="/regional").fa.fa-map-o
+          a(href="/").fa.fa-sign-out
+    .col-xs-12.col-md-6.col-md-offset-3
+      .div.error
+        p= error
+        p(id="notif")
+      form(action="/personal", method="post")
+        .form-group.a
+            .section
+                .list-title Basic Information
+                input.input-field.form-control(type="text", name="id", placeholder="ID", id="fields" required)
+                input.input-field.form-control(type="text", name="name", placeholder="Name", id="fields")
+            .section
+                .list-title Hearth Information
+                input.input-field.form-control(type="text", name="hearth-tension", placeholder="Hearth Tension", id="fields")
+                input.input-field.form-control(type="text", name="hearth-color", placeholder="Hearth Color", id="fields")
+            .section
+                .list-title Kidney Information
+                input.input-field.form-control(type="text", name="kidney-size", placeholder="Kidney Size", id="fields")
+                input.input-field.form-control(type="text", name="kidney-humidity", placeholder="Kidney Humidity", id="fields")
+                input.input-field.form-control(type="text", name="kidney-texture", placeholder="Kidney Texture", id="fields")
+            .section
+                .list-title Liver Information
+                input.input-field.form-control(type="text", name="liver-color", placeholder="Liver Color", id="fields")
+                input.input-field.form-control(type="text", name="liver-liquid", placeholder="Liver Liquid Color", id="fields")
+            .section
+                .list-title Lung Information
+                input.input-field.form-control(type="text", name="lung-texture", placeholder="Lung Texture", id="fields")
+                input.input-field.form-control(type="text", name="lung-liquid", placeholder="Lung Liquid Viscosity", id="fields")
+                input.input-field.form-control(type="text", name="lung-pressure", placeholder="Lung Liquid Viscosity", id="fields")
+            .section
+                .list-title Small Intestine Information
+                input.input-field.form-control(type="text", name="s-intestine-thickness", placeholder="Small Intestine Thickness", id="fields")
+                input.input-field.form-control(type="text", name="s-intestine-radius", placeholder="Small Intestine Radius", id="fields")
+            .section
+                .list-title Fore Head Information
+                input.input-field.form-control(type="text", name="fore-head-index", placeholder="Fore Head Cranium Index", id="fields")
+            .section
+                .list-title Upper Hand Information
+                input.input-field.form-control(type="text", name="upper-hand-index", placeholder="Upper Hand Index", id="fields")
+            .section
+                .list-title Upper Hand Information
+                input.input-field.form-control(type="text", name="lower-hand-index", placeholder="Lower Hand Index", id="fields")
+            .section
+                .list-title Back Information
+                input.input-field.form-control(type="text", name="back-index", placeholder="Back Index", id="fields")
+            .section
+                .list-title Back Foot Information
+                input.input-field.form-control(type="text", name="back-foot-index", placeholder="Back Foot Index", id="fields")
+            .section
+                button.input-field.submit-field(type="submit", id="submit_btn", disabled) Submit
+
+  script.
+    // Form input checking
+    var fields = document.getElementById('fields');
+    var notif = document.getElementById('notif');
+    var submit_btn = document.getElementById('submit_btn');
+    fields.onkeyup = function() {
+        if(fields.value.length < 2){
+            notif.innerHTML = 'Please fill out all fields'
+        }else{
+            notif.innerHTML = '';
+            submit_btn.disabled = false;
+        }
+    }

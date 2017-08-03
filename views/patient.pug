@@ -1,0 +1,64 @@
+extends layout
+
+block content
+
+  .input
+    nav.navbar.navbar-default.navbar-fixed-top
+      div.container-fluid
+       div.container
+        div.navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#")
+            img.nav-logo.center-block(src="/images/logo-sm.png")
+          
+        div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li
+              a(href="#")
+                b LIST OF PATIENT
+                span.sr-only
+        div.other-menus
+          a(href="/personal").fa.fa-user-circle-o
+          a(href="/regional").fa.fa-map-o
+          a(href="/").fa.fa-sign-out
+    .col-xs-12.col-md-6.col-md-offset-3
+        .section
+          .list-header
+              .list-title
+                b PATIENTS
+          .list-body
+            .sub-body
+              table.patient-table
+                tr
+                  th ID
+                  th NAME
+                  th GENDER
+                  th AGE
+                tr
+                  td 
+                    a(href="/personal") 101
+                  td Uvuvweve Ossas
+                  td Male
+                  td 100
+                tr
+                  td
+                    a(href="/personal") 90
+                  td Danccuu
+                  td Male
+                  td 50
+                tr
+                  td
+                    a(href="/personal") 181
+                  td Oneng oneng
+                  td Famale
+                  td 20
+                tr
+                  td
+                    a(href="/personal") 1918
+                  td Pingwin
+                  td Male
+                  td 28

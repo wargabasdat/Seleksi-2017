@@ -17,7 +17,17 @@ router.get('/regional', function(req, res, next) {
   res.render('regional', { title: 'HealthCare | Regional Information' });
 });
 
-/* POST home page */
+/* Get input page */
+router.get('/input', function(req, res, next) {
+  res.render('input', { title: 'HealthCare | Input Page' });
+});
+
+/* Get people page */
+router.get('/patient', function(req, res, next) {
+  res.render('patient', { title: 'HealthCare | List Of Patient' });
+});
+
+/* POST regional page */
 router.post('/regional', function(req, res, next) {
   res.render('regional', { title: 'HealthCare | Regional Information' });
 });

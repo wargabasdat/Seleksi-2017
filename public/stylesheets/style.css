@@ -6,13 +6,17 @@ body {
   background-color: #1B2527;
 }
 
-.index, .personal{
+.index, .personal, .input{
     height: 100%;
     width: 100%;
     min-width: 550px;
 }
 
-/* Index Page */
+.input {
+    margin-top: 100px;
+}
+
+/* Index Page (and some of Input Page) */
 
 .index{
     background-color: #101415;
@@ -29,7 +33,7 @@ body {
     padding-bottom: 25px;
 }
 
-.signin{
+.input-field {
     margin: 6px auto;
 }
 
@@ -58,7 +62,7 @@ body {
     color: #cfd8dc;
 }
 
-.index button{
+.submit-field{
     width: 100%;
     background-color: transparent;
     border: 0.5px rgba(255,255,255,0.7) solid;
@@ -283,6 +287,17 @@ ul.regional-map li.north-cimahi a:hover {
 
 .data-table tr th, .data-table tr td {
     border: 1px solid #ffffff;
+    padding: 5px;
+}
+
+/* Patient Page */
+
+.patient-table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.patient-table tr td, .patient-table tr th {
     padding: 5px;
 }
 

@@ -12,22 +12,22 @@ block content
         p(id="pnotif")
       form(action="/regional", method="post")
         .form-group.a
-          .signin    
+          .input-field    
             input.form-control(type="text", name="username_or_email", placeholder="Email atau Username", id="username")
-          .signin
+          .input-field
             input.form-control(type="password", name="password", placeholder="Password", id="password")
-          .signin
-            button(type="submit", id="login", disabled) Log In
-          .signin    
+          .input-field
+            button.submit-field(type="submit", id="login", disabled) Log In
+          .input-field    
             a.forgot-btn(href="#", id="forgot", onclick="undev(3)") Lupa password?
       .form-group.b
-        .signin
-          button.passport(type="submit", id="facebook", onclick="undev(1)") Log In dengan Facebook
-        .signin
-          button.passport(type="submit", id="twitter", onclick="undev(2)") Log In dengan Twitter
-        .signin
+        .input-field
+          button.passport.submit-field(type="submit", id="facebook", onclick="undev(1)") Log In dengan Facebook
+        .input-field
+          button.passport.submit-field(type="submit", id="twitter", onclick="undev(2)") Log In dengan Twitter
+        .input-field
           p.note.a HealthCare tidak akan post apapun tanpa persetujuan kamu
-        .signin
+        .input-field
           p.note.b Belum Punya ID HealthCare? 
             b
              a(href="#", id="new", onclick="undev(4)") Daftar sekarang
