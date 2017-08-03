@@ -73,6 +73,11 @@ For updating movie (beware, if you get error message, it means you did not run i
 * **Ray Andrew** - [Ironlota](https://github.com/ironlota)
 * **Adrian HP** - [Adrian HP](https://github.com/adrianhp97)
 
+## Credits
+* **OMDb** - [Open Movie Database API](http://www.omdbapi.com/)
+* **TMDb** - [The Movie Database API](https://www.themoviedb.org/)
+* **D-Andreev** - [D-Andreev](https://github.com/D-Andreev) for his [tmdb-script](https://github.com/D-Andreev/tmdb-script)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
