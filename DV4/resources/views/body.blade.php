@@ -1,4 +1,4 @@
-@include('layouts.master')
+@extends('layouts.master')
 
 @section('content')
         <script type="text/javascript" src="{{ asset('js/plotlyjs-bundle.js') }}"></script>
@@ -41,3 +41,4 @@
                 
            }());
         </script>
+@endsection
