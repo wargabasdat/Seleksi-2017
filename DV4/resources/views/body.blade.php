@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head><meta charset="utf-8" /></head>
-    <body>
-        @include('layouts.nav')
+@include('layouts.master')
+
+@section('content')
         <script type="text/javascript" src="{{ asset('js/plotlyjs-bundle.js') }}"></script>
             
             
@@ -43,5 +41,3 @@
                 
            }());
         </script>
-    </body>
-</html>
