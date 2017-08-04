@@ -1,0 +1,40 @@
+extends layout
+
+block content
+
+  .index
+    .col-xs-12.col-md-6.col-md-offset-3
+      .logo
+        img.center-block(src="/images/logo.png")
+      .error
+        if (message.length > 0)
+          .alert.alert-danger= message
+      form(action="/signup", method="post")
+        .form-group.a
+          .input-field
+            input.form-control.signup(type="text", name="email", placeholder="Email", id="email")
+          .input-field
+            input.form-control.signup(type="password", name="password", placeholder="Password", id="password")
+          .input-field
+            input.form-control.signup(type="text", name="name", placeholder="Name", id="name")
+          .input-field
+            input.form-control(type="date", name="birthday", placeholder="Date of Birthday", id="birthday", required="required")
+          .input-field
+            label(for="gender") Gender
+            select.form-control(name="gender", id="gender")
+              option(value="famale") Famale
+              option(value="male") Male
+          .input-field
+            label(for="kecamatan") Kecamatan
+            select.form-control(name="kecamatan", id="kecamatan")
+              option(value="cipageran") Cipageran
+              option(value="citeureup") Citereup
+              option(value="cibabat") Cibabat
+          .input-field
+            button.submit-field(type="submit", id="signup") Sign Up
+          .input-field
+            p.note.a HealthCare will not post your information without your permission
+          .input-field
+            p.note.b Already Registered? 
+              b
+               a(href="/") Login HealthCare

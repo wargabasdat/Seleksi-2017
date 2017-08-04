@@ -24,7 +24,7 @@ block content
         .other-menus
           a(href="/personal").fa.fa-user-circle-o
           a(href="/regional").fa.fa-map-o
-          a(href="/").fa.fa-sign-out
+          a(href="/logout").fa.fa-sign-out
     .list.col-md-6.col-md-offset-3
         .section.status
           .list-header
@@ -36,7 +36,7 @@ block content
                 tr
                   td 
                     .sub-title Name
-                  td Uvuvwevwe Ossas (65839B)
+                  td #{user.local.name} (#{user.id})
                 tr
                   td
                     .sub-title Gender

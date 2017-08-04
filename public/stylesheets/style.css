@@ -33,11 +33,23 @@ body {
     padding-bottom: 25px;
 }
 
+::-webkit-datetime-edit-text {
+    color: #cfd8dc;
+}
+
+::-webkit-inner-spin-button {
+    display: none;
+}
+
+::-webkit-calendar-picker-indicator:hover {
+    background-color: #334142;
+}
+
 .input-field {
     margin: 6px auto;
 }
 
-.form-control{
+.form-control {
     background-color: #334142;
     border: 0;
     box-shadow: none;
@@ -48,6 +60,10 @@ body {
 
 .form-control::-webkit-input-placeholder{
     color: #cfd8dc;
+}
+
+.signup::-webkit-input-placeholder{
+    color: #FFF;
 }
 
 .form-control:-moz-placeholder{

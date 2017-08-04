@@ -1,35 +1,61 @@
-var express = require('express');
-var router = express.Router();
-var request = require('request-promise');
+module.exports = function(app, passport) {
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'HealthCare' });
-});
+  /* GET home page. */
+  app.get('/', function(req, res, next) {
+    res.render('index', { 
+    	title: 'HealthCare',
+    	message: req.flash('loginMessage')
+    });
+  });
 
-/* Get personal page */
-router.get('/personal', function(req, res, next) {
-  res.render('personal', { title: 'HealthCare | Personal Information' });
-});
+  /* POST home page (login) */
+  app.post('/', passport.authenticate('local-login', {
+        successRedirect : '/personal', // redirect to the secure profile section
+        failureRedirect : '/', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
 
-/* Get regional page */
-router.get('/regional', function(req, res, next) {
-  res.render('regional', { title: 'HealthCare | Regional Information' });
-});
+  /* GET sign up Page */
+  app.get('/signup', function(req, res) {
+    res.render('signup', {
+      title: 'HealthCare | Sign Up',
+      message: req.flash('signupMessage')
+    });
+  });
 
-/* Get input page */
-router.get('/input', function(req, res, next) {
-  res.render('input', { title: 'HealthCare | Input Page' });
-});
+  /* POST sign up page */
+  app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect : '/personal', // redirect to the secure profile section
+      failureRedirect : '/signup', // redirect back to the signup page if there is an error
+      failureFlash : true // allow flash messages
+  }));
 
-/* Get people page */
-router.get('/patient', function(req, res, next) {
-  res.render('patient', { title: 'HealthCare | List Of Patient' });
-});
+  /* GET personal page */
+  app.get('/personal', isLoggedIn, function(req, res, next) {
+    res.render('personal', { 
+    		title: 'HealthCare | Personal Information',
+    		user : req.user
+  	});
+  });
 
-/* POST regional page */
-router.post('/regional', function(req, res, next) {
-  res.render('regional', { title: 'HealthCare | Regional Information' });
-});
+  /* GET regional page */
+  app.get('/regional', isLoggedIn, function(req, res){
+    res.render('regional', {
+      title : 'HealthCare | Regional Information'
+    });
+  });
 
-module.exports = router;
+  /* BREAK session (logout) */
+  app.get('/logout', function(req, res) {
+  	req.logout();
+  	res.redirect('/');
+  });
+
+};
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
+}
