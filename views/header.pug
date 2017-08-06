@@ -1,0 +1,22 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+   .container
+    .navbar-header
+      button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href="#")
+        img.nav-logo.center-block(src="/images/logo-sm.png")
+      
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      ul.nav.navbar-nav
+        li
+          a(href="#")
+            b= header
+            span.sr-only
+    .other-menus
+      a(href="/personal").fa.fa-user-circle-o
+      a(href="/regional/5987258a05182a8aa49b7793").fa.fa-map-o
+      a(href="/logout").fa.fa-sign-out
