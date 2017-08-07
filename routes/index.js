@@ -42,32 +42,53 @@ module.exports = function(app, passport) {
   	});
   });
 
+  /* GET personal page */
+  app.get('/personal/:_id', isLoggedIn, function(req, res, next) {
+    if (req.user.local.email === 'admin') {
+      var id = req.params._id;
+      Users.find({_id : id}, function (err, user) {
+        res.render('personal', { 
+            title: 'HealthCare | Personal Information',
+            header : 'PERSONAL INFORMATION',
+            user : user[0]
+        });
+        console.log(user);
+      })
+    } else {
+      res.redirect('/personal');
+    }
+  });
+
   /* GET regional page */
   app.get('/regional/:_id', isLoggedIn, function(req, res){
     var _id = req.params._id;
-    console.log(_id);
     Kecamatan.get(_id, function (err, kecamatan){
-      if (err) {
-        res.status(500);
-        res.json({_message: err});
-      } else {
-        Users.count({'local.status' : 'SICK', 'local.kecamatan': kecamatan.name }, function (err, sick_num){
-            if (err) {
-              res.status(500);
-              res.json({_message: err});
-            } else {
-              Users.find({'local.status' : 'SICK', 'local.kecamatan' : kecamatan.name}, function (err, patients){
-                res.render('regional', {
-                  title : 'HealthCare | Regional Information',
-                  header : 'REGIONAL INFORMATION',
-                  kecamatan : kecamatan,
-                  sick_num : sick_num,
-                  patients : patients
-                });
-              })
-            }
-        })
-      }
+      Kecamatan.find({}, function (err , list_kec){
+
+        if (err) {
+          res.status(500);
+          res.json({_message: err});
+        } else {
+          Users.count({'local.status' : 'SICK', 'local.kecamatan': kecamatan.name }, function (err, sick_num){
+              if (err) {
+                res.status(500);
+                res.json({_message: err});
+              } else {
+                Users.find({'local.status' : 'SICK', 'local.kecamatan' : kecamatan.name}, function (err, patients){
+                  res.render('regional', {
+                    title : 'HealthCare | Regional Information',
+                    header : 'REGIONAL INFORMATION',
+                    kecamatan : kecamatan,
+                    sick_num : sick_num,
+                    patients : patients,
+                    list_kec : list_kec
+                  });
+                })
+              }
+          })
+        }
+
+      })
     })
   });
 
@@ -79,12 +100,21 @@ module.exports = function(app, passport) {
     });
   });
 
-    /* GET input page */
-  app.get('/patient', isLoggedIn, function(req, res){
-    res.render('patient', {
-      title : 'HealthCare | List Of Patient',
-      header : 'LIST OF PATIENT'
-    });
+  /* GET personal page */
+  app.get('/patient/:_kec', isLoggedIn, function(req, res, next) {
+    if (req.user.local.email === 'admin') {
+      var _kec = req.params._kec;
+      Users.find({'local.kecamatan' : _kec, 'local.status' : 'SICK'}, function (err, users) {
+        res.render('patient', { 
+            title: 'HealthCare | List Of Patient',
+            header : 'LIST OF PATIENT',
+            users : users
+        });
+        console.log(users);
+      })
+    } else {
+      res.redirect('/personal');
+    }
   });
 
   /* BREAK session (logout) */

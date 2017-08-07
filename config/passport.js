@@ -66,6 +66,7 @@ module.exports = function(passport) {
                 newUser.local.birthday = req.body.birthday;
                 newUser.local.gender   = req.body.gender;
                 newUser.local.kecamatan= req.body.kecamatan;
+                newUser.local.status   = 'HEALTHY';
 
                 newUser.save(function(err) {
                     if (err)

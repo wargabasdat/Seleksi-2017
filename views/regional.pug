@@ -2,7 +2,6 @@ extends layout
 
 block content
   
-  - console.log (patients)
   - var diseases = []
   - var diseases_unique = []
   - var diseases_num = []
@@ -30,18 +29,39 @@ block content
   -     }
   -   } 
   - }
-  - console.log(diseases)
-  - console.log(diseases_unique)
-  - console.log(diseases_num)
   .personal
     include header
     .list.col-xs-12.col-md-5.col-md-offset-1
       ul.regional-map
-        li.north-cimahi
-          a(href="#")
+        - var k = list_kec.length
+        - for (var i = 0; i < k; i++){
+        li(style='width:'+ list_kec[i].width +'; height:' + list_kec[i].height + '; top:' + list_kec[i].top + '; left: ' + list_kec[i].left + ';')
+            a(href="/regional/"+list_kec[i]._id , style="background-position: " + list_kec[i].bg_x + " " + list_kec[i].bg_y + ";")
               span
-                  strong #{kecamatan.name}
-                  | Population : #{kecamatan.population}
+                  strong= list_kec[i].name
+                  | Population : 
+                  = list_kec[i].population
+        - }
+        //- li(style='width: 115px; height: 140px; top: 153px; left: 178px;')
+        //-   a(href="#", style="background-position: -690px -20px;")
+        //- li(style='width: 108px; height: 156px; top: 233px; left: 209px;')
+        //-   a(href="#", style="background-position: -830px -10px;")
+        //- li(style='width: 88px; height: 105px; top: 290px; left: 280px;')
+        //-   a(href="#", style="background-position: -839px -195px;")
+        //- li(style='width: 140px; height: 100px; top: 267px; left: 30px;')
+        //-   a(href="#", style="background-position: -490px -260px;")
+        //- li(style='width: 72px; height: 87px; top: 298px; left: 101px;')
+        //-   a(href="#", style="background-position: -675px -268px;")
+        //- li(style='width: 79px; height: 55px; top: 273px; left: 161px;')
+        //-   a(href="#", style="background-position: -667px -181px;")
+        //- li(style='width: 93px; height: 86px; top: 312px; left: 133px;')
+        //-   a(href="#", style="background-position: -813px -318px;")
+        //- li(style='width: 97px; height: 95px; top: 372px; left: 96px;')
+        //-   a(href="#", style="background-position: -635px -383px;")
+        //- li(style='width: 102px; height: 147px; top: 352px; left: 181px;')
+        //-   a(href="#", style="background-position: -804px -433px;")
+        //- li(style='width: 110px; height: 170px; top: 335px; left: -1px;')
+        //-   a(href="#", style="background-position: -462px -390px;")
     .list.col-xs-12.col-md-5
       .list-header
           div.list-title
@@ -79,7 +99,7 @@ block content
                   td
                     .sub-title Personal Data
                   td
-                    a(href="/patient") Click Here
+                    a(href="/patient/" + kecamatan.name) Click Here
       .list-header
           div.list-title
             b DATA TABLE
@@ -98,7 +118,7 @@ block content
                   td= diseases_num[i]
                   - var x = diseases_num[i]
                   - var y = kecamatan.population
-                  - var xy = (x/y)*100
+                  - var xy = parseFloat(Math.round(x * 100) / y).toFixed(4);
                   td= xy
                 - }
             .sub-body
@@ -133,8 +153,8 @@ block content
                   -       }
                   -     }
                   - }
-                  - var m_percent = (male/y)*100
-                  - var f_percent = (famale/y)*100
+                  - var m_percent = parseFloat(Math.round(male * 100) / y).toFixed(4);
+                  - var f_percent = parseFloat(Math.round(famale * 100) / y).toFixed(4);
                   td= male
                   td= famale
                   td= m_percent
@@ -164,7 +184,6 @@ block content
                   -     var bday = new Date(patients[j].local.birthday + 'Z')
                   -     var today = new Date()
                   -     var age = today.getFullYear() - bday.getFullYear()
-                  -     console.log(age)
                   -     for (var k = 0; k < o; k++) {
                   -       if (patients[j].organ_disease[k].name === diseases_unique[i]) {
                   -          if (age >= 1 && age <= 15) A++

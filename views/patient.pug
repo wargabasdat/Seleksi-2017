@@ -13,31 +13,18 @@ block content
             .sub-body
               table.patient-table
                 tr
+                  th NO
                   th ID
                   th NAME
                   th GENDER
-                  th AGE
+                  th BIRTHDAY
+                - var n = users.length
+                - for( var i = 0; i < n; i++){                  
                 tr
-                  td 
-                    a(href="/personal") 101
-                  td Uvuvweve Ossas
-                  td Male
-                  td 100
-                tr
+                  td= i+1
                   td
-                    a(href="/personal") 90
-                  td Danccuu
-                  td Male
-                  td 50
-                tr
-                  td
-                    a(href="/personal") 181
-                  td Oneng oneng
-                  td Famale
-                  td 20
-                tr
-                  td
-                    a(href="/personal") 1918
-                  td Pingwin
-                  td Male
-                  td 28
+                    a(href="/personal/" + users[i]._id)= users[i]._id
+                  td= users[i].local.name
+                  td= users[i].local.gender
+                  td= users[i].local.birthday
+                - }

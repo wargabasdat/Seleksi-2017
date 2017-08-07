@@ -6,7 +6,13 @@ var ObjectId = mongoose.Types.ObjectId;
 var kecamatanSchema = new Schema({
 	_id			: Schema.ObjectId,
 	name		: String,
-	population	: Number
+	population	: Number,
+	width		: String,
+	height		: String,
+	top			: String,
+	left		: String,
+	bg_x		: String,
+	bg_y		: String
 });
 
 var Kecamatan = mongoose.model('Kecamatan', kecamatanSchema);
