@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var chart = $("#bar-chartcanvas");
+	var chart = $("#bar-chartcanvas2016");
 	
 	var pengguna = {
 		labels : [""],
