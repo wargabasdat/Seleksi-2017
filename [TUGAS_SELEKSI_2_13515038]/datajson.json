@@ -1,0 +1,1505 @@
+callback_test({
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90495000000000036521896618069149553775787353515625,
+                    107.6269999999999953388396534137427806854248046875
+                ]
+            },
+            "properties": {
+                "name": "Karnivor Restaurant",
+                "address": "Jl. L. L. R.E. Martadinata No.127, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 7103111"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.911319999999999907913661445491015911102294921875,
+                    107.631000000000000227373675443232059478759765625
+                ]
+            },
+            "properties": {
+                "name": "Sonoma Cafe|Resto",
+                "address": "Jl. Bengawan No.33, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 7208287"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.87436999999999986954435371444560587406158447265625,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "Feast Restaurant",
+                "address": "JL. Insinyur Haji Juanda no 390, Sheraton Bandung Hotel & Towers, Dago, Coblong, Kota Bandung, Jawa Barat 40135",
+                "phone": "(022) 2500303"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.921739999999999781721271574497222900390625,
+                    107.618999999999999772626324556767940521240234375
+                ]
+            },
+            "properties": {
+                "name": "Rose Flower Restaurant",
+                "address": "Jl. Jend. A. Yani No.32, Burangrang, Lengkong, Kota Bandung, Jawa Barat 40262",
+                "phone": "(022) 7301136"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8829299999999999926103555480949580669403076171875,
+                    107.614000000000004320099833421409130096435546875
+                ]
+            },
+            "properties": {
+                "name": "Tizi Cake Shop & Restaurant",
+                "address": "Jl. Kidang Pananjung No.3, Dago, Coblong, Kota Bandung, Jawa Barat 40135",
+                "phone": "(022) 2504963"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.92668000000000017024603948812000453472137451171875,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Atmosphere Resort Cafe",
+                "address": "Jalan Lengkong Besar No.97, Kota Bandung, Jawa Barat 40261",
+                "phone": "(022) 4262815"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9284999999999996589394868351519107818603515625,
+                    107.623999999999995225152815692126750946044921875
+                ]
+            },
+            "properties": {
+                "name": "Dapoer Pandan Wangi",
+                "address": "Jalan Patuha No. 38 Talaga Bodas, Lingkar Selatan, Lengkong, Lkr. Sel., Lengkong, Kota Bandung, Jawa Barat 40263",
+                "phone": "(022) 7309718"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91739000000000014978240869822911918163299560546875,
+                    107.6089999999999946567186270840466022491455078125
+                ]
+            },
+            "properties": {
+                "name": "Braga Permai Resto & Cake Shop",
+                "address": "Jalan Braga No.58, Braga, Sumur Bandung, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+                "phone": "(022) 4233778"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86521999999999987807086654356680810451507568359375,
+                    107.6269999999999953388396534137427806854248046875
+                ]
+            },
+            "properties": {
+                "name": "The Stone Cafe",
+                "address": "Jalan Raya Ranca Kendal Luhur No.5, Gerbang Dago Resort Dago Atas, Dago, Coblong, Ciburial, Bandung, Jawa Barat 40198",
+                "phone": "(022) 2500577"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.88093999999999983430143402074463665485382080078125,
+                    107.5990000000000037516656448133289813995361328125
+                ]
+            },
+            "properties": {
+                "name": "Saka Bistro & Bar",
+                "address": "Jl. Karangsari, Pasteur, Sukajadi, Kota Bandung, Jawa Barat 40161",
+                "phone": "(022) 2039651"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.87980999999999998095745468162931501865386962890625,
+                    107.5979999999999989768184605054557323455810546875
+                ]
+            },
+            "properties": {
+                "name": "Porto Restaurant",
+                "address": "Jl. Setiabudhi No.53, Pasteur, Sukajadi, Kota Bandung, Jawa Barat 40161",
+                "phone": "(022) 2041993"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90681000000000011596057447604835033416748046875,
+                    107.5979999999999989768184605054557323455810546875
+                ]
+            },
+            "properties": {
+                "name": "Kehidupan Tidak Pernah Berakhir",
+                "address": "Jalan Pajajaran No.63, Pasir Kaliki, Cicendo, Pasir Kaliki, Cicendo, Kota Bandung, Jawa Barat 40171",
+                "phone": "(022) 4205445"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91307000000000027029045668314211070537567138671875,
+                    107.5969999999999942019712761975824832916259765625
+                ]
+            },
+            "properties": {
+                "name": "Purnawarman Restaurant",
+                "address": "Hotel Hilton Bandung Lt. Dasar, Jl. HOS Tjokrokroaminoto No. 41 - 43, Arjuna, Cicendo, Kota Bandung, Jawa Barat 40172",
+                "phone": "(022) 86066888"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.905499999999999971578290569595992565155029296875,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "Paviliun Sunda",
+                "address": "Kelurahan Cihapit, Jl. R.E. Martadinata No.97, Citarum, Sumur Bandung, Kota Bandung, Jawa Barat 40113",
+                "phone": "(022) 4267700"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9046900000000004382627594168297946453094482421875,
+                    107.6219999999999998863131622783839702606201171875
+                ]
+            },
+            "properties": {
+                "name": "Glosis Restaurant",
+                "address": "Jl. Citarum No.12, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 87831501"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8721800000000001773514668457210063934326171875,
+                    107.6280000000000001136868377216160297393798828125
+                ]
+            },
+            "properties": {
+                "name": "Warung Lela (WALE)",
+                "address": "Jl. Kupa No.6, Cigadung, Cibeunying Kaler, Kota Bandung, Jawa Barat 40135",
+                "phone": "(022) 2501396"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.88562999999999991729282555752433836460113525390625,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "VERDE RESTO AND LOUNGE",
+                "address": "JALAN INSINYUR HAJI JUANDA NO 177, BANDUNG, Jawa Barat 40132",
+                "phone": "(022) 2503005"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8797499999999995878852132591418921947479248046875,
+                    107.58400000000000318323145620524883270263671875
+                ]
+            },
+            "properties": {
+                "name": "Raja Rasa.",
+                "address": "Jl. Setraria No.1, Sukarasa, Sukasari, Kota Bandung, Jawa Barat 40152",
+                "phone": "(022) 2005070"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90359000000000033736569093889556825160980224609375,
+                    107.6149999999999948840923025272786617279052734375
+                ]
+            },
+            "properties": {
+                "name": "Midori Japanese Restaurant",
+                "address": "Jalan Sultan Agung Tirtayasa No.31, Citarum, Bandung Wetan, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40116",
+                "phone": "(022) 4260797"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90491000000000010317080523236654698848724365234375,
+                    107.61799999999999499777914024889469146728515625
+                ]
+            },
+            "properties": {
+                "name": "Hummingbird",
+                "address": "Jalan Progo No.14, Citarum, Bandung Wetan, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 4212582"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8943700000000003313971319585107266902923583984375,
+                    107.6350000000000051159076974727213382720947265625
+                ]
+            },
+            "properties": {
+                "name": "Pitta Resto and Bakery by Gaza Mediterranean",
+                "address": "Jl. Pahlawan No.72, Neglasari, Cibeunying Kaler, Kota Bandung, Jawa Barat 40124",
+                "phone": "(022) 7219361"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86835000000000039932501749717630445957183837890625,
+                    107.6089999999999946567186270840466022491455078125
+                ]
+            },
+            "properties": {
+                "name": "Miss Bee Providore",
+                "address": "Jl. Rancabentang No.11A, Ciumbuleuit, Cidadap, Kota Bandung, Jawa Barat 40142",
+                "phone": "(022) 2033613"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.92255999999999982463805281440727412700653076171875,
+                    107.6089999999999946567186270840466022491455078125
+                ]
+            },
+            "properties": {
+                "name": "Queen Restaurant",
+                "address": "Jl. Dalem Kaum No.79, Cikawao, Lengkong, Kota Bandung, Jawa Barat 40261",
+                "phone": "(022) 4204561"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.89904000000000028336444302112795412540435791015625,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "Sindang Reret Restaurant",
+                "address": "No., Jl. Surapati No.53, Sadang Serang, Coblong, Kota Bandung, Jawa Barat 40133",
+                "phone": "(022) 2535050"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8548799999999996401811586110852658748626708984375,
+                    107.59600000000000363797880709171295166015625
+                ]
+            },
+            "properties": {
+                "name": "Jing Paradise",
+                "address": "Mercure Bandung Setiabudi, Jalan Setiabudhi No.269-275, Isola, Sukasari, Kota Bandung, Jawa Barat 40141",
+                "phone": "(022) 2012610"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90571999999999963648633638513274490833282470703125,
+                    107.61799999999999499777914024889469146728515625
+                ]
+            },
+            "properties": {
+                "name": "Dakken Restaurant",
+                "address": "Cihapit, Jl. L. L. R.E. Martadinata No.67, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40113",
+                "phone": "(022) 4209507"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8974299999999999499777914024889469146728515625,
+                    107.611999999999994770405464805662631988525390625
+                ]
+            },
+            "properties": {
+                "name": "Madame Sari Restaurant Dago",
+                "address": "Jl. Ir. H.Djuanda No.85, Lebakgede, Coblong, Kota Bandung, Jawa Barat 40132",
+                "phone": "(022) 2509495"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.887480000000000046611603465862572193145751953125,
+                    107.602000000000003865352482534945011138916015625
+                ]
+            },
+            "properties": {
+                "name": "Dapur Dahapati",
+                "address": "Jl. Cipaganti No.146, Cipaganti, Coblong, Kota Bandung, Jawa Barat 40131",
+                "phone": "(022) 2042751"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.89526000000000038880898500792682170867919921875,
+                    107.602000000000003865352482534945011138916015625
+                ]
+            },
+            "properties": {
+                "name": "Iga Bakar Si Jangkung",
+                "address": "Jalan Cipaganti No.75G, Pasteur, Sukajadi, Kota Bandung, Jawa Barat 40161",
+                "phone": "0811-2205-513"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.89646000000000025664803615654818713665008544921875,
+                    107.6350000000000051159076974727213382720947265625
+                ]
+            },
+            "properties": {
+                "name": "CAF\u00c9 CINDE",
+                "address": "Jl. Pahlawan No.58, Neglasari, Cibeunying Kaler, Kota Bandung, Jawa Barat 40123",
+                "phone": "0811-2193-636"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91697999999999968423480822821147739887237548828125,
+                    107.6089999999999946567186270840466022491455078125
+                ]
+            },
+            "properties": {
+                "name": "Bandung Suki Restaurant",
+                "address": "Braga Street No.70, Braga, Sumur Bandung, Bandung City, West Java 40111",
+                "phone": "(022) 4207452"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9160500000000002529532139305956661701202392578125,
+                    107.606999999999999317878973670303821563720703125
+                ]
+            },
+            "properties": {
+                "name": "Hong Sin Restaurant",
+                "address": "Jl. Banceuy No.110, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+                "phone": "(022) 4232626"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.909259999999999735109668108634650707244873046875,
+                    107.611999999999994770405464805662631988525390625
+                ]
+            },
+            "properties": {
+                "name": "Cha Yuen Chinese Restaurant",
+                "address": "Jl. Sumatera No.51, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(0622) 24211234"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.913579999999999614601620123721659183502197265625,
+                    107.6290000000000048885340220294892787933349609375
+                ]
+            },
+            "properties": {
+                "name": "Ayam Bakar Wong Solo Bandung",
+                "address": "Jl. RE. Martadinata No.152, Merdeka, Sumur Bandung, Kota Bandung, Jawa Barat 40113",
+                "phone": "0811-6135-387"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90725999999999995537791619426570832729339599609375,
+                    107.6159999999999996589394868351519107818603515625
+                ]
+            },
+            "properties": {
+                "name": "Kedai Belacan Bandung",
+                "address": "Jl. Halmahera No.4, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 4205839"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90458999999999978314235704601742327213287353515625,
+                    107.6170000000000044337866711430251598358154296875
+                ]
+            },
+            "properties": {
+                "name": "Qahwa",
+                "address": "Jl. Progo No.1, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 4201531"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.931860000000000354702933691442012786865234375,
+                    107.625
+                ]
+            },
+            "properties": {
+                "name": "Mie Baso Akung",
+                "address": "Jl. Lodaya No.123, Lkr. Sel., Lengkong, Kota Bandung, Jawa Barat 40263",
+                "phone": "(022) 7314746"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.915530000000000399040800402872264385223388671875,
+                    107.6290000000000048885340220294892787933349609375
+                ]
+            },
+            "properties": {
+                "name": "HAKATA IKKOUSHA",
+                "address": "Jl. L. L. R.E. Martadinata, Merdeka, Sumur Bandung, Kota Bandung, Jawa Barat 40113",
+                "phone": "(022) 7231257"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90688000000000013045564628555439412593841552734375,
+                    107.6460000000000007958078640513122081756591796875
+                ]
+            },
+            "properties": {
+                "name": "Restoran 499",
+                "address": "Jl. Jend. A. Yani No.687, Padasuka, Cibeunying Kidul, Bandung, Jawa Barat 40121",
+                "phone": "(022) 7100011"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86643999999999987693399816635064780712127685546875,
+                    107.64199999999999590727384202182292938232421875
+                ]
+            },
+            "properties": {
+                "name": "Damai restaurant",
+                "address": "Jalan Resor Pakar Raya No. 2B, Coblong, Mekarsaluyu, Cimenyan, Kota Bandung, Jawa Barat 40198",
+                "phone": "(022) 87806688"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.88994000000000017536194718559272587299346923828125,
+                    107.59600000000000363797880709171295166015625
+                ]
+            },
+            "properties": {
+                "name": "Pepper Lunch Bandung (PVJ)",
+                "address": "Paris Van Java Mall Blok RL-A-08, Jl. Sukajadi No. 137 - 139, Cipedes, Sukajadi, Kota Bandung, Jawa Barat 40162",
+                "phone": "(022) 82063535"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.88675000000000014921397450962103903293609619140625,
+                    107.6039999999999992041921359486877918243408203125
+                ]
+            },
+            "properties": {
+                "name": "Street grill and friends",
+                "address": "Jl. Cihampelas No.211-217, Cipaganti, Coblong, Kota Bandung, Jawa Barat 40131",
+                "phone": "(022) 82021220"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9206500000000001904254531837068498134613037109375,
+                    107.6050000000000039790393202565610408782958984375
+                ]
+            },
+            "properties": {
+                "name": "Lotus Garden Restaurant",
+                "address": "Jl. Asia Afrika No.15-17, Braga, Bandung Barat, Kota Bandung, Jawa Barat 40111",
+                "phone": "(022) 4239999"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8679199999999998027533365529961884021759033203125,
+                    107.606999999999999317878973670303821563720703125
+                ]
+            },
+            "properties": {
+                "name": "Maxi's Resto",
+                "address": "Jl. Gunung Agung No.8, Ciumbuleuit, Cidadap, Kota Bandung, Jawa Barat 40143",
+                "phone": "(022) 2032666"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.901270000000000237605490838177502155303955078125,
+                    107.6099999999999994315658113919198513031005859375
+                ]
+            },
+            "properties": {
+                "name": "Chingu Cafe",
+                "address": "Jl. Sawunggaling No.10, Tamansari, Bandung Wetan, Kota Bandung, Jawa Barat 40116",
+                "phone": "(022) 4239963"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9082699999999999107558323885314166545867919921875,
+                    107.6269999999999953388396534137427806854248046875
+                ]
+            },
+            "properties": {
+                "name": "Addicted Cafe",
+                "address": "No., Jl. Bengawan No.60, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "0822-1832-0660"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.926809999999999689634933019988238811492919921875,
+                    107.6350000000000051159076974727213382720947265625
+                ]
+            },
+            "properties": {
+                "name": "The 18th Restaurant",
+                "address": "Jl. Gatot Subroto 289, Lantai 18, Cibangkong, Batununggal, Bandung City, West Java 40273",
+                "phone": "(022) 84288288"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9071300000000004359890226623974740505218505859375,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "D'palm",
+                "address": "Jl. Lombok No.45, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 4261669"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9046000000000002927436071331612765789031982421875,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "Please Please Please Cafe And Resto",
+                "address": "Jl. Progo No.37, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 20512715"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91242999999999963023356031044386327266693115234375,
+                    107.602000000000003865352482534945011138916015625
+                ]
+            },
+            "properties": {
+                "name": "Kampiun Bistro Bandung",
+                "address": "No, Jl. Kebon Kawung No.24, Pasir Kaliki, Cicendo, Kota Bandung, Jawa Barat 40171",
+                "phone": "(022) 4202769"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8832100000000000505906427861191332340240478515625,
+                    107.59600000000000363797880709171295166015625
+                ]
+            },
+            "properties": {
+                "name": "Korean House Restaurant",
+                "address": "Jalan Sukajadi No.175, Cipedes, Sukajadi, Kota Bandung, Jawa Barat 40162",
+                "phone": "(022) 2031626"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8817199999999996151700543123297393321990966796875,
+                    107.5990000000000037516656448133289813995361328125
+                ]
+            },
+            "properties": {
+                "name": "Coca Suki Restaurant",
+                "address": "Jl. Setiabudi No.45, Pasteur, Sukajadi, Kota Bandung, Jawa Barat 40161",
+                "phone": "(022) 2041900"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.88053000000000025693225325085222721099853515625,
+                    107.59399999999999408828443847596645355224609375
+                ]
+            },
+            "properties": {
+                "name": "Cafe Oz",
+                "address": "Jalan Bungur No.23, Cipedes, Sukajadi, Cipedes, Sukajadi, Kota Bandung, Jawa Barat 40162",
+                "phone": "(022) 2031621"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90205999999999963989694151678122580051422119140625,
+                    107.625
+                ]
+            },
+            "properties": {
+                "name": "Koffie Tijd!",
+                "address": "Jl. Citarum No.30, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "0822-2828-1212"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.87884999999999990905052982270717620849609375,
+                    107.5969999999999942019712761975824832916259765625
+                ]
+            },
+            "properties": {
+                "name": "Gading Chinese Food Restaurant and Catering Service",
+                "address": "Jl. Sukajadi, No. 228, Gegerkalong, Sukasari, Kota Bandung, Jawa Barat 40153",
+                "phone": "(022) 2030943"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.92067999999999994287236404488794505596160888671875,
+                    107.6159999999999996589394868351519107818603515625
+                ]
+            },
+            "properties": {
+                "name": "Lacamera Coffee",
+                "address": "Jl. Naripan No.79, Kb. Pisang, Sumur Bandung, Kota Bandung, Jawa Barat 40112",
+                "phone": "(022) 4210200"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8166700000000002290789780090562999248504638671875,
+                    107.58899999999999863575794734060764312744140625
+                ]
+            },
+            "properties": {
+                "name": "Restoran Kampung Daun",
+                "address": "Villa Triniti, Jalan Sersan Bajuri KM. 4,7, Cihideung, Cigugur Girang, Parongpong, Cigugur Girang, Parongpong, Kabupaten Bandung Barat, Jawa Barat 40154",
+                "phone": "(022) 2787915"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8767399999999998527755451505072414875030517578125,
+                    107.6509999999999962483343551866710186004638671875
+                ]
+            },
+            "properties": {
+                "name": "De'Tuik Resto & Resort",
+                "address": "Jl. Bojong Koneng Atas, Kampung Haur Manggung, Cikutra, Cibeunying Kidul, Cibeunying, Cimenyan, Bandung, Jawa Barat 40124",
+                "phone": "(022) 7101322"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90493000000000023419488570652902126312255859375,
+                    107.6159999999999996589394868351519107818603515625
+                ]
+            },
+            "properties": {
+                "name": "Metime Cafe",
+                "address": "Jalan Banda No.21, Bandung Wetan, Citarum, Kota Bandung, Jawa Barat 40113",
+                "phone": "0822-1795-7178"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8181700000000002859223968698643147945404052734375,
+                    107.5819999999999936335370875895023345947265625
+                ]
+            },
+            "properties": {
+                "name": "The Peak Resort Dining",
+                "address": "JL. Desa Karyawangi, KM 6, 8\/388, Karyawangi, Lembang, Kabupaten Bandung Barat, Jawa Barat 40261",
+                "phone": "(022) 2700759"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91166999999999998038902049302123486995697021484375,
+                    107.605999999999994543031789362430572509765625
+                ]
+            },
+            "properties": {
+                "name": "Go Green Vegan Cafe",
+                "address": "Jl. Kebon Sirih No.21, Babakan Ciamis, Sumur Bandung, Kota Bandung, Jawa Barat 40117",
+                "phone": "(022) 4238908"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8791799999999998505018083960749208927154541015625,
+                    107.6009999999999990905052982270717620849609375
+                ]
+            },
+            "properties": {
+                "name": "Saisan Japanese Cuisine",
+                "address": "Jl. Hegarmanah No.28, Hegarmanah, Cidadap, Kota Bandung, Jawa Barat 40141",
+                "phone": "(022) 2039359"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.908590000000000230784280574880540370941162109375,
+                    107.623999999999995225152815692126750946044921875
+                ]
+            },
+            "properties": {
+                "name": "90 Gourmet",
+                "address": "Jalan Letnan Laut Raden Eddy Martadinata No. 90, Cihapit, Bandung Wetan, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 4203295"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8805800000000001404032445861957967281341552734375,
+                    107.6490000000000009094947017729282379150390625
+                ]
+            },
+            "properties": {
+                "name": "Dapoer Oma Cafe",
+                "address": "Jl. Bojong Koneng Atas No.64, Cikutra, Cimenyan, Bandung, Jawa Barat 40191",
+                "phone": "0813-9443-9997"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91912000000000038113512346171773970127105712890625,
+                    107.6149999999999948840923025272786617279052734375
+                ]
+            },
+            "properties": {
+                "name": "Batagor Kingsley",
+                "address": "Jalan Veteran No.25, Kebon Pisang, Sumur Bandung, Kb. Pisang, Sumur Bandung, Kota Bandung, Jawa Barat 40112",
+                "phone": "(022) 4207104"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.89301999999999992496668710373342037200927734375,
+                    107.6410000000000053432813729159533977508544921875
+                ]
+            },
+            "properties": {
+                "name": "Yellow Black Coffee And Tea",
+                "address": "(Hotel Bumi Kitri) Kel. Cibeunying Kaler Kec. Cibeunying, Jl. Cikutra No.276, Neglasari, Cibeunying Kaler, Kota Bandung, Jawa Barat 40124",
+                "phone": "0812-2391-5999"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.89135999999999970810904414975084364414215087890625,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Dago Panyawangan",
+                "address": "Jalan Ir. H.Djuanda No.127, Lebak Siliwangi, Coblong, Lb. Siliwangi, Coblong, Kota Bandung, Jawa Barat 40132",
+                "phone": "(022) 2501815"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.89477000000000028734348234138451516628265380859375,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Roger's Cafe & Lounge",
+                "address": "Jalan Ir. H. Djuanda No. 97, Bandung Wetan, Lb. Siliwangi, Coblong, Kota Bandung, Jawa Barat 40116",
+                "phone": "(022) 2509009"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90373999999999998777866494492627680301666259765625,
+                    107.6230000000000046611603465862572193145751953125
+                ]
+            },
+            "properties": {
+                "name": "Sydwic",
+                "address": "Jl. Cilaki No.63, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "0813-2121-0363"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90819000000000027483793019200675189495086669921875,
+                    107.623999999999995225152815692126750946044921875
+                ]
+            },
+            "properties": {
+                "name": "Nanny's Pavillon",
+                "address": "Jl. R.E. Martadinata No.125, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40117",
+                "phone": "(022) 7234018"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9173799999999996401811586110852658748626708984375,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Sushi Tei",
+                "address": "Jl. Sumatera No.9, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+                "phone": "(022) 4223181"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.904469999999999885176293901167809963226318359375,
+                    107.623999999999995225152815692126750946044921875
+                ]
+            },
+            "properties": {
+                "name": "Roemah Nenek",
+                "address": "Jalan Taman Cibeunying Selatan No.47, Cihapit, Bandung Wetan, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 7271745"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.87753000000000014324541552923619747161865234375,
+                    107.59399999999999408828443847596645355224609375
+                ]
+            },
+            "properties": {
+                "name": "Puri Bambu Cafe",
+                "address": "Jl. Sindang Sirna No.14, Gegerkalong, Sukasari, Kota Bandung, Jawa Barat 40153",
+                "phone": "(022) 2040143"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8810500000000001108446667785756289958953857421875,
+                    107.582999999999998408384271897375583648681640625
+                ]
+            },
+            "properties": {
+                "name": "The Volcano Resto & Cafe - Pasteur - Bandung",
+                "address": "Setrasari Mall B3\/60, Jalan Prof. Dr. Surya Sumantri, Sukagalih, Bandung (Pasteur), Kota Bandung, Jawa Barat 40163",
+                "phone": "(022) 2016625"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9203700000000001324451659456826746463775634765625,
+                    107.602000000000003865352482534945011138916015625
+                ]
+            },
+            "properties": {
+                "name": "Phoenix Restaurant",
+                "address": "Jl. Jend. Sudirman No. 58, Kb. Jeruk, Andir, Kota Bandung, Jawa Barat 40181",
+                "phone": "(022) 4232774"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86760000000000037090330806677229702472686767578125,
+                    107.6280000000000001136868377216160297393798828125
+                ]
+            },
+            "properties": {
+                "name": "Congo Gallery & Cafe",
+                "address": "Jalan Rancakendal Luhur No.8, Dago Pakar Golf, Dago Pakar GolfCiburial, Ciburial, Cimenyan, Bandung, Jawa Barat 40191",
+                "phone": "(022) 2531065"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9032999999999997697841536137275397777557373046875,
+                    107.614000000000004320099833421409130096435546875
+                ]
+            },
+            "properties": {
+                "name": "Karamba Cafe & Resto",
+                "address": "Jl. Sultan Tirtayasa No. 26, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 4233229"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8854699999999997572786014643497765064239501953125,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Siete Cafe",
+                "address": "Jl. Sumur Bandung No.20, Lb. Siliwangi, Coblong, Kota Bandung, Jawa Barat 40132",
+                "phone": "(022) 2500453"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90125999999999972800424075103364884853363037109375,
+                    107.614000000000004320099833421409130096435546875
+                ]
+            },
+            "properties": {
+                "name": "Blackpepper resto & cafe",
+                "address": "Jl. Maulana Yusuf No.10, Citarum, Bandung Wetan, Citarum, Bandung, Kota Bandung, Jawa Barat 40115",
+                "phone": "(022) 4206147"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.94887000000000032429170460090972483158111572265625,
+                    107.6230000000000046611603465862572193145751953125
+                ]
+            },
+            "properties": {
+                "name": "Sari Sunda Restaurant",
+                "address": "Jl. Soekarno Hatta No.479 B, Cijagra, Lengkong, Kota Bandung, Jawa Barat 40265",
+                "phone": "(022) 7300696"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.90495000000000036521896618069149553775787353515625,
+                    107.6269999999999953388396534137427806854248046875
+                ]
+            },
+            "properties": {
+                "name": "Karnivor Restaurant",
+                "address": "Jl. L. L. R.E. Martadinata No.127, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 7103111"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.911319999999999907913661445491015911102294921875,
+                    107.631000000000000227373675443232059478759765625
+                ]
+            },
+            "properties": {
+                "name": "Sonoma Cafe|Resto",
+                "address": "Jl. Bengawan No.33, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114",
+                "phone": "(022) 7208287"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.87436999999999986954435371444560587406158447265625,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "Feast Restaurant",
+                "address": "JL. Insinyur Haji Juanda no 390, Sheraton Bandung Hotel & Towers, Dago, Coblong, Kota Bandung, Jawa Barat 40135",
+                "phone": "(022) 2500303"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.921739999999999781721271574497222900390625,
+                    107.618999999999999772626324556767940521240234375
+                ]
+            },
+            "properties": {
+                "name": "Rose Flower Restaurant",
+                "address": "Jl. Jend. A. Yani No.32, Burangrang, Lengkong, Kota Bandung, Jawa Barat 40262",
+                "phone": "(022) 7301136"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.8829299999999999926103555480949580669403076171875,
+                    107.614000000000004320099833421409130096435546875
+                ]
+            },
+            "properties": {
+                "name": "Tizi Cake Shop & Restaurant",
+                "address": "Jl. Kidang Pananjung No.3, Dago, Coblong, Kota Bandung, Jawa Barat 40135",
+                "phone": "(022) 2504963"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.92668000000000017024603948812000453472137451171875,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Atmosphere Resort Cafe",
+                "address": "Jalan Lengkong Besar No.97, Kota Bandung, Jawa Barat 40261",
+                "phone": "(022) 4262815"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9284999999999996589394868351519107818603515625,
+                    107.623999999999995225152815692126750946044921875
+                ]
+            },
+            "properties": {
+                "name": "Dapoer Pandan Wangi",
+                "address": "Jalan Patuha No. 38 Talaga Bodas, Lingkar Selatan, Lengkong, Lkr. Sel., Lengkong, Kota Bandung, Jawa Barat 40263",
+                "phone": "(022) 7309718"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91739000000000014978240869822911918163299560546875,
+                    107.6089999999999946567186270840466022491455078125
+                ]
+            },
+            "properties": {
+                "name": "Braga Permai Resto & Cake Shop",
+                "address": "Jalan Braga No.58, Braga, Sumur Bandung, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40111",
+                "phone": "(022) 4233778"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86521999999999987807086654356680810451507568359375,
+                    107.6269999999999953388396534137427806854248046875
+                ]
+            },
+            "properties": {
+                "name": "The Stone Cafe",
+                "address": "Jalan Raya Ranca Kendal Luhur No.5, Gerbang Dago Resort Dago Atas, Dago, Coblong, Ciburial, Bandung, Jawa Barat 40198",
+                "phone": "(022) 2500577"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.88093999999999983430143402074463665485382080078125,
+                    107.5990000000000037516656448133289813995361328125
+                ]
+            },
+            "properties": {
+                "name": "Saka Bistro & Bar",
+                "address": "Jl. Karangsari, Pasteur, Sukajadi, Kota Bandung, Jawa Barat 40161",
+                "phone": "(022) 2039651"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86449999999999960209606797434389591217041015625,
+                    107.6089999999999946567186270840466022491455078125
+                ]
+            },
+            "properties": {
+                "name": "The Restaurant - Hotel Padma BANDUNG",
+                "address": "Jl. Rancabentang No.56-58, Ciumbuleuit, Cidadap, Kota Bandung, Jawa Barat 40142",
+                "phone": "(022) 2030333"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91889000000000020662582755903713405132293701171875,
+                    107.5979999999999989768184605054557323455810546875
+                ]
+            },
+            "properties": {
+                "name": "Restoran Dunia Baru",
+                "address": "Jl. Gardujati No.39, Kb. Jeruk, Andir, Kota Bandung, Jawa Barat 40181",
+                "phone": "0812-2238-8689"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.92874999999999996447286321199499070644378662109375,
+                    107.6230000000000046611603465862572193145751953125
+                ]
+            },
+            "properties": {
+                "name": "Lilipadi Cafe & Resto",
+                "address": "Jalan Talaga Bodas No.54, Malabar, Lengkong, Kota Bandung, Jawa Barat 40262",
+                "phone": "(022) 7312370"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9291099999999996583710526465438306331634521484375,
+                    107.6200000000000045474735088646411895751953125
+                ]
+            },
+            "properties": {
+                "name": "Little White Cafe",
+                "address": "Little White Cafe, Jl. Lodaya No.11A, Malabar, Lengkong, Kota Bandung, Jawa Barat 40262",
+                "phone": "(022) 7302602"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.943130000000000023874235921539366245269775390625,
+                    107.6590000000000060254023992456495761871337890625
+                ]
+            },
+            "properties": {
+                "name": "B' Joy cafe & steak",
+                "address": "Metro Indah Mall Lantai GF Blok B6 No.17, Jalan Soekarno Hatta No.590, Sekejati, Buahbatu, Kota Bandung, Jawa Barat 40286",
+                "phone": "(022) 7538608"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86202000000000023050006348057650029659271240234375,
+                    107.6340000000000003410605131648480892181396484375
+                ]
+            },
+            "properties": {
+                "name": "Takigawa Meatbar In The Sky",
+                "address": "Jl. Bukit Pakar Timur IV No. 8, Dago Pakar, Ciburial, Bandung, Jawa Barat 14430",
+                "phone": "(022) 82523090"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91420999999999974505726640927605330944061279296875,
+                    107.626000000000004774847184307873249053955078125
+                ]
+            },
+            "properties": {
+                "name": "Bawean Resto",
+                "address": "Jl. Gandapura No.43, Merdeka, Sumur Bandung, Kota Bandung, Jawa Barat 40113",
+                "phone": "(022) 4212229"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.86296000000000017138290786533616483211517333984375,
+                    107.6299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Cocorico Cafe and Resto",
+                "address": "Jalan Bukit Pakar Timur No.19, Ciburial, Cimenyan, Bandung, Jawa Barat 40198",
+                "phone": "(022) 2503262"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.91743000000000041183056964655406773090362548828125,
+                    107.61299999999999954525264911353588104248046875
+                ]
+            },
+            "properties": {
+                "name": "Kelapa Lagoon Resto",
+                "address": "Jalan Sumatera No. 7, Babakan Ciamis, Sumur Bandung, Braga, Sumur Bandung, Kota Bandung, Jawa Barat 40117",
+                "phone": "0812-2008-889"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.895920000000000271711542154662311077117919921875,
+                    107.6029999999999944293449516408145427703857421875
+                ]
+            },
+            "properties": {
+                "name": "Mama's",
+                "address": "Jl. Prof. Eyckman No. 3 Cipaganti Coblong Bandung Jawa Barat, Cipaganti, Coblong, Kota Bandung, Jawa Barat 40131",
+                "phone": "(022) 70755700"
+            }
+        }
+    ]
+});
