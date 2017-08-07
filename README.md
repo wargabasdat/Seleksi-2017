@@ -2,7 +2,7 @@
 
 Repository ini digunakan untuk pengumpulan tugas. Di awal pengerjaan, fork repository ini. Ketika akan mengumpulkan, buat pull request dengan nama `[TUGAS_SELEKSI_2_<NIM 1>_<NIM 2>]`. 
 
-#
+
 #
 # Musikinian - Tempatnya Update Musik Kamu.
 [![alt text][2]][1]
@@ -11,7 +11,7 @@ Repository ini digunakan untuk pengumpulan tugas. Di awal pengerjaan, fork repos
   [2]: http://3.bp.blogspot.com/-IfyGFUMBYrc/UO5KHlPG71I/AAAAAAAAEJM/7bwCMiZlJX0/s1600/Untitled.gif (Live Demo Here!)
 
 ###### Aplikasi Musikinian adalah aplikasi berbasis  web yang fitur utamanya adalah menyajikan deretan musik terkini di Indonesia dari berbagai sumber. Dengan aplikasi ini, pencarian deretan musik bisa dilakukan secara cepat dan terkini sehingga lebih memudahkan pengguna.
-#
+
 #
 # New Features!
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V.0.1
