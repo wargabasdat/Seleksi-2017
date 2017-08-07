@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .button {
+        background-color: #D2B48C;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        font-family: Baskerville Old Face;
+        margin: 4px 2px;
+        cursor: pointer; 
+      }
+      .clear {
+        background-color: #DC143C;
+      }
+
+      #map {
+        height: 100%;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .sidenava {
+          height: 100%;
+          width: 0;
+          position: absolute;
+          z-index: 1;
+          top: 242px;
+          left: 0;
+          background-color: #3a2924;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+      }
+
+      .sidenava a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+      }
+
+      .sidenava a:hover, .offcanvas a:focus{
+          color: #3a2924;
+      }
+
+      .sidenava .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+      }
+
+      #main {
+          transition: margin-left .5s;
+          padding: 16px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenava {padding-top: 15px;}
+        .sidenava a {font-size: 18px;}
+      }
+
+    </style>
+  </head>
+  <body style = "background-color: #F5F5DC;">
+    <div>
+      <center><img src="png/logo.png" height="120px" width="120px">
+      <h1 style="font-family:Baskerville Old Face;">&nbsp Data Visualization Places to Eat in Bandung</h1></center>
+    </div>
+    <p><br></p>
+    <hr noshade>
+    <div id="mySidenav" class="sidenava">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="about.html">About</a>
+      <a href="visualize.html">Visualization</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div id="main">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </div>
+
+    <center>
+      <button id = "buttonres" class = button>Restaurant</button>
+      &nbsp<button id = "buttoncafe" class = "button">Cafe</button>
+      &nbsp<button id = "buttonbakery" class = "button">Bakery</button>
+      &nbsp<button id = "buttonmealt" class = "button">Meal Takeway</button>
+      &nbsp<button id = "buttonmeald" class = "button">Meal Delivery</button>
+      &nbsp<button id = "buttonclear" class = "button clear">Clear</button>
+    </center>
+
+    <p><br></p>
+    <div id="map"></div>
+    <script type ='text/javascript'>
+
+    //Fungsi untuk side navigation
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "beige";
+    }
+    
+        var map;
+        var markersArray = [];
+        var markersArrayRes = []
+        var first = true;
+        var count;
+        var icons = {
+          restaurant: {
+            icon: 'png/restaurant.png'
+          },
+          cafe: {
+            icon: 'png/cafe.png'
+          },
+          bakery: {
+            icon: 'png/bakery.png'
+          },
+          meal_delivery: {
+            icon: 'png/meal_delivery.png'
+          },
+          meal_takeaway: {
+            icon: 'png/meal_takeaway.png'
+          }
+        };
+
+        //fungsi untuk menampilkan marker
+        function initMarker(maptemp, district, array, pos) {
+          count = 0;
+          var script = document.createElement('script');
+        
+          script.src= '/Applications/XAMPP/xamppfiles/htdocs/project1/datajson.json';
+          document.getElementsByTagName('head')[0].appendChild(script);
+
+          window.callback_test = function(results) {
+            for (var i = 0; i < results.features.length; i++) {
+              var name = results.features[i].properties.name;
+              var address = results.features[i].properties.address;
+              var phone = results.features[i].properties.phone;
+              var coords = results.features[i].geometry.coordinates;
+              var latLng = new google.maps.LatLng(coords[0],coords[1]);
+
+              var straddress = String(address);
+              var n = straddress.search(district);
+              if(n != -1) {
+                var marker = new google.maps.Marker({
+                  position: latLng,
+                  icon: "png/restaurant(2).png"
+                });
+                var prop = new google.maps.InfoWindow({
+                    content: name.bold() + '<br>' + address + '<br>' + phone
+                });
+                prop.open(maptemp,marker);  
+                marker.setMap(maptemp);        
+                array.push(marker);
+                count++;
+              }
+            }
+            
+            var n = String(count);
+            var infocount = new google.maps.InfoWindow({
+                content: 'Total :' + ' ' + n
+            });
+            infocount.open(maptemp, pos);
+          }
+        }
+
+
+        //fungsi untuk menghapus marker
+        function deleteMarker(maptemp, array) {
+
+            for(var i = 0; i < array.length; i++) {
+              array[i].setMap(null);
+            }
+            array.length = 0;
+        }
+
+        //fungsi untuk menampilkan Restaurant berdasarkan tipenya
+        function visRestaurantType(maptemp, typeRest, arraytemp) {
+          var service = new google.maps.places.PlacesService(maptemp);
+          service.nearbySearch({
+            location : {lat: -6.9174, lng: 107.6191},
+            radius: 10000,
+            type: typeRest
+          }, callback);
+
+          function callback(results, status) {
+            if(status === google.maps.places.PlacesServiceStatus.OK) {
+              for(var i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+              }
+            }
+          }
+
+          function createMarker(place) {
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location,
+              icon : icons[typeRest].icon
+            });
+
+            var proprest = new google.maps.InfoWindow({
+                      content: place.name
+                  });
+            proprest.open(maptemp,marker); 
+
+            arraytemp.push(marker);
+          }
+        }
+
+        //Button restaurant, cafe, bakery, meal takeaway, meal delivery
+        document.getElementById("buttonres").onclick = function() {
+          myFunction(map, 1);
+        }
+        document.getElementById("buttoncafe").onclick = function() {
+          myFunction(map, 2);
+        }
+        document.getElementById("buttonbakery").onclick = function() {
+          myFunction(map, 3);
+        }
+        document.getElementById("buttonmeald").onclick = function() {
+          myFunction(map, 4);
+        }
+        document.getElementById("buttonmealt").onclick = function() {
+          myFunction(map, 5);
+        }
+        document.getElementById("buttonclear").onclick = function() {
+          deleteMarker(map, markersArrayRes);
+          deleteMarker(map, markersArray);
+        }
+
+        //Fungsi untuk mendapatkan tipe button yang di-click
+        function myFunction(map, id) {
+          if(id == 1) {
+            type = ['restaurant']
+          }
+          else if(id == 2) {
+            type = ['cafe']
+          }
+          else if(id == 3) {
+            type = ['bakery']
+          }
+          else if(id == 4) {
+            type = ['meal_delivery']
+          }
+          else if(id == 5) {
+            type = ['meal_takeaway']
+          }
+          visRestaurantType(map, type, markersArrayRes);
+        }
+
+        //fungsi untuk menampikan map
+        function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: new google.maps.LatLng(-6.9174, 107.6191)
+        });
+       
+        
+        //District
+        var antapani = new google.maps.LatLng(-6.9091, 107.6613);
+        var markerantapani = new google.maps.Marker({position:antapani, icon: "png/antapani.png"});
+        markerantapani.setMap(map);      
+        markerantapani.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerantapani.getPosition());
+            if(first) {
+              initMarker(map, 'Antapani', markersArray, antapani);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Antapani', markersArray, markerantapani);
+            }         
+        });
+
+        var arcamanik = new google.maps.LatLng(-6.9183, 107.6744);
+        var markerarcamanik = new google.maps.Marker({position:arcamanik, icon: "png/arcamanik.png"});
+        markerarcamanik.setMap(map);
+        markerarcamanik.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerarcamanik.getPosition());
+            if(first) {
+              initMarker(map, 'Arcamanik', markersArray, markerarcamanik);
+              frst = false;
+            }
+            else {
+              initMarker(map, 'Arcamanik', markersArray);
+              deleteMarker(map, markersArray, markerarcamanik);
+            }
+        });
+
+        var mandalajati = new google.maps.LatLng(-6.8947, 107.6630);
+        var markermandalajati = new google.maps.Marker({position:mandalajati, icon: "png/mandalajati.png"});
+        markermandalajati.setMap(map);
+        markermandalajati.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markermandalajati.getPosition());
+            if(first) {
+              initMarker(map, 'Mandalajati', markersArray, markermandalajati);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Mandalajati', markersArray, markermandalajati);
+            }
+        });
+
+        var andir = new google.maps.LatLng(-6.9114, 107.5771);
+        var markerandir = new google.maps.Marker({position:andir, icon:"png/andir.png"});
+        markerandir.setMap(map);
+        markerandir.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerandir.getPosition());
+            if(first) {
+              initMarker(map, 'Andir', markersArray, markerandir);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Andir', markersArray, markerandir);
+            }
+        });
+
+        var cicendo = new google.maps.LatLng(-6.9113, 107.6052);
+        var markercicendo = new google.maps.Marker({position:cicendo, icon:"png/cicendo.png"});
+        markercicendo.setMap(map);
+        markercicendo.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercicendo.getPosition());
+            if(first) {
+              initMarker(map, 'Cicendo', markersArray, markercicendo);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cicendo', markersArray, markercicendo);
+            }
+        });
+
+        var sukajadi = new google.maps.LatLng(-6.8904, 107.5890);
+        var markersukajadi = new google.maps.Marker({position:sukajadi, icon:"png/sukajadi.png"});
+        markersukajadi.setMap(map);
+        markersukajadi.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markersukajadi.getPosition());
+            if(first) {
+              initMarker(map, 'Sukajadi', markersArray, markersukajadi);
+              first = false;
+
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Sukajadi', markersArray, markersukajadi);
+            }
+        });
+
+        var sukasari = new google.maps.LatLng(-6.8647, 107.5890);
+        var markersukasari = new google.maps.Marker({position:sukasari, icon:"png/sukasari.png"});
+        markersukasari.setMap(map);
+        markersukasari.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markersukasari.getPosition());
+            if(first) {
+              initMarker(map, 'Sukasari', markersArray, markersukasari);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Sukasari', markersArray, markersukasari);
+            }
+        });
+
+        var bandungwetan = new google.maps.LatLng(-6.9047, 107.6186);
+        var markerbandungwetan = new google.maps.Marker({position:bandungwetan, icon: "png/bandungwetan.png"});
+        markerbandungwetan.setMap(map);
+        markerbandungwetan.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbandungwetan.getPosition());
+            if(first) {
+              initMarker(map, 'Bandung Wetan', markersArray, markerbandungwetan);   
+              first = false;           
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Bandung Wetan', markersArray, markerbandungwetan);
+            }
+        });
+
+        var cibeunyingkaler = new google.maps.LatLng(-6.8937, 107.6363);
+        var markercibeunyingkaler = new google.maps.Marker({position:cibeunyingkaler, icon:"png/cibeunyingkaler.png"});
+        markercibeunyingkaler.setMap(map);
+        markercibeunyingkaler.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercibeunyingkaler.getPosition());
+            if(first) {
+                initMarker(map, 'Cibeunying Kaler', markersArray, markercibeunyingkaler);
+                first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cibeunying Kaler', markersArray, markercibeunyingkaler);
+            }
+        });
+
+        var cibeunyingkidul = new google.maps.LatLng(-6.8984, 107.6482);
+        var markercibeunyingkidul = new google.maps.Marker({position:cibeunyingkidul, icon:"png/cibeunyingkidul.png"});
+        markercibeunyingkidul.setMap(map);
+        markercibeunyingkidul.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercibeunyingkidul.getPosition());
+            if(first) {
+              initMarker(map, 'Cibeunying Kidul', markersArray, markercibeunyingkidul);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cibeunying Kidul', markersArray, markercibeunyingkidul);
+            }
+
+        });
+
+        var cidadap = new google.maps.LatLng(-6.8640, 107.6067);
+        var markercidadap = new google.maps.Marker({position:cidadap, icon: "png/cidadap.png"});
+        markercidadap.setMap(map);
+        markercidadap.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercidadap.getPosition());
+            if(first){
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cidadap', markersArray, markercidadap);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cidadap', markersArray, markercidadap);
+            }
+        });
+
+        var coblong = new google.maps.LatLng(-6.8920, 107.6156);
+        var markercoblong = new google.maps.Marker({position:coblong, icon: "png/coblong.png"});
+        markercoblong.setMap(map);
+        markercoblong.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercoblong.getPosition());
+            if(first) {
+              initMarker(map, 'Coblong', markersArray, markercoblong);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Coblong', markersArray, markercoblong);
+            }
+        });
+
+        var sumurbandung = new google.maps.LatLng(-6.9152, 107.6127);
+        var markersumurbandung = new google.maps.Marker({position:sumurbandung, icon: "png/sumurbandung.png"});
+        markersumurbandung.setMap(map);
+        markersumurbandung.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markersumurbandung.getPosition());
+            if(first) {
+              initMarker(map, 'Sumur Bandung', markersArray, markersumurbandung);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Sumur Bandung', markersArray, markersumurbandung);
+            }
+            
+        });
+
+        var gedebage = new google.maps.LatLng(-6.9506, 107.6985);
+        var markergedebage = new google.maps.Marker({position:gedebage, icon:"png/gedebage.png"});
+        markergedebage.setMap(map);
+        markergedebage.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markergedebage.getPosition());
+            if(first) {
+              initMarker(map, 'Gedebage', markersArray, markergedebage);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Gedebage', markersArray, markergedebage);
+            }
+        });
+
+        var rancasari = new google.maps.LatLng(-6.9539, 107.6778);
+        var markerrancasari = new google.maps.Marker({position:rancasari, icon:"png/rancasari.png"});
+        markerrancasari.setMap(map);
+        markerrancasari.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerrancasari.getPosition());
+            if(first) {
+              initMarker(map, 'Rancasari', markersArray, markerrancasari);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Rancasari', markersArray, markerrancasari);
+            }
+        });
+
+        var batununggal = new google.maps.LatLng(-6.9195, 107.6363);
+        var markerbatununggal = new google.maps.Marker({position:batununggal, icon:"png/batununggal.png"});
+        markerbatununggal.setMap(map);
+        markerbatununggal.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbatununggal.getPosition());
+            if(first) {
+              initMarker(map, 'Batununggal', markersArray, markerbatununggal);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Batununggal', markersArray, markerbatununggal);
+            }
+        });
+
+        var kiaracondong = new google.maps.LatLng(-6.9242, 107.6482);
+        var markerkiaracondong = new google.maps.Marker({position:kiaracondong, icon: "png/kiaracondong.png"});
+        markerkiaracondong.setMap(map);
+        markerkiaracondong.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerkiaracondong.getPosition());
+            if(first) {
+              initMarker(map, 'Kiaracondong', markersArray, markerkiaracondong);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Kiaracondong', markersArray, markerkiaracondong);
+            }
+        });
+
+        var lengkong = new google.maps.LatLng(-6.9327, 107.6275);
+        var markerlengkong = new google.maps.Marker({position:lengkong, icon:"png/lengkong.png"});
+        markerlengkong.setMap(map);
+        markerlengkong.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerlengkong.getPosition());
+            if(first) {
+              initMarker(map, 'Lengkong', markersArray, markerlengkong);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Lengkong', markersArray, markerlengkong);
+            }
+        });
+
+        var regol = new google.maps.LatLng(-6.9410, 107.6127);
+        var markerregol = new google.maps.Marker({position:regol, icon: "png/regol.png"});
+        markerregol.setMap(map);
+        markerregol.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerregol.getPosition());
+            if(first) {
+              initMarker(map, 'Regol', markersArray, markerregol);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Regol', markersArray, markerregol);
+            }
+            
+        });    
+
+        var bandungkidul = new google.maps.LatLng(-6.9558, 107.6304);
+        var markerbandungkidul = new google.maps.Marker({position:bandungkidul, icon: "png/bandungkidul.png"});
+        markerbandungkidul.setMap(map);
+        markerbandungkidul.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbandungkidul.getPosition());
+            if(first) {
+              initMarker(map, 'Bandung Kidul', markersArray, markerbandungkidul);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Bandung Kidul', markersArray, markerbandungkidul);
+            }
+        });
+
+        var buahbatu = new google.maps.LatLng(-6.9524, 107.6511);
+        var markerbuahbatu = new google.maps.Marker({position:buahbatu, icon: "png/buahbatu.png"});
+        markerbuahbatu.setMap(map);
+        markerbuahbatu.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbuahbatu.getPosition());
+            if(first) {
+              initMarker(map, 'Buah Batu', markersArray, markerbuahbatu);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Buah Batu', markersArray, markerbuahbatu);
+            }
+        });
+
+        var astanaanyar = new google.maps.LatLng(-6.9299, 107.5993);
+        var markerastanaanyar = new google.maps.Marker({position:astanaanyar, icon: "png/astanaanyar.png"});
+        markerastanaanyar.setMap(map);
+        markerastanaanyar.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerastanaanyar.getPosition());
+            if(first) {
+              initMarker(map, 'Astana Anyar', markersArray, markerastanaanyar);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Astana Anyar', markersArray, markerastanaanyar);
+            }
+        });
+
+        var babakanciparay = new google.maps.LatLng(-6.9423, 107.5771);
+        var markerbabakanciparay = new google.maps.Marker({position:babakanciparay, icon: "png/babakanciparay.png"});
+        markerbabakanciparay.setMap(map);
+        markerbabakanciparay.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbabakanciparay.getPosition());
+            if(first) {
+              initMarker(map, 'Babakan Ciparay', markersArray, markerbabakanciparay);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Babakan Ciparay', markersArray, markerbabakanciparay);
+            }
+        });
+
+        var bandungkulon = new google.maps.LatLng(-6.9376, 107.5653);
+        var markerbandungkulon = new google.maps.Marker({position:bandungkulon, icon: "png/bandungkulon.png"});
+        markerbandungkulon.setMap(map);
+        markerbandungkulon.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbandungkulon.getPosition());
+            if(first) {
+              initMarker(map, 'Bandung Kulon', markersArray, markerbandungkulon);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Bandung Kulon', markersArray, markerbandungkulon);
+            }
+        });
+
+        var bojongloakaler = new google.maps.LatLng(-6.9316, 107.5890);
+        var markerbojongloakaler = new google.maps.Marker({position:bojongloakaler, icon : "png/bojongloakaler.png"});
+        markerbojongloakaler.setMap(map);
+        markerbojongloakaler.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbojongloakaler.getPosition());
+            if(first) {
+              initMarker(map, 'Bojongloa Kaler', markersArray, markerbojongloakaler);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Bojongloa Kaler', markersArray, markerbojongloakaler);
+            }
+            
+        });
+
+        var bojongloakidul = new google.maps.LatLng(-6.9520, 107.5949);
+        var markerbojongloakidul = new google.maps.Marker({position:bojongloakidul, icon: "png/bojongloakidul.png"});
+        markerbojongloakidul.setMap(map);
+        markerbojongloakidul.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerbojongloakidul.getPosition());
+            if(first) {
+              initMarker(map, 'Bojongloa Kidul', markersArray, markerbojongloakidul);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Bojongloa Kidul', markersArray, markerbojongloakidul);
+            }
+        });
+
+        var cibiru = new google.maps.LatLng(-6.9163, 107.7192);
+        var markercibiru = new google.maps.Marker({position:cibiru, icon: "png/cibiru.png"});
+        markercibiru.setMap(map);
+        markercibiru.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercibiru.getPosition());
+            if(first){
+              initMarker(map, 'Cibiru', markersArray, markercibiru);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cibiru', markersArray, markercibiru);
+            }
+        });
+
+        var cinambo = new google.maps.LatLng(-6.9329, 107.6896);
+        var markercinambo = new google.maps.Marker({position:cinambo, icon: "png/cinambo.png"});
+        markercinambo.setMap(map);
+        markercinambo.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markercinambo.getPosition());
+            if(first) {
+              initMarker(map, 'Cinambo', markersArray, markercinambo);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Cinambo', markersArray, markercinambo);
+            }
+        });  
+
+        var panyileukan = new google.maps.LatLng(-6.9322, 107.7074);
+        var markerpanyileukan = new google.maps.Marker({position:panyileukan, icon:"png/panyileukan.png"});
+        markerpanyileukan.setMap(map);  
+        markerpanyileukan.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerpanyileukan.getPosition());
+            if(first) {
+              initMarker(map, 'Panyileukan', markersArray, markerpanyileukan);
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Panyileukan', markersArray, markerpanyileukan);
+            }
+
+        });
+
+        var ujungberung = new google.maps.LatLng(-6.9065, 107.7074);
+        var markerujungberung = new google.maps.Marker({position:ujungberung, icon: "png/ujungberung.png"});
+        markerujungberung.setMap(map);
+        markerujungberung.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(markerujungberung.getPosition());
+            if(first) {
+              initMarker(map, 'Ujungberung', markersArray, markerujungberung); 
+              first = false;
+            }
+            else {
+              deleteMarker(map, markersArray);
+              initMarker(map, 'Ujungberung', markersArray, markerujungberung);
+            }
+        });
+    }  
+    </script>
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwO6OHo6K8ERJbf58iCXXFuM7J6Hbh4a4&libraries=places&callback=initMap">
+    </script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+          font-family: Garamond, "Baskerville";
+          transition: background-color .5s;
+          font-size: 20px;
+      }
+
+      .sidenava {
+          height: 100%;
+          width: 0;
+          position: absolute;
+          z-index: 1;
+          top: 280px;
+          left: 0;
+          background-color: #3a2924;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+      }
+
+      .sidenava a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+      }
+
+      .sidenava a:hover, .offcanvas a:focus{
+          color: #3a2924;
+      }
+
+      .sidenava .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+      }
+
+      #main {
+          transition: margin-left .5s;
+          padding: 16px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenava {padding-top: 15px;}
+        .sidenava a {font-size: 18px;}
+      }
+    </style>
+  </head>
+  <body style = "background-color: #F5F5DC;">
+    <div>
+      <center><img src="png/logo.png" height="120px" width="120px">
+      <h1 style="font-family:Baskerville Old Face;">&nbsp Data Visualization Places to Eat in Bandung</h1></center>
+    </div>
+    <p><br></p>
+    <hr noshade>
+    <div id="mySidenav" class="sidenava">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="main.html">About</a>
+      <a href="visualize.html">Visualization</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div id="main">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </div>
+    <br>
+    <br>
+    <center>
+    <h4>This data visualization is aim to presentate<br>
+    data about places to eat in Bandung and their informations<br>
+    <br>
+    <br>
+    </h4>
+    <font>Two ways of visualization :</font>
+    <br>
+    <br>
+    <font>1) type-based</font><br>
+    <img src ="png/about1.png" height="300"><br>
+    <br>
+    <br>
+    <font>2) district-based</font><br>
+    <img src ="png/about2.png" height="300"><br>
+    
+    </center>
+
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "beige";
+    }
+    </script>
+  </body>
+</html>
