@@ -1,0 +1,112 @@
+html, body {
+    background-color: #404040;
+    background: url('/img/bg.jpeg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 3px;
+}
+
+.full-height {
+    height: 75vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.footer {
+    position: absolute;
+    top: 92vh;
+    font-size: 8px;
+    font-family: "Lucida Grande", Tahoma;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: center!important;
+    letter-spacing: 0.3em;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 79px;
+    text-shadow: 0 0 5px #01a378, 0 0 10px #01a378,
+                 0 0 20px #01a378, 0 0 30px #01a378,
+                 0 0 40px #01a378;
+}
+
+.sub-title {
+    font-size: 22px;
+    font-weight: 200;
+
+}
+
+.links {
+    padding-top: 25px;
+}
+
+.links > a {
+    color: #f7f7f7;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+/*-- Grow animate --*/
+.grow { 
+    display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(2px) translateZ(0);
+  transform: perspective(2px) translateZ(0);
+  box-shadow: 0 0 3px transparent;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    /*transition*/
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+.grow:hover {  
+    -webkit-transform: translateY(-2.5px);
+    transform: translateY(-2.5px);
+    text-shadow: 0 0 5px #01a378, 0 0 10px #01a378,
+                 0 0 20px #01a378, 0 0 30px #01a378,
+                 0 0 40px #01a378;
+}

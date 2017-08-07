@@ -1,0 +1,34 @@
+{
+    "name": "algolia/laravel-scout-settings",
+    "description": "Import/Export Algolia settings into your Laravel Scout project",
+    "keywords": [
+        "algolia",
+        "laravel",
+        "search"
+    ],
+    "type": "library",
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/scout": "^3.0",
+        "algolia/algoliasearch-client-php": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Algolia\\Settings\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Bourdeau",
+            "email": "julien.bourdeau@algolia.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Algolia\\Settings\\ServiceProvider"
+            ]
+        }
+    }
+}
