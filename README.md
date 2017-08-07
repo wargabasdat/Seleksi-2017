@@ -1,3 +1,6 @@
-# Seleksi Warga Basdat 2017
+Tugas Seleksi Warga Basdat
 
-Repository ini digunakan untuk pengumpulan tugas. Di awal pengerjaan, fork repository ini. Ketika akan mengumpulkan, buat pull request dengan nama `[TUGAS_SELEKSI_2_<NIM 1>_<NIM 2>]`. 
+Kelompok DV1
+
+Francisco Kenandi (13515140)
+Priska Reysa (18215001)
