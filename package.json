@@ -1,0 +1,33 @@
+{
+  "name": "health-care",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt-nodejs" : "latest",
+    "body-parser": "~1.0.0",
+
+    "connect-flash" : "~0.1.1",
+    "cookie-parser": "~1.0.0",
+
+    "debug": "~2.6.3",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+
+    "method-override": "~1.0.0",
+    "mongoose" : "~3.8.1",
+    "morgan": "~1.0.0",
+
+    "passport" : "~0.1.17",
+    "passport-local" : "~0.1.6",
+    "pug": "~2.0.0-beta11",
+
+    "request": "2.34",
+    "request-promise": "4.2.0",
+
+    "serve-favicon": "~2.4.2",
+    "stylus": "0.54.5"
+  }
+}

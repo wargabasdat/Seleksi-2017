@@ -1,0 +1,32 @@
+---- Organ ----
+
+Stroke				Hearth - Blood clot on artery and thicker in walls of ventrices
+
+Lung Cancer			Lung - Decayed Lobes and tightened smooth muscles
+				
+Nephritis			Kidney - Inflammation on the cortex and small blood vessel
+
+Hepatitis			Liver - Inflammation of the liver tissue and decayed top layer
+
+Bowel Obstruction	S.I - Infammation on the most of bowel walls
+
+
+---- Physical ----
+
+Herniated Disks				Back - The spinal vertebrae have been compressed
+
+Fractured Noses				Fore Head - Break in the nose bone and cartilage of the bridge.
+
+Bursitis Upperhand left		Upperhand L - Bursitis of the elbow near left upperhand
+
+Bursitis LowerHand left		Lowerhand L - Bursitis of the elbow near left lowerhand
+
+Plantar Fasciitis left		Back Foot L - Inflammation of the plantar fascia
+
+Neck Inflammation   		Neck - Levator Scapulae Inflammation
+
+Damaged Cranium	(BH)		Back Head - Parietal Injuries
+
+Muscular Dystrophy (FT) R	Fore Thigh R - Weakened fore thigh's muscles
+
+Muscular Dystrophy (BT)	R	Back Thigh R - Weakened back thigh's muscles

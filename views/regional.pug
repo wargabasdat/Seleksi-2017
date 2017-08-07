@@ -1,0 +1,208 @@
+extends layout
+
+block content
+  
+  - var diseases = []
+  - var diseases_unique = []
+  - var diseases_num = []
+  - var x = patients.length
+  - for (var i = 0; i < x; i++) {
+  -   var o = patients[i].organ_disease.length;
+  -   var p = patients[i].physical_disease.length;
+  -   while (o > 0) {
+  -     diseases.push(patients[i].organ_disease[o-1].name); 
+  -     o--;     
+  -   }
+  -   while (p > 0) {
+  -     diseases.push(patients[i].physical_disease[p-1].name); 
+  -     p--;     
+  -   }
+  - }
+  - diseases_unique = Array.from(new Set(diseases))
+  - var n = diseases_unique.length
+  - var m = diseases.length
+  - for (var i = 0; i < n; i++) {
+  -   diseases_num.push(0);
+  -   for (var j = 0; j < m; j++) {
+  -     if (diseases_unique[i] === diseases[j]) {
+  -       diseases_num[i]++
+  -     }
+  -   } 
+  - }
+  .personal
+    include header
+    .list.col-xs-12.col-md-5.col-md-offset-1
+      ul.regional-map
+        - var k = list_kec.length
+        - for (var i = 0; i < k; i++){
+        li(style='width:'+ list_kec[i].width +'; height:' + list_kec[i].height + '; top:' + list_kec[i].top + '; left: ' + list_kec[i].left + ';')
+            a(href="/regional/"+list_kec[i]._id , style="background-position: " + list_kec[i].bg_x + " " + list_kec[i].bg_y + ";")
+              span
+                  strong= list_kec[i].name
+                  | Population : 
+                  = list_kec[i].population
+        - }
+        //- li(style='width: 115px; height: 140px; top: 153px; left: 178px;')
+        //-   a(href="#", style="background-position: -690px -20px;")
+        //- li(style='width: 108px; height: 156px; top: 233px; left: 209px;')
+        //-   a(href="#", style="background-position: -830px -10px;")
+        //- li(style='width: 88px; height: 105px; top: 290px; left: 280px;')
+        //-   a(href="#", style="background-position: -839px -195px;")
+        //- li(style='width: 140px; height: 100px; top: 267px; left: 30px;')
+        //-   a(href="#", style="background-position: -490px -260px;")
+        //- li(style='width: 72px; height: 87px; top: 298px; left: 101px;')
+        //-   a(href="#", style="background-position: -675px -268px;")
+        //- li(style='width: 79px; height: 55px; top: 273px; left: 161px;')
+        //-   a(href="#", style="background-position: -667px -181px;")
+        //- li(style='width: 93px; height: 86px; top: 312px; left: 133px;')
+        //-   a(href="#", style="background-position: -813px -318px;")
+        //- li(style='width: 97px; height: 95px; top: 372px; left: 96px;')
+        //-   a(href="#", style="background-position: -635px -383px;")
+        //- li(style='width: 102px; height: 147px; top: 352px; left: 181px;')
+        //-   a(href="#", style="background-position: -804px -433px;")
+        //- li(style='width: 110px; height: 170px; top: 335px; left: -1px;')
+        //-   a(href="#", style="background-position: -462px -390px;")
+    .list.col-xs-12.col-md-5
+      .list-header
+          div.list-title
+            b SUMMARY
+      .list-body
+            .sub-body
+              table
+                tr
+                  td 
+                    .sub-title Kecamatan
+                  td= kecamatan.name
+                tr
+                  td
+                    .sub-title Population
+                  td #{kecamatan.population} People
+                tr
+                  td
+                    .sub-title Total Number of Patient
+                  td= sick_num
+                tr
+                  td
+                    .sub-title Diseases
+                  td= diseases_unique
+            //- .sub-body
+            //-   table
+            //-     tr
+            //-       td
+            //-         .sub-title Number of Patient
+            //-       td
+            //-         li Flu : 100 persons (0.1%)
+            //-         li Diarrhea : 50 persons (0.05%)
+            .sub-body
+              table
+                tr
+                  td
+                    .sub-title Personal Data
+                  td
+                    a(href="/patient/" + kecamatan.name) Click Here
+      .list-header
+          div.list-title
+            b DATA TABLE
+      .list-body
+            .sub-body
+              .sub-title Table of Disease
+              table.data-table
+                tr
+                  th Disease
+                  th Number of Patient (Person)
+                  th Percentage (%)
+                - var n = diseases_unique.length
+                - for (var i = 0; i < n; i++) {
+                tr
+                  td= diseases_unique[i] 
+                  td= diseases_num[i]
+                  - var x = diseases_num[i]
+                  - var y = kecamatan.population
+                  - var xy = parseFloat(Math.round(x * 100) / y).toFixed(4);
+                  td= xy
+                - }
+            .sub-body
+              .sub-title Table of Patient (Gender)
+              table.data-table
+                tr
+                  th Disease
+                  th Male
+                  th Famale
+                  th Male Percentage (%)
+                  th Famale Percentage (%)
+                - var n = diseases_unique.length
+                - for (var i = 0; i < n; i++) {
+                tr
+                  td= diseases_unique[i]
+                  - var m = patients.length
+                  - var male = 0;
+                  - var famale = 0;
+                  - for (var j = 0; j < m; j++) {
+                  -     var o = patients[j].organ_disease.length
+                  -     var p = patients[j].physical_disease.length
+                  -     for (var k = 0; k < o; k++) {
+                  -       if (patients[j].organ_disease[k].name === diseases_unique[i]) {
+                  -         if (patients[j].local.gender === 'Male') male++
+                  -         else if (patients[j].local.gender === 'Famale') famale++
+                  -       }
+                  -     }
+                  -     for (var k = 0; k < p; k++) {
+                  -       if (patients[j].physical_disease[k].name === diseases_unique[i]) {
+                  -         if (patients[j].local.gender === 'Male') male++
+                  -         else if (patients[j].local.gender === 'Famale') famale++
+                  -       }
+                  -     }
+                  - }
+                  - var m_percent = parseFloat(Math.round(male * 100) / y).toFixed(4);
+                  - var f_percent = parseFloat(Math.round(famale * 100) / y).toFixed(4);
+                  td= male
+                  td= famale
+                  td= m_percent
+                  td= f_percent
+                - }
+            .sub-body
+              .sub-title Table of Patient (Age)
+              table.data-table
+                tr
+                  th Disease
+                  th 1-15
+                  th 16-30
+                  th 31-50
+                  th 51~
+                - var n = diseases_unique.length
+                - for (var i = 0; i < n; i++) {
+                tr
+                  td= diseases_unique[i]
+                  - var m = patients.length
+                  - var A = 0;
+                  - var B = 0;
+                  - var C = 0;
+                  - var D = 0;
+                  - for (var j = 0; j < m; j++) {
+                  -     var o = patients[j].organ_disease.length
+                  -     var p = patients[j].physical_disease.length
+                  -     var bday = new Date(patients[j].local.birthday + 'Z')
+                  -     var today = new Date()
+                  -     var age = today.getFullYear() - bday.getFullYear()
+                  -     for (var k = 0; k < o; k++) {
+                  -       if (patients[j].organ_disease[k].name === diseases_unique[i]) {
+                  -          if (age >= 1 && age <= 15) A++
+                  -          else if (age >= 16 && age <= 30) B++
+                  -          else if (age >= 31 && age <= 50) C++
+                  -          else if (age >= 51) D++
+                  -       }
+                  -     }
+                  -     for (var k = 0; k < p; k++) {
+                  -        if (patients[j].physical_disease[k].name === diseases_unique[i]) {
+                  -          if (age >= 1 && age <= 15) A++
+                  -          else if (age >= 16 && age <= 30) B++
+                  -          else if (age >= 31 && age <= 50) C++
+                  -          else if (age >= 51) D++
+                  -       }
+                  -     }
+                  - }
+                  td= A
+                  td= B
+                  td= C
+                  td= D
+                - }

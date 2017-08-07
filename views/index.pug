@@ -1,0 +1,43 @@
+extends layout
+
+block content
+
+  .index
+    .col-xs-12.col-md-6.col-md-offset-3
+      .logo
+        img.center-block(src="/images/logo.png")
+      .error
+        if (message.length > 0)
+          .alert.alert-danger= message
+      form(action="/", method="post")
+        .form-group.a
+          .input-field    
+            input.form-control(type="text", name="email", placeholder="Email", id="email")
+          .input-field
+            input.form-control(type="password", name="password", placeholder="Password", id="password")
+          .input-field
+            button.submit-field(type="submit", id="login") Log In
+          .input-field    
+            a.forgot-btn(href="#", id="forgot", onclick="undev(3)") Forgot password?
+      .form-group.b
+        .input-field
+          button.passport.submit-field(type="submit", id="facebook", onclick="undev(1)") Log In with Facebook
+        .input-field
+          button.passport.submit-field(type="submit", id="twitter", onclick="undev(2)") Log In with Twitter
+        .input-field
+          p.note.a HealthCare will not post your information without your permission
+        .input-field
+          p.note.b Not Registered Yet? 
+            b
+             a(href="/signup") Register Now
+  script.
+    // Still in development message
+    function undev(val){
+        if(val == 1){
+            document.getElementById("facebook").innerHTML = 'Still in Development'
+        }else if(val == 2){
+            document.getElementById("twitter").innerHTML = 'Still in Development'
+        }else if(val == 3){
+            document.getElementById("forgot").innerHTML = 'Still in Development'
+        }
+    }

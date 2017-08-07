@@ -1,0 +1,89 @@
+extends layout
+
+block content
+
+
+  .personal
+    include header
+    .list.col-md-6.col-md-offset-3
+        .section.status
+          .list-header
+              .list-title
+                b STATUS : #{user.local.status}
+          .list-body
+            .sub-body
+              table
+                tr
+                  td 
+                    .sub-title Name
+                  td #{user.local.name} (#{user.id})
+                tr
+                  td
+                    .sub-title Gender
+                  td= user.local.gender
+                tr
+                  td
+                    .sub-title Age
+                  - var bday = new Date(user.local.birthday+'Z')
+                  - var today = new Date();
+                  - var age = today.getFullYear() - bday.getFullYear()
+                  td= age
+                tr
+                  td
+                    .sub-title Kecamatan
+                  td= user.local.kecamatan
+                tr
+                  td
+                    .sub-title Disease
+                  td
+                    - var n = user.physical_disease.length
+                    - for (var i = 0; i < n ; i++) {
+                      = user.physical_disease[i].name
+                      - if(i < n-1)
+                       | , 
+                    - }
+                    - var n = user.organ_disease.length
+                    - if (n > 0)
+                      | , 
+                    - else
+                      | .
+                    - for (var i = 0; i < n ; i++) {
+                      = user.organ_disease[i].name
+                      - if(i < n-1)
+                       | , 
+                      - else
+                       | .
+                    - }
+                    
+        .section.physical
+          .list-header
+              .list-title
+                b PHYSICAL INFORMATION
+          .list-body
+                .image-container
+                    ul.human-body
+                      - var n = user.physical_disease.length
+                      - for (var i = 0; i < n; i++) {
+                      li(style='height:'+ user.physical_disease[i].height +'; width:' + user.physical_disease[i].width + '; top:' + user.physical_disease[i].top + '; left: ' + user.physical_disease[i].left + ';')
+                          a(href="#", style="background-position: " + user.physical_disease[i].bg_x + " " + user.physical_disease[i].bg_y + ";")
+                              span
+                                  strong= user.physical_disease[i].part
+                                  = user.physical_disease[i].desc
+                      - }
+        .section.organ
+          .list-header
+              .list-title
+                b ORGAN INFORMATION
+          .list-body
+                .image-container
+                    .human-organ
+                      - var n = user.organ_disease.length
+                      - for (var i = 0; i < n; i++) {
+                      .organ-part.col-xs-12.col-sm-6
+                          a
+                            img.col-xs-4.col-sm-6(src="/images/organ/" + user.organ_disease[i].part + ".svg")
+                            span.col-xs-8.col-sm-6
+                                strong= user.organ_disease[i].part
+                                br
+                                = user.organ_disease[i].desc
+                      - }
