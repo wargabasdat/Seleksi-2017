@@ -1,0 +1,4 @@
+Requirement:
+1) pip install django -- instalasi module django
+2) pip install beautifulsoup4 -- instalasi module bssoup
+3) python 3
