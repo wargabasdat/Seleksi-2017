@@ -24,7 +24,10 @@ block content
                 tr
                   td
                     .sub-title Age
-                  td 30
+                  - var bday = new Date(user.local.birthday+'Z')
+                  - var today = new Date();
+                  - var age = today.getFullYear() - bday.getFullYear()
+                  td= age
                 tr
                   td
                     .sub-title Kecamatan

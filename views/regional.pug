@@ -140,36 +140,50 @@ block content
                   td= m_percent
                   td= f_percent
                 - }
-            //- .sub-body
-            //-   .sub-title Table of Patient (Age)
-            //-   table.data-table
-            //-     tr
-            //-       th Disease
-            //-       th 1-15
-            //-       th 15-30
-            //-       th 30-50
-            //-       th 50~
-            //-     tr
-            //-       td Flu
-            //-       td 5
-            //-       td 10
-            //-       td 5
-            //-       td 80
-            //-     tr
-            //-       td Diarrhea
-            //-       td 20
-            //-       td 10
-            //-       td 5
-            //-       td 5
-            //-     tr
-            //-       td Cancer
-            //-       td 3
-            //-       td 2
-            //-       td 2
-            //-       td 3
-            //-     tr
-            //-       td Hepatitis
-            //-       td 0
-            //-       td 1
-            //-       td 2
-            //-       td 2
+            .sub-body
+              .sub-title Table of Patient (Age)
+              table.data-table
+                tr
+                  th Disease
+                  th 1-15
+                  th 16-30
+                  th 31-50
+                  th 51~
+                - var n = diseases_unique.length
+                - for (var i = 0; i < n; i++) {
+                tr
+                  td= diseases_unique[i]
+                  - var m = patients.length
+                  - var A = 0;
+                  - var B = 0;
+                  - var C = 0;
+                  - var D = 0;
+                  - for (var j = 0; j < m; j++) {
+                  -     var o = patients[j].organ_disease.length
+                  -     var p = patients[j].physical_disease.length
+                  -     var bday = new Date(patients[j].local.birthday + 'Z')
+                  -     var today = new Date()
+                  -     var age = today.getFullYear() - bday.getFullYear()
+                  -     console.log(age)
+                  -     for (var k = 0; k < o; k++) {
+                  -       if (patients[j].organ_disease[k].name === diseases_unique[i]) {
+                  -          if (age >= 1 && age <= 15) A++
+                  -          else if (age >= 16 && age <= 30) B++
+                  -          else if (age >= 31 && age <= 50) C++
+                  -          else if (age >= 51) D++
+                  -       }
+                  -     }
+                  -     for (var k = 0; k < p; k++) {
+                  -        if (patients[j].physical_disease[k].name === diseases_unique[i]) {
+                  -          if (age >= 1 && age <= 15) A++
+                  -          else if (age >= 16 && age <= 30) B++
+                  -          else if (age >= 31 && age <= 50) C++
+                  -          else if (age >= 51) D++
+                  -       }
+                  -     }
+                  - }
+                  td= A
+                  td= B
+                  td= C
+                  td= D
+                - }
