@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 var ObjectId = mongoose.Types.ObjectId;
 
 var kecamatanSchema = new Schema({
-	_id: Schema.ObjectId,
-	name: String,
-	population: String
+	_id			: Schema.ObjectId,
+	name		: String,
+	population	: Number
 });
 
 var Kecamatan = mongoose.model('Kecamatan', kecamatanSchema);

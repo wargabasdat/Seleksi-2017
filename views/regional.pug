@@ -1,7 +1,38 @@
 extends layout
 
 block content
-    
+  
+  - console.log (patients)
+  - var diseases = []
+  - var diseases_unique = []
+  - var diseases_num = []
+  - var x = patients.length
+  - for (var i = 0; i < x; i++) {
+  -   var o = patients[i].organ_disease.length;
+  -   var p = patients[i].physical_disease.length;
+  -   while (o > 0) {
+  -     diseases.push(patients[i].organ_disease[o-1].name); 
+  -     o--;     
+  -   }
+  -   while (p > 0) {
+  -     diseases.push(patients[i].physical_disease[p-1].name); 
+  -     p--;     
+  -   }
+  - }
+  - diseases_unique = Array.from(new Set(diseases))
+  - var n = diseases_unique.length
+  - var m = diseases.length
+  - for (var i = 0; i < n; i++) {
+  -   diseases_num.push(0);
+  -   for (var j = 0; j < m; j++) {
+  -     if (diseases_unique[i] === diseases[j]) {
+  -       diseases_num[i]++
+  -     }
+  -   } 
+  - }
+  - console.log(diseases)
+  - console.log(diseases_unique)
+  - console.log(diseases_num)
   .personal
     include header
     .list.col-xs-12.col-md-5.col-md-offset-1
@@ -21,27 +52,27 @@ block content
                 tr
                   td 
                     .sub-title Kecamatan
-                  td Cipageran
+                  td= kecamatan.name
                 tr
                   td
                     .sub-title Population
-                  td 100.000 People
+                  td #{kecamatan.population} People
                 tr
                   td
                     .sub-title Total Number of Patient
-                  td 165 People
+                  td= sick_num
                 tr
                   td
-                    .sub-title Most Disease
-                  td Flu, Diarrhea
-            .sub-body
-              table
-                tr
-                  td
-                    .sub-title Number of Patient
-                  td
-                    li Flu : 100 persons (0.1%)
-                    li Diarrhea : 50 persons (0.05%)
+                    .sub-title Diseases
+                  td= diseases_unique
+            //- .sub-body
+            //-   table
+            //-     tr
+            //-       td
+            //-         .sub-title Number of Patient
+            //-       td
+            //-         li Flu : 100 persons (0.1%)
+            //-         li Diarrhea : 50 persons (0.05%)
             .sub-body
               table
                 tr
@@ -60,22 +91,16 @@ block content
                   th Disease
                   th Number of Patient (Person)
                   th Percentage (%)
+                - var n = diseases_unique.length
+                - for (var i = 0; i < n; i++) {
                 tr
-                  td Flu
-                  td 100
-                  td 0.1
-                tr
-                  td Diarrhea
-                  td 50
-                  td 0.05
-                tr
-                  td Cancer
-                  td 10
-                  td 0.01
-                tr
-                  td Hepatitis
-                  td 5
-                  td 0.005
+                  td= diseases_unique[i] 
+                  td= diseases_num[i]
+                  - var x = diseases_num[i]
+                  - var y = kecamatan.population
+                  - var xy = (x/y)*100
+                  td= xy
+                - }
             .sub-body
               .sub-title Table of Patient (Gender)
               table.data-table
@@ -85,60 +110,66 @@ block content
                   th Famale
                   th Male Percentage (%)
                   th Famale Percentage (%)
+                - var n = diseases_unique.length
+                - for (var i = 0; i < n; i++) {
                 tr
-                  td Flu
-                  td 50
-                  td 50
-                  td 0.5
-                  td 0.5
-                tr
-                  td Diarrhea
-                  td 20
-                  td 30
-                  td 0.4
-                  td 0.6
-                tr
-                  td Cancer
-                  td 6
-                  td 4
-                  td 0.6
-                  td 0.4
-                tr
-                  td Hepatitis
-                  td 4
-                  td 1
-                  td 0.8
-                  td 0.2
-            .sub-body
-              .sub-title Table of Patient (Age)
-              table.data-table
-                tr
-                  th Disease
-                  th 1-15
-                  th 15-30
-                  th 30-50
-                  th 50~
-                tr
-                  td Flu
-                  td 5
-                  td 10
-                  td 5
-                  td 80
-                tr
-                  td Diarrhea
-                  td 20
-                  td 10
-                  td 5
-                  td 5
-                tr
-                  td Cancer
-                  td 3
-                  td 2
-                  td 2
-                  td 3
-                tr
-                  td Hepatitis
-                  td 0
-                  td 1
-                  td 2
-                  td 2
+                  td= diseases_unique[i]
+                  - var m = patients.length
+                  - var male = 0;
+                  - var famale = 0;
+                  - for (var j = 0; j < m; j++) {
+                  -     var o = patients[j].organ_disease.length
+                  -     var p = patients[j].physical_disease.length
+                  -     for (var k = 0; k < o; k++) {
+                  -       if (patients[j].organ_disease[k].name === diseases_unique[i]) {
+                  -         if (patients[j].local.gender === 'Male') male++
+                  -         else if (patients[j].local.gender === 'Famale') famale++
+                  -       }
+                  -     }
+                  -     for (var k = 0; k < p; k++) {
+                  -       if (patients[j].physical_disease[k].name === diseases_unique[i]) {
+                  -         if (patients[j].local.gender === 'Male') male++
+                  -         else if (patients[j].local.gender === 'Famale') famale++
+                  -       }
+                  -     }
+                  - }
+                  - var m_percent = (male/y)*100
+                  - var f_percent = (famale/y)*100
+                  td= male
+                  td= famale
+                  td= m_percent
+                  td= f_percent
+                - }
+            //- .sub-body
+            //-   .sub-title Table of Patient (Age)
+            //-   table.data-table
+            //-     tr
+            //-       th Disease
+            //-       th 1-15
+            //-       th 15-30
+            //-       th 30-50
+            //-       th 50~
+            //-     tr
+            //-       td Flu
+            //-       td 5
+            //-       td 10
+            //-       td 5
+            //-       td 80
+            //-     tr
+            //-       td Diarrhea
+            //-       td 20
+            //-       td 10
+            //-       td 5
+            //-       td 5
+            //-     tr
+            //-       td Cancer
+            //-       td 3
+            //-       td 2
+            //-       td 2
+            //-       td 3
+            //-     tr
+            //-       td Hepatitis
+            //-       td 0
+            //-       td 1
+            //-       td 2
+            //-       td 2
