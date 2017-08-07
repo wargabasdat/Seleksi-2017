@@ -42,6 +42,7 @@ Will update soon.
  - Change the table schema
  - Add feedback, share, rating music, lyric music
  - Add promotion panel for event
+ - Scheduling chart
 
 License
 ----
