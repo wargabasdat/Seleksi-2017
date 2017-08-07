@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var chart = $("#line-chartcanvas");
+	var chart = $("#line-chartcanvas-filipina");
 
 	var jumlah = {
 		labels : ["2014", "2015", "2016"],

@@ -24,6 +24,16 @@ http://www.templatemo.com/tm-473-november
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .chart-container {
+            background-color: white;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius:8px;
+        }
+    </style>
 
 </head>
 <body>
@@ -222,28 +232,45 @@ http://www.templatemo.com/tm-473-november
             <div class="Center">
                 <h2>Peta ASEAN</h2>
 
+                
                 <!-- PETA ASEAN SECTION-->
                     <div id="peta" class="asean">
                         <!-- Peta ASEAN -->
                     </div>
+                    <h3 id="nama-negara"></h3>
                 <!-- END  OF PETA ASEAN SECTION -->
 
             </div>
         </div>
         <!-- // End Peta ASEAN Section // -->
 		
-		<!-- \\ Begin Per Negara Section \\ -->
+		        <!-- \\ Begin Per Negara Section \\ -->
         <div class="Contact_sec" id="contact">
             <div class="Contactside">
                 <div class="Center">
-                    <h2>Penggunaan Per Negara</h2>
-                    
+                    <h2>per negara</h2>
+                    <div class="Line"></div>
+
+
+                    <div class="chart-container">
+                    <canvas id="line-chartcanvas-malaysia" class="malaysia"></canvas>
+                    <canvas id="line-chartcanvas-indonesia" class="indonesia" ></canvas>
+                    <canvas id="line-chartcanvas-kamboja" class="kamboja"></canvas>
+                    <canvas id="line-chartcanvas-brunei" class="brunei"></canvas>
+                    <canvas id="line-chartcanvas-laos" class="laos"></canvas>
+                    <canvas id="line-chartcanvas-singapura" class="singapura"></canvas>
+                    <canvas id="line-chartcanvas-vietnam" class="vietnam"></canvas>
+                    <canvas id="line-chartcanvas-thailand" class="thailand"></canvas>
+                    <canvas id="line-chartcanvas-myanmar" class="myanmar"></canvas>
+                    <canvas id="line-chartcanvas-filipina" class="filipina"></canvas>
+
+                    </div>
+
                 </div>  
 
             </div>
-		
 		</div>
-		<!-- // End Per Negara Section // -->
+        <!-- // End Per Negara Section // -->
 			
 </div>
 <!-- // End Container // -->
@@ -270,6 +297,17 @@ http://www.templatemo.com/tm-473-november
 <script type="text/javascript" src="js/modernizr.js"></script>
 <script src="javascript/raphael-min.js"></script>
 <script src="javascript/peta-asean.js"></script>
+
+<script src="javascript/pengguna-malaysia.js"></script>
+<script src="javascript/pengguna-indonesia.js"></script>
+<script src="javascript/pengguna-myanmar.js"></script>
+<script src="javascript/pengguna-singapura.js"></script>
+<script src="javascript/pengguna-thailand.js"></script>
+<script src="javascript/pengguna-kamboja.js"></script>
+<script src="javascript/pengguna-brunei.js"></script>
+<script src="javascript/pengguna-laos.js"></script>
+<script src="javascript/pengguna-vietnam.js"></script>
+<script src="javascript/pengguna-filipina.js"></script>
 
 </body>
 </html>
