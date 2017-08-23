@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/ssLogo.png">
+  <img src="https://raw.githubusercontent.com/rayandrews/movieFreak/master/client/screenshot/ssLogo.png">
 </p>
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
-[![Build Status](https://travis-ci.org/ironlota/movieFreak.svg?branch=master)](https://travis-ci.org/ironlota/movieFreak)
-[![dependencies](https://david-dm.org/ironlota/movieFreak.svg)](https://david-dm.org/ironlota/movieFreak)
+[![Build Status](https://travis-ci.org/rayandrews/movieFreak.svg?branch=master)](https://travis-ci.org/rayandrews/movieFreak)
+[![dependencies](https://david-dm.org/rayandrews/movieFreak.svg)](https://david-dm.org/rayandrews/movieFreak)
 [![License: MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![LiveAtHeroku](https://img.shields.io/badge/live%20at-moviefreak.herokuapp.com-blue.svg)](<http://moviefreak.herokuapp.com>)
 
 # <http://moviefreak.herokuapp.com>
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ironlota/movieFreak)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rayandrews/movieFreak)
 
 ## Getting Started
 
@@ -60,9 +60,9 @@ For updating movie (beware, if you get error message, it means you did not run i
 '-d' means that it will be running on the background, if you want to see the log, just erase '-d'
 
 ### Screenshot
-![s1](https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/s1.png) <!-- .element height="50%" width="50%" -->
-![s2](https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/s2.png) <!-- .element height="50%" width="50%" -->
-![s3](https://raw.githubusercontent.com/ironlota/movieFreak/master/client/screenshot/s3.png) <!-- .element height="50%" width="50%" -->
+![s1](https://raw.githubusercontent.com/rayandrews/movieFreak/master/client/screenshot/s1.png) <!-- .element height="50%" width="50%" -->
+![s2](https://raw.githubusercontent.com/rayandrews/movieFreak/master/client/screenshot/s2.png) <!-- .element height="50%" width="50%" -->
+![s3](https://raw.githubusercontent.com/rayandrews/movieFreak/master/client/screenshot/s3.png) <!-- .element height="50%" width="50%" -->
 
 ## Version
 
@@ -70,7 +70,7 @@ For updating movie (beware, if you get error message, it means you did not run i
 
 ## Authors
 
-* **Ray Andrew** - [Ironlota](https://github.com/ironlota)
+* **Ray Andrew** - [Ray Andrew](https://github.com/rayandrews)
 * **Adrian HP** - [Adrian HP](https://github.com/adrianhp97)
 
 ## Credits
